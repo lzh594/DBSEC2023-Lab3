@@ -1,7 +1,7 @@
 import axios, {AxiosInstance} from 'axios';
 
 const service: AxiosInstance = axios.create({
-    baseURL: "http://localhost:8000/bookStore",
+    baseURL: "http://10.192.240.148:8000/bookStore",
     timeout: 5000
 });
 

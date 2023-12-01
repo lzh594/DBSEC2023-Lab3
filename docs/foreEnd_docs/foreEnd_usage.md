@@ -1,10 +1,14 @@
 # foreEnd-vue+vite+ts
 
+> 本文档如有任何问题请联系刘征昊
+
 ## 目录结构
 
 ```
 . vue
-├── README.md
+├── LICENSE
+├── auto-imports.d.ts
+├── components.d.ts
 ├── index.html
 ├── node_modules
 ├── package-lock.json
@@ -16,6 +20,27 @@
 └── vite.config.ts
 ```
 
+## 如何启动
+
+```sh
+# ./vue
+npm run dev
+```
+
++ 如果你是*nix：
+
+    + 实际上先获取你主机ip，并将服务器启动在该ip上（package.json中可设置）
+
+    ```sh
+    vite --host $(ifconfig getifaddr en0)
+    ```
+
++ 如果你是windows，请在package.json中手动设置：
+
+    ```sh
+    vite --host your_ipaddr
+    ```
+
 ## src
 
 ```
@@ -24,15 +49,26 @@
 ├── api
 │   └── index.ts
 ├── assets
-│   └── vue.svg
+│   ├── css
+│   └── img
 ├── components
-│   └── HelloWorld.vue
+│   ├── header.vue
+│   ├── sidebar.vue
+│   └── tags.vue
 ├── main.ts
 ├── router
 │   └── index.ts
-├── style.css
+├── store
+│   ├── permiss.ts
+│   ├── sidebar.ts
+│   └── tags.ts
 ├── utils
 │   └── request.ts
+├── views
+│   ├── 403.vue
+│   ├── HelloWorld.vue
+│   ├── home.vue
+│   └── login.vue
 └── vite-env.d.ts
 ```
 
@@ -68,43 +104,32 @@
             	// 主页面url，需要构建home.vue（构筑header、sidebar、tags等基础组建的页面）    
             	{
                     path: '/home',
-                    name: 'Home',
-                    component: Home,
-                    // 二级页面
+                    name: 'home',
+                    component: home,
                     children: [
                         {
-                            path: '/dashboard',
-                            name: 'dashboard',
+                            path: '/HelloWorld',
+                            name: 'HelloWorld',
                             meta: {
-                                title: '系统首页',
+                                title: 'HelloWorld',
                             },
-                            component: () => import('../views/dashboard.vue'),
-                        },
-                    	{
-                            path: '/result',
-                            name: 'result',
-                            meta: {
-                                title: '结果分析',
-                            },
-                            component: () => import('../views/result.vue'),
+                            component: () => import('../views/HelloWorld.vue'),
                         },
                     ],
                 },
             ];
             ```
-
+    
 + ### utils/request.ts
 
     + #### 建立了axios实例service：
 
         ```typescript
         const service: AxiosInstance = axios.create({
-            baseURL: "http://localhost:8000/bookStore",
+            baseURL: "http://10.192.148.240:8000/bookStore",
             timeout: 5000
         });
         ```
-
-    + #### “backEnd_appname”需要根据django应用设置改变，目前为
 
     + ####  实例提供给api/index.ts调用
 

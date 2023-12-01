@@ -1,5 +1,5 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-import Home from '../views/home.vue';
+import {createRouter, createWebHashHistory, RouteRecordRaw} from 'vue-router';
+import home from '../views/home.vue';
 
 const routes: RouteRecordRaw[] = [
     {
@@ -8,22 +8,22 @@ const routes: RouteRecordRaw[] = [
     },
     {
         path: '/home',
-        name: 'Home',
-        component: Home,
+        name: 'home',
+        component: home,
         children: [
             {
-                path: '/dashboard',
-                name: 'dashboard',
+                path: '/HelloWorld',
+                name: 'HelloWorld',
                 meta: {
-                    title: '系统首页',
+                    title: 'HelloWorld',
                 },
-                component: () => import(/* webpackChunkName: "dashboard" */ '../views/dashboard.vue'),
+                component: () => import(/* webpackChunkName: "dashboard" */ '../views/HelloWorld.vue'),
             },
         ],
     },
     {
         path: '/login',
-        name: 'Login',
+        name: 'login',
         meta: {
             title: '登录',
         },
@@ -37,14 +37,6 @@ const routes: RouteRecordRaw[] = [
         },
         component: () => import(/* webpackChunkName: "403" */ '../views/403.vue'),
     },
-    {
-        path: '/404',
-        name: '404',
-        meta: {
-            title: '知识荒原',
-        },
-        component: () => import(/* webpackChunkName: "403" */ '../views/404.vue'),
-    },
 ];
 
 const router = createRouter({
@@ -57,7 +49,7 @@ router.beforeEach((to, from, next) => {
     const role = localStorage.getItem('ms_username');
     if (!role && to.path !== '/login') {
         next('/login');
-    }else {
+    } else {
         next();
     }
 });
