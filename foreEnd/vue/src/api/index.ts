@@ -1,7 +1,5 @@
 // @ts-ignore
-import qs from 'qs';
 import service from "../utils/request";
-
 
 interface RequestDataParams {
     url: string;
