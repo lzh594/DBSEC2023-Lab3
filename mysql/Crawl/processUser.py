@@ -2,6 +2,7 @@ import pandas as pd
 from Crypto.Random import get_random_bytes
 import random
 import pymysql
+import hashlib
 
 names = []
 passwd = []
@@ -60,14 +61,23 @@ def generateRandomPhone():
     return mo + lie
 
 def processUser():
+    user_passwd = []
     id = 0
     for name, pwd in zip(names, passwd):
-        email = generateRandomMail()
-        phone = generateRandomPhone()
-        sql = "insert into users(uid,uname,passwd,email,tel) values(%s,%s,%s,%s,%s)"
-        cursor.execute(sql, [id, name, pwd, email, phone])
+        email = generateRandomMail()  # 得到该用户的邮箱
+        phone = generateRandomPhone()  # 得到该用户的电话
+        # 得到该用户的密码对应的sha256值
+        sha256 = hashlib.sha256()
+        sha256.update(pwd.encode('utf-8'))
+        hashvalue = sha256.hexdigest()
+        sql = "insert into users(uid,uname,email,tel,pwdhash) values(%s,%s,%s,%s,%s)"
+        cursor.execute(sql, [id, name, email, phone, hashvalue])
         conn.commit()
         id += 1
+        user_passwd.append([id, name, pwd])
+    # 将用户与密码的对应关系存进表中方便测试
+    csv = pd.DataFrame(user_passwd, columns=['id', 'name', 'passwd'])
+    csv.to_csv("user_passwd.csv")
 
 if __name__ == "__main__":
     names = getUserName()

@@ -93,4 +93,7 @@ def processBook():
 
 if __name__ == "__main__":
     getBooks()
+    processCategory()
+    processPub()
+    processAuthor()
     processBook()
