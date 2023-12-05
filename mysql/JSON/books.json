@@ -1,0 +1,2756 @@
+[
+  {
+    "book_id": 0,
+    "bname": "The Bare Bones Bible Handbook. 10 Minutes to Understanding Each Book of the Bible",
+    "author_id": 0,
+    "pub_id": 0,
+    "category_id": 0,
+    "price": "US$8.00 ",
+    "pub_year": 2006
+  },
+  {
+    "book_id": 1,
+    "bname": "Dreamer's Dictionary",
+    "author_id": 1,
+    "pub_id": 1,
+    "category_id": 1,
+    "price": "US$6.00 ",
+    "pub_year": 1986
+  },
+  {
+    "book_id": 2,
+    "bname": "Getting Things Done: The Art of Stress-Free Productivity",
+    "author_id": 2,
+    "pub_id": 2,
+    "category_id": 2,
+    "price": "US$12.00 ",
+    "pub_year": 2001
+  },
+  {
+    "book_id": 3,
+    "bname": "Astronomy (2 Vol)",
+    "author_id": 3,
+    "pub_id": 3,
+    "category_id": 3,
+    "price": "US$30.00 ",
+    "pub_year": 1926
+  },
+  {
+    "book_id": 4,
+    "bname": "MAY AND JUNE, A ROMANCE OF THE REVOLUTION",
+    "author_id": 4,
+    "pub_id": 4,
+    "category_id": 4,
+    "price": "US$15.00 ",
+    "pub_year": 1888
+  },
+  {
+    "book_id": 5,
+    "bname": "Bennington Pottery and Porcelain - A Guide to Identification",
+    "author_id": 5,
+    "pub_id": 5,
+    "category_id": 5,
+    "price": "US$19.61 ",
+    "pub_year": 1958
+  },
+  {
+    "book_id": 6,
+    "bname": "Horton Hears a Who",
+    "author_id": 6,
+    "pub_id": 6,
+    "category_id": 6,
+    "price": "US$700.00 ",
+    "pub_year": 1954
+  },
+  {
+    "book_id": 7,
+    "bname": "Stop and Smell the Rosemary: Recipes and Traditions to Remember",
+    "author_id": 7,
+    "pub_id": 7,
+    "category_id": 7,
+    "price": "US$25.00 ",
+    "pub_year": 1996
+  },
+  {
+    "book_id": 8,
+    "bname": "Clinical and Experimental Hypnosis: In Medicine, Dentistry and Psychology (signed)",
+    "author_id": 8,
+    "pub_id": 8,
+    "category_id": 8,
+    "price": "US$29.75 ",
+    "pub_year": 1963
+  },
+  {
+    "book_id": 9,
+    "bname": "Budu or Twenty Years in Sarawak",
+    "author_id": 9,
+    "pub_id": 9,
+    "category_id": 9,
+    "price": "US$7.33 ",
+    "pub_year": 1969
+  },
+  {
+    "book_id": 10,
+    "bname": "The Night Circus",
+    "author_id": 10,
+    "pub_id": 10,
+    "category_id": 10,
+    "price": "US$50.00 ",
+    "pub_year": 2011
+  },
+  {
+    "book_id": 11,
+    "bname": "The American Woodland Garden: Capturing the Spirit of the Deciduous Forest",
+    "author_id": 11,
+    "pub_id": 11,
+    "category_id": 11,
+    "price": "US$52.30 ",
+    "pub_year": 2002
+  },
+  {
+    "book_id": 12,
+    "bname": "The English Rock Garden Volumes 1 & 2 (two volumes)",
+    "author_id": 12,
+    "pub_id": 11,
+    "category_id": 11,
+    "price": "US$6.54 ",
+    "pub_year": 1919
+  },
+  {
+    "book_id": 13,
+    "bname": "The Market Of Seleukia : Signed By The Author",
+    "author_id": 13,
+    "pub_id": 12,
+    "category_id": 12,
+    "price": "US$588.42 ",
+    "pub_year": 1957
+  },
+  {
+    "book_id": 14,
+    "bname": "George Psychoundakis : A Letter To C.A.Trypanis (Limited Lettered Edition: Signed By The Author)",
+    "author_id": 14,
+    "pub_id": 12,
+    "category_id": 12,
+    "price": "US$385.74 ",
+    "pub_year": 1999
+  },
+  {
+    "book_id": 15,
+    "bname": "DAVID WORSHIPED WITH A FERVENT FAITH",
+    "author_id": 15,
+    "pub_id": 13,
+    "category_id": 13,
+    "price": "US$6.47 ",
+    "pub_year": 1996
+  },
+  {
+    "book_id": 16,
+    "bname": "DAILY GRACE FROM PHILLIPIANS AND COLOSSI",
+    "author_id": 16,
+    "pub_id": 13,
+    "category_id": 13,
+    "price": "US$4.58 ",
+    "pub_year": 2004
+  },
+  {
+    "book_id": 17,
+    "bname": "Megatokyo, Vol. 1",
+    "author_id": 17,
+    "pub_id": 14,
+    "category_id": 14,
+    "price": "US$8.00 ",
+    "pub_year": 2004
+  },
+  {
+    "book_id": 18,
+    "bname": "On Carbohydrate Metabolism",
+    "author_id": 18,
+    "pub_id": 15,
+    "category_id": 15,
+    "price": "US$65.38 ",
+    "pub_year": 1906
+  },
+  {
+    "book_id": 19,
+    "bname": "Original Vintage Luggage Label - Grand Hotel des Wagons Lits, Peking",
+    "author_id": 19,
+    "pub_id": 16,
+    "category_id": 16,
+    "price": "US$183.07 ",
+    "pub_year": 1930
+  },
+  {
+    "book_id": 20,
+    "bname": "Simon Finch Rare Books",
+    "author_id": 20,
+    "pub_id": 17,
+    "category_id": 17,
+    "price": "US$65.38 ",
+    "pub_year": 1886
+  },
+  {
+    "book_id": 21,
+    "bname": "Mark Twain's Letters Volume I 1854 to 1866",
+    "author_id": 21,
+    "pub_id": 18,
+    "category_id": 18,
+    "price": "US$15.00 ",
+    "pub_year": 1988
+  },
+  {
+    "book_id": 22,
+    "bname": "Spirit of the Age",
+    "author_id": 22,
+    "pub_id": 19,
+    "category_id": 19,
+    "price": "US$6.54 ",
+    "pub_year": 1976
+  },
+  {
+    "book_id": 23,
+    "bname": "Financial Accounting: Tools for Business Decision Making",
+    "author_id": 23,
+    "pub_id": 20,
+    "category_id": 20,
+    "price": "US$20.99 ",
+    "pub_year": 2008
+  },
+  {
+    "book_id": 24,
+    "bname": "Fundamentals Of Cost Accounting",
+    "author_id": 24,
+    "pub_id": 20,
+    "category_id": 20,
+    "price": "US$19.88 ",
+    "pub_year": 2004
+  },
+  {
+    "book_id": 25,
+    "bname": "In Search of England / In Search of Ireland",
+    "author_id": 25,
+    "pub_id": 21,
+    "category_id": 21,
+    "price": "US$65.38 ",
+    "pub_year": 1936
+  },
+  {
+    "book_id": 26,
+    "bname": "Uninvited",
+    "author_id": 26,
+    "pub_id": 22,
+    "category_id": 22,
+    "price": "US$1.13 ",
+    "pub_year": 2007
+  },
+  {
+    "book_id": 27,
+    "bname": "THE DAMNATION GAME. Inscribed by the Author.",
+    "author_id": 27,
+    "pub_id": 23,
+    "category_id": 23,
+    "price": "US$45.00 ",
+    "pub_year": 1986
+  },
+  {
+    "book_id": 28,
+    "bname": "OUT OF THE STORM. Uncollected Fantasies. One of 14 Special Copies Signed by the Editor.",
+    "author_id": 28,
+    "pub_id": 23,
+    "category_id": 23,
+    "price": "US$35.00 ",
+    "pub_year": 1975
+  },
+  {
+    "book_id": 29,
+    "bname": "THE HOUND OF HEAVEN. A Commemorative Volume. Edited and Introduced by G. Krishnamurti. SIGNED BY ...",
+    "author_id": 29,
+    "pub_id": 23,
+    "category_id": 23,
+    "price": "US$200.00 ",
+    "pub_year": 1967
+  },
+  {
+    "book_id": 30,
+    "bname": "Plants of Love. The History of Aphrodisiacs and a Guide to Their Identification and Use",
+    "author_id": 30,
+    "pub_id": 24,
+    "category_id": 24,
+    "price": "US$17.00 ",
+    "pub_year": 1997
+  },
+  {
+    "book_id": 31,
+    "bname": "The Luton News' Directory of Luton. (1936).",
+    "author_id": 31,
+    "pub_id": 25,
+    "category_id": 25,
+    "price": "US$39.23 ",
+    "pub_year": 1936
+  },
+  {
+    "book_id": 32,
+    "bname": "Kelly's Directory Of Hull And Neighbourhood 1939 .",
+    "author_id": 32,
+    "pub_id": 25,
+    "category_id": 25,
+    "price": "US$39.23 ",
+    "pub_year": 1939
+  },
+  {
+    "book_id": 33,
+    "bname": "Try This at Home",
+    "author_id": 33,
+    "pub_id": 26,
+    "category_id": 26,
+    "price": "US$29.00 ",
+    "pub_year": 2013
+  },
+  {
+    "book_id": 34,
+    "bname": "Five Kingdoms: An Illustrated Guide to the Phyla of Life on Earth",
+    "author_id": 34,
+    "pub_id": 27,
+    "category_id": 27,
+    "price": "US$19.99 ",
+    "pub_year": 1998
+  },
+  {
+    "book_id": 35,
+    "bname": "Dictionary Of Evangelical Biography, 1730-1860 (2 Volume Set)",
+    "author_id": 35,
+    "pub_id": 28,
+    "category_id": 28,
+    "price": "US$45.47 ",
+    "pub_year": 2004
+  },
+  {
+    "book_id": 36,
+    "bname": "Dictionary of Paul and His Letters (The IVP Bible Dictionary Series)",
+    "author_id": 36,
+    "pub_id": 28,
+    "category_id": 28,
+    "price": "US$26.52 ",
+    "pub_year": 1993
+  },
+  {
+    "book_id": 37,
+    "bname": "The New International Dictionary of New Testament Theology, Vol. 1-3",
+    "author_id": 37,
+    "pub_id": 28,
+    "category_id": 28,
+    "price": "US$18.95 ",
+    "pub_year": 1981
+  },
+  {
+    "book_id": 38,
+    "bname": "The Murder of Roger Ackroyd; The Seven Dials Mystery; The Murder at the Vicarage; Peril at End Ho...",
+    "author_id": 38,
+    "pub_id": 29,
+    "category_id": 29,
+    "price": "US$65.38 ",
+    "pub_year": 1955
+  },
+  {
+    "book_id": 39,
+    "bname": "The Mysterious Mr Quin; The Murder at the Vicarage; The Sittaford Mystery; Why Didn t They Ask Ev...",
+    "author_id": 38,
+    "pub_id": 29,
+    "category_id": 29,
+    "price": "US$52.30 ",
+    "pub_year": 1944
+  },
+  {
+    "book_id": 40,
+    "bname": "Xhosa; Tales of Life from the African Veld",
+    "author_id": 39,
+    "pub_id": 9,
+    "category_id": 30,
+    "price": "US$9.42 ",
+    "pub_year": 1973
+  },
+  {
+    "book_id": 41,
+    "bname": "History of Southern and Central Africa, The; It's Topography, Geography, Natural Productions, &c....",
+    "author_id": 40,
+    "pub_id": 9,
+    "category_id": 30,
+    "price": "US$3.14 ",
+    "pub_year": 1111
+  },
+  {
+    "book_id": 42,
+    "bname": "The Tartar Steppe",
+    "author_id": 41,
+    "pub_id": 30,
+    "category_id": 31,
+    "price": "US$13.01 ",
+    "pub_year": 1985
+  },
+  {
+    "book_id": 43,
+    "bname": "Postscript to Seven homes",
+    "author_id": 42,
+    "pub_id": 4,
+    "category_id": 32,
+    "price": "US$25.39 ",
+    "pub_year": 1960
+  },
+  {
+    "book_id": 44,
+    "bname": "Heinrich Boll: Briefe Aus Dem Krieg 1939-1945 Bands 1 & 2",
+    "author_id": 43,
+    "pub_id": 31,
+    "category_id": 33,
+    "price": "US$21.00 ",
+    "pub_year": 2003
+  },
+  {
+    "book_id": 45,
+    "bname": "NOT FAR FROM THE SMOKE. Inscribed by the Author.",
+    "author_id": 44,
+    "pub_id": 23,
+    "category_id": 34,
+    "price": "US$250.00 ",
+    "pub_year": 1935
+  },
+  {
+    "book_id": 46,
+    "bname": "Jazyk dirizherskogo zhesta.",
+    "author_id": 45,
+    "pub_id": 32,
+    "category_id": 35,
+    "price": "US$16.27 ",
+    "pub_year": 2007
+  },
+  {
+    "book_id": 47,
+    "bname": "Accordion and Bayan Performance. Method, theory and history",
+    "author_id": 46,
+    "pub_id": 32,
+    "category_id": 35,
+    "price": "US$9.04 ",
+    "pub_year": 2006
+  },
+  {
+    "book_id": 48,
+    "bname": "The Vishnu Purana",
+    "author_id": 47,
+    "pub_id": 33,
+    "category_id": 36,
+    "price": "US$32.69 ",
+    "pub_year": 2004
+  },
+  {
+    "book_id": 49,
+    "bname": "The Geeta",
+    "author_id": 48,
+    "pub_id": 33,
+    "category_id": 36,
+    "price": "US$17.00 ",
+    "pub_year": 1935
+  },
+  {
+    "book_id": 50,
+    "bname": "Bibliopegia: Or, the Art of Bookbinding in All Its Branches; Illustrated with Engravings.",
+    "author_id": 49,
+    "pub_id": 34,
+    "category_id": 37,
+    "price": "US$150.00 ",
+    "pub_year": 1835
+  },
+  {
+    "book_id": 51,
+    "bname": "Writing at the kitchen table: The authorized biography of Elizabeth David",
+    "author_id": 50,
+    "pub_id": 35,
+    "category_id": 38,
+    "price": "US$12.50 ",
+    "pub_year": 1999
+  },
+  {
+    "book_id": 52,
+    "bname": "Nobody Knows the Truffles I've Seen",
+    "author_id": 51,
+    "pub_id": 35,
+    "category_id": 38,
+    "price": "US$17.50 ",
+    "pub_year": 1999
+  },
+  {
+    "book_id": 53,
+    "bname": "Books 1,2,3,4 All signed 1st Prints: The Thursday Murder Club, The Man Who Died Twice (Waterstone...",
+    "author_id": 52,
+    "pub_id": 36,
+    "category_id": 39,
+    "price": "US$1,000.00 ",
+    "pub_year": 2020
+  },
+  {
+    "book_id": 54,
+    "bname": "The Citizen's Atlas of the World",
+    "author_id": 53,
+    "pub_id": 37,
+    "category_id": 40,
+    "price": "US$61.13 ",
+    "pub_year": 1935
+  },
+  {
+    "book_id": 55,
+    "bname": "Le Costume Historique Tome Ii. Cinq Cents Planches Troiscents En Couleurs, Or Et Argent Deux Cent...",
+    "author_id": 54,
+    "pub_id": 38,
+    "category_id": 41,
+    "price": "US$1,000.00 ",
+    "pub_year": 1879
+  },
+  {
+    "book_id": 56,
+    "bname": "Recollections And Reflections Of A Japanese Artist",
+    "author_id": 55,
+    "pub_id": 38,
+    "category_id": 41,
+    "price": "US$695.00 ",
+    "pub_year": 1931
+  },
+  {
+    "book_id": 57,
+    "bname": "MEMOIRS",
+    "author_id": 56,
+    "pub_id": 39,
+    "category_id": 42,
+    "price": "US$26.15 ",
+    "pub_year": 2003
+  },
+  {
+    "book_id": 58,
+    "bname": "THE EDGE OF MADNESS",
+    "author_id": 57,
+    "pub_id": 39,
+    "category_id": 42,
+    "price": "US$19.61 ",
+    "pub_year": 2008
+  },
+  {
+    "book_id": 59,
+    "bname": "The World of the Norsemen",
+    "author_id": 58,
+    "pub_id": 40,
+    "category_id": 43,
+    "price": "US$13.63 ",
+    "pub_year": 1967
+  },
+  {
+    "book_id": 60,
+    "bname": "The Sumerians: Their History, Culture, And Character.",
+    "author_id": 59,
+    "pub_id": 40,
+    "category_id": 43,
+    "price": "US$10.22 ",
+    "pub_year": 1971
+  },
+  {
+    "book_id": 61,
+    "bname": "Kill the Messenger",
+    "author_id": 60,
+    "pub_id": 41,
+    "category_id": 44,
+    "price": "US$74.03 ",
+    "pub_year": 1991
+  },
+  {
+    "book_id": 62,
+    "bname": "Maus a Survivors Tale : My Father Bleeds Histry",
+    "author_id": 61,
+    "pub_id": 42,
+    "category_id": 45,
+    "price": "US$9.98 ",
+    "pub_year": 1986
+  },
+  {
+    "book_id": 63,
+    "bname": "The Sleeper and the Spindle",
+    "author_id": 62,
+    "pub_id": 42,
+    "category_id": 45,
+    "price": "US$9.98 ",
+    "pub_year": 2015
+  },
+  {
+    "book_id": 64,
+    "bname": "The Fifth Elephant",
+    "author_id": 63,
+    "pub_id": 43,
+    "category_id": 46,
+    "price": "US$13.08 ",
+    "pub_year": 1999
+  },
+  {
+    "book_id": 65,
+    "bname": "Jingo",
+    "author_id": 63,
+    "pub_id": 43,
+    "category_id": 46,
+    "price": "US$11.77 ",
+    "pub_year": 1997
+  },
+  {
+    "book_id": 66,
+    "bname": "The Amulet of Samarkand",
+    "author_id": 64,
+    "pub_id": 43,
+    "category_id": 46,
+    "price": "US$11.12 ",
+    "pub_year": 2003
+  },
+  {
+    "book_id": 67,
+    "bname": "Priestess of the White (Age of the Five Book One)",
+    "author_id": 65,
+    "pub_id": 43,
+    "category_id": 46,
+    "price": "US$9.15 ",
+    "pub_year": 2006
+  },
+  {
+    "book_id": 68,
+    "bname": "GOLD IN ONTARIO (signed copy)",
+    "author_id": 66,
+    "pub_id": 44,
+    "category_id": 47,
+    "price": "US$30.00 ",
+    "pub_year": 1995
+  },
+  {
+    "book_id": 69,
+    "bname": "The world of Earl Hines (The world of swing ; v. 2)",
+    "author_id": 67,
+    "pub_id": 45,
+    "category_id": 48,
+    "price": "US$55.00 ",
+    "pub_year": 1977
+  },
+  {
+    "book_id": 70,
+    "bname": "Kansas City Lightning: The Rise and Times of Charlie Parker",
+    "author_id": 68,
+    "pub_id": 45,
+    "category_id": 48,
+    "price": "US$8.50 ",
+    "pub_year": 2014
+  },
+  {
+    "book_id": 71,
+    "bname": "The New Magic-Fit Master Pattern",
+    "author_id": 69,
+    "pub_id": 46,
+    "category_id": 49,
+    "price": "US$23.00 ",
+    "pub_year": 1984
+  },
+  {
+    "book_id": 72,
+    "bname": "Textiles of Ancient Peru and Their Techniques",
+    "author_id": 70,
+    "pub_id": 46,
+    "category_id": 49,
+    "price": "US$40.25 ",
+    "pub_year": 1974
+  },
+  {
+    "book_id": 73,
+    "bname": "The Travels of Sir John Mandeville Beyond the Holy Land",
+    "author_id": 71,
+    "pub_id": 47,
+    "category_id": 50,
+    "price": "US$131.00 ",
+    "pub_year": 2019
+  },
+  {
+    "book_id": 74,
+    "bname": "Emily and Oscar (SIGNED)",
+    "author_id": 72,
+    "pub_id": 47,
+    "category_id": 50,
+    "price": "US$315.00 ",
+    "pub_year": 1979
+  },
+  {
+    "book_id": 75,
+    "bname": "MEI LI",
+    "author_id": 73,
+    "pub_id": 48,
+    "category_id": 51,
+    "price": "US$27.99 ",
+    "pub_year": 1938
+  },
+  {
+    "book_id": 76,
+    "bname": "Ox-Cart Man",
+    "author_id": 74,
+    "pub_id": 48,
+    "category_id": 51,
+    "price": "US$49.99 ",
+    "pub_year": 1979
+  },
+  {
+    "book_id": 77,
+    "bname": "Four letters, signed \"H. C. Parsons,\" from railroad executive and one-time owner of Natural Bridg...",
+    "author_id": 75,
+    "pub_id": 49,
+    "category_id": 52,
+    "price": "US$300.00 ",
+    "pub_year": 1890
+  },
+  {
+    "book_id": 78,
+    "bname": "How to be a returned soldier",
+    "author_id": 76,
+    "pub_id": 49,
+    "category_id": 52,
+    "price": "US$125.00 ",
+    "pub_year": 1944
+  },
+  {
+    "book_id": 79,
+    "bname": "The Kernel and the Bean: The 75-Year Story of the Staley Company",
+    "author_id": 77,
+    "pub_id": 50,
+    "category_id": 53,
+    "price": "US$29.99 ",
+    "pub_year": 1982
+  },
+  {
+    "book_id": 80,
+    "bname": "The ABC Murders",
+    "author_id": 38,
+    "pub_id": 51,
+    "category_id": 29,
+    "price": "US$1,111.47 ",
+    "pub_year": 1936
+  },
+  {
+    "book_id": 81,
+    "bname": "Shades of Darkness Signed Gladys Mitchell, Malcolm Torrie",
+    "author_id": 78,
+    "pub_id": 51,
+    "category_id": 29,
+    "price": "US$1,111.47 ",
+    "pub_year": 1970
+  },
+  {
+    "book_id": 82,
+    "bname": "Murder In the Mews",
+    "author_id": 38,
+    "pub_id": 51,
+    "category_id": 29,
+    "price": "US$2,288.32 ",
+    "pub_year": 1937
+  },
+  {
+    "book_id": 83,
+    "bname": "Lord Edgware Dies",
+    "author_id": 38,
+    "pub_id": 51,
+    "category_id": 29,
+    "price": "US$65.38 ",
+    "pub_year": 1933
+  },
+  {
+    "book_id": 84,
+    "bname": "Mall Maker Victor Gruen, Architect of an American Dream",
+    "author_id": 79,
+    "pub_id": 52,
+    "category_id": 19,
+    "price": "US$40.00 ",
+    "pub_year": 2004
+  },
+  {
+    "book_id": 85,
+    "bname": "SOUR GRAPES: A Book of Poems",
+    "author_id": 80,
+    "pub_id": 53,
+    "category_id": 54,
+    "price": "US$50.00 ",
+    "pub_year": 1921
+  },
+  {
+    "book_id": 86,
+    "bname": "PARADISE LOST. A POEM IN TWELVE BOOKS; [bound with] PARADISE REGAIN'D: A POEM IN IV BOOKS; [and] ...",
+    "author_id": 81,
+    "pub_id": 53,
+    "category_id": 54,
+    "price": "US$500.00 ",
+    "pub_year": 1691
+  },
+  {
+    "book_id": 87,
+    "bname": "A Little Girl's Song - Vintage Sheet Music",
+    "author_id": 82,
+    "pub_id": 54,
+    "category_id": 55,
+    "price": "US$19.99 ",
+    "pub_year": 1908
+  },
+  {
+    "book_id": 88,
+    "bname": "The Very Hungry Caterpillar",
+    "author_id": 83,
+    "pub_id": 55,
+    "category_id": 56,
+    "price": "US$10.99 ",
+    "pub_year": 1994
+  },
+  {
+    "book_id": 89,
+    "bname": "Chicka Chicka Boom Boom (Classic Board Books)",
+    "author_id": 84,
+    "pub_id": 55,
+    "category_id": 56,
+    "price": "US$5.95 ",
+    "pub_year": 2012
+  },
+  {
+    "book_id": 90,
+    "bname": "I Am a Bunny",
+    "author_id": 85,
+    "pub_id": 55,
+    "category_id": 56,
+    "price": "US$9.99 ",
+    "pub_year": 2004
+  },
+  {
+    "book_id": 91,
+    "bname": "North and South (Penguin Classics)",
+    "author_id": 86,
+    "pub_id": 56,
+    "category_id": 57,
+    "price": "US$25.00 ",
+    "pub_year": 1970
+  },
+  {
+    "book_id": 92,
+    "bname": "The New Historicism",
+    "author_id": 87,
+    "pub_id": 56,
+    "category_id": 57,
+    "price": "US$50.00 ",
+    "pub_year": 1989
+  },
+  {
+    "book_id": 93,
+    "bname": "The French Lieutenant's Woman (Signet)",
+    "author_id": 88,
+    "pub_id": 56,
+    "category_id": 57,
+    "price": "US$17.00 ",
+    "pub_year": 1981
+  },
+  {
+    "book_id": 94,
+    "bname": "Hobby Horses",
+    "author_id": 89,
+    "pub_id": 57,
+    "category_id": 58,
+    "price": "US$275.00 ",
+    "pub_year": 1940
+  },
+  {
+    "book_id": 95,
+    "bname": "Mineral Productions, County Maps and Mining Laws of California, Bulletin No. 56",
+    "author_id": 90,
+    "pub_id": 58,
+    "category_id": 40,
+    "price": "US$325.00 ",
+    "pub_year": 1909
+  },
+  {
+    "book_id": 96,
+    "bname": "Illustrated Historical Atlas of the State of Minnesota",
+    "author_id": 91,
+    "pub_id": 58,
+    "category_id": 40,
+    "price": "US$1,150.00 ",
+    "pub_year": 1874
+  },
+  {
+    "book_id": 97,
+    "bname": "The Annual Register or a View of the History, Politics and Literature for the Year 1758",
+    "author_id": 92,
+    "pub_id": 59,
+    "category_id": 57,
+    "price": "US$45.60 ",
+    "pub_year": 1791
+  },
+  {
+    "book_id": 98,
+    "bname": "McIan's Costumes of the Clans of Scotland",
+    "author_id": 93,
+    "pub_id": 59,
+    "category_id": 57,
+    "price": "US$23.54 ",
+    "pub_year": 1899
+  },
+  {
+    "book_id": 99,
+    "bname": "A History of Eastington, Near Stonehouse in Gloucestershire",
+    "author_id": 94,
+    "pub_id": 59,
+    "category_id": 57,
+    "price": "US$47.68 ",
+    "pub_year": 1111
+  },
+  {
+    "book_id": 100,
+    "bname": "The League of Extraordinary Gentlemen, The Black Dossier, Absolute Edition",
+    "author_id": 95,
+    "pub_id": 60,
+    "category_id": 59,
+    "price": "US$12.97 ",
+    "pub_year": 2008
+  },
+  {
+    "book_id": 101,
+    "bname": "The Sandman 1: Preludes & Nocturnes",
+    "author_id": 96,
+    "pub_id": 60,
+    "category_id": 59,
+    "price": "US$10.83 ",
+    "pub_year": 2010
+  },
+  {
+    "book_id": 102,
+    "bname": "The History of the United States from 1492 to 1912 (Three Volume Set)",
+    "author_id": 97,
+    "pub_id": 61,
+    "category_id": 60,
+    "price": "US$35.00 ",
+    "pub_year": 1912
+  },
+  {
+    "book_id": 103,
+    "bname": "Sophie Scholl's Signed Membership Suspension Request From the Bund Deutscher Mädel",
+    "author_id": 98,
+    "pub_id": 62,
+    "category_id": 52,
+    "price": "US$994.64 ",
+    "pub_year": 1939
+  },
+  {
+    "book_id": 104,
+    "bname": "[ALS.] Sigmund Freud's Autograph Letter in German to Frau Wolff",
+    "author_id": 99,
+    "pub_id": 62,
+    "category_id": 52,
+    "price": "US$994.64 ",
+    "pub_year": 1927
+  },
+  {
+    "book_id": 105,
+    "bname": "Hugo Graetz's Guestbook with Original Artworks by Members of the Novembergruppe",
+    "author_id": 100,
+    "pub_id": 62,
+    "category_id": 52,
+    "price": "US$1,864.95 ",
+    "pub_year": 1965
+  },
+  {
+    "book_id": 106,
+    "bname": "Rock Greenling",
+    "author_id": 101,
+    "pub_id": 63,
+    "category_id": 61,
+    "price": "US$950.00 ",
+    "pub_year": 2019
+  },
+  {
+    "book_id": 107,
+    "bname": "Poetry/Art Broadside Series",
+    "author_id": 102,
+    "pub_id": 63,
+    "category_id": 61,
+    "price": "US$20.00 ",
+    "pub_year": 1985
+  },
+  {
+    "book_id": 108,
+    "bname": "Lethe's Poppy [Broadside]",
+    "author_id": 103,
+    "pub_id": 63,
+    "category_id": 61,
+    "price": "US$25.00 ",
+    "pub_year": 1989
+  },
+  {
+    "book_id": 109,
+    "bname": "Leaves, Leaves",
+    "author_id": 104,
+    "pub_id": 63,
+    "category_id": 61,
+    "price": "US$20.00 ",
+    "pub_year": 1984
+  },
+  {
+    "book_id": 110,
+    "bname": "The Freeing of the Dust / Blue Egyptian Water Lily [Broadside / Print]",
+    "author_id": 105,
+    "pub_id": 63,
+    "category_id": 61,
+    "price": "US$20.00 ",
+    "pub_year": 2022
+  },
+  {
+    "book_id": 111,
+    "bname": "'Fern Gully' Limited Edition Signed Print",
+    "author_id": 106,
+    "pub_id": 63,
+    "category_id": 61,
+    "price": "US$40.00 ",
+    "pub_year": 2004
+  },
+  {
+    "book_id": 112,
+    "bname": "SCATTERED EPHEMERA - Tacoma 2004",
+    "author_id": 107,
+    "pub_id": 63,
+    "category_id": 61,
+    "price": "US$30.00 ",
+    "pub_year": 1994
+  },
+  {
+    "book_id": 113,
+    "bname": "Showcase Magazine Collector's Edition",
+    "author_id": 108,
+    "pub_id": 64,
+    "category_id": 62,
+    "price": "US$50.00 ",
+    "pub_year": 1960
+  },
+  {
+    "book_id": 114,
+    "bname": "Gentleman Magazine",
+    "author_id": 109,
+    "pub_id": 64,
+    "category_id": 62,
+    "price": "US$25.00 ",
+    "pub_year": 1961
+  },
+  {
+    "book_id": 115,
+    "bname": "Debonair Magazine",
+    "author_id": 110,
+    "pub_id": 64,
+    "category_id": 62,
+    "price": "US$25.00 ",
+    "pub_year": 1960
+  },
+  {
+    "book_id": 116,
+    "bname": "Tiger Magazine",
+    "author_id": 111,
+    "pub_id": 64,
+    "category_id": 62,
+    "price": "US$25.00 ",
+    "pub_year": 1957
+  },
+  {
+    "book_id": 117,
+    "bname": "Morton Salt Co. Grand Saline, TexasThe loading machine operator",
+    "author_id": 112,
+    "pub_id": 65,
+    "category_id": 63,
+    "price": "US$125.00 ",
+    "pub_year": 1987
+  },
+  {
+    "book_id": 118,
+    "bname": "Bretagne 1939. Guide Duran. Edition Hachette.(Guides Touristiques)",
+    "author_id": 113,
+    "pub_id": 65,
+    "category_id": 63,
+    "price": "US$50.00 ",
+    "pub_year": 1932
+  },
+  {
+    "book_id": 119,
+    "bname": "Cutthroat Trout. Signed limited edition.",
+    "author_id": 114,
+    "pub_id": 65,
+    "category_id": 63,
+    "price": "US$50.00 ",
+    "pub_year": 1977
+  },
+  {
+    "book_id": 120,
+    "bname": "Punch, Volume CCXV, 7 July to 29 December 1948",
+    "author_id": 115,
+    "pub_id": 59,
+    "category_id": 64,
+    "price": "US$23.14 ",
+    "pub_year": 1948
+  },
+  {
+    "book_id": 121,
+    "bname": "The Infernal Devices, Book Three, Clockwork Princess (signed, and with 10 Collector Postcards)",
+    "author_id": 116,
+    "pub_id": 66,
+    "category_id": 65,
+    "price": "US$300.00 ",
+    "pub_year": 2013
+  },
+  {
+    "book_id": 122,
+    "bname": "Alice's Adventures in Wonderland (Signed limited edition)",
+    "author_id": 117,
+    "pub_id": 67,
+    "category_id": 66,
+    "price": "US$12,500.00 ",
+    "pub_year": 1969
+  },
+  {
+    "book_id": 123,
+    "bname": "Gone with the Wind (Inscribed First Edition)",
+    "author_id": 118,
+    "pub_id": 67,
+    "category_id": 66,
+    "price": "US$2,950.00 ",
+    "pub_year": 1936
+  },
+  {
+    "book_id": 124,
+    "bname": "The Works of Arthur Conan Doyle (Signed author's edition in 12 vols.)",
+    "author_id": 119,
+    "pub_id": 67,
+    "category_id": 66,
+    "price": "US$950.00 ",
+    "pub_year": 1903
+  },
+  {
+    "book_id": 125,
+    "bname": "Works (Signed limited edition in 40 vols.)",
+    "author_id": 120,
+    "pub_id": 67,
+    "category_id": 66,
+    "price": "US$7,500.00 ",
+    "pub_year": 1908
+  },
+  {
+    "book_id": 126,
+    "bname": "Grapefruit (Signed First Edition)",
+    "author_id": 121,
+    "pub_id": 67,
+    "category_id": 66,
+    "price": "US$19,500.00 ",
+    "pub_year": 1971
+  },
+  {
+    "book_id": 127,
+    "bname": "My Life in France",
+    "author_id": 122,
+    "pub_id": 68,
+    "category_id": 67,
+    "price": "US$10.19 ",
+    "pub_year": 2009
+  },
+  {
+    "book_id": 128,
+    "bname": "Shipwreck Tales: The St. Clair River (to 1900)",
+    "author_id": 123,
+    "pub_id": 69,
+    "category_id": 68,
+    "price": "US$35.00 ",
+    "pub_year": 1987
+  },
+  {
+    "book_id": 129,
+    "bname": "Mighty River: A Portrait of the Fraser",
+    "author_id": 124,
+    "pub_id": 69,
+    "category_id": 68,
+    "price": "US$40.00 ",
+    "pub_year": 1997
+  },
+  {
+    "book_id": 130,
+    "bname": "Rock, River & Thorn: The Big Bend of the Rio Grande",
+    "author_id": 125,
+    "pub_id": 69,
+    "category_id": 68,
+    "price": "US$50.00 ",
+    "pub_year": 2001
+  },
+  {
+    "book_id": 131,
+    "bname": "A Summer on the Nene",
+    "author_id": 126,
+    "pub_id": 69,
+    "category_id": 68,
+    "price": "US$50.00 ",
+    "pub_year": 1967
+  },
+  {
+    "book_id": 132,
+    "bname": "The Censors (A Bilingual Selection of Stories)",
+    "author_id": 127,
+    "pub_id": 70,
+    "category_id": 69,
+    "price": "US$10.00 ",
+    "pub_year": 1988
+  },
+  {
+    "book_id": 133,
+    "bname": "Living to Tell the Tale",
+    "author_id": 128,
+    "pub_id": 70,
+    "category_id": 69,
+    "price": "US$7.50 ",
+    "pub_year": 2003
+  },
+  {
+    "book_id": 134,
+    "bname": "Strange Pilgrims: Twelve Stories",
+    "author_id": 128,
+    "pub_id": 70,
+    "category_id": 69,
+    "price": "US$15.00 ",
+    "pub_year": 1993
+  },
+  {
+    "book_id": 135,
+    "bname": "The Antiquarian",
+    "author_id": 129,
+    "pub_id": 70,
+    "category_id": 69,
+    "price": "US$7.50 ",
+    "pub_year": 2014
+  },
+  {
+    "book_id": 136,
+    "bname": "Memories of My Melancholy Whores",
+    "author_id": 130,
+    "pub_id": 70,
+    "category_id": 69,
+    "price": "US$20.00 ",
+    "pub_year": 2005
+  },
+  {
+    "book_id": 137,
+    "bname": "Memory of Fire, II: Faces and Masks, Part Two of a Trilogy",
+    "author_id": 131,
+    "pub_id": 70,
+    "category_id": 69,
+    "price": "US$10.00 ",
+    "pub_year": 1985
+  },
+  {
+    "book_id": 138,
+    "bname": "The Movement Vol. 2: Fighting for the Future (The New 52)",
+    "author_id": 132,
+    "pub_id": 71,
+    "category_id": 70,
+    "price": "US$16.99 ",
+    "pub_year": 2014
+  },
+  {
+    "book_id": 139,
+    "bname": "X-Treme X-Men, Vol. 1: Destiny (Xtreme)",
+    "author_id": 133,
+    "pub_id": 71,
+    "category_id": 70,
+    "price": "US$14.99 ",
+    "pub_year": 2003
+  },
+  {
+    "book_id": 140,
+    "bname": "JEAN HOWARD'S HOLLYWOOD: A PHOTO MEMOIR",
+    "author_id": 134,
+    "pub_id": 53,
+    "category_id": 71,
+    "price": "US$95.00 ",
+    "pub_year": 1989
+  },
+  {
+    "book_id": 141,
+    "bname": "CHARLES H. NIEPOTH'S ARCHIVE OF FORD MOTOR COMPANY MATERIAL (1947-1958)",
+    "author_id": 135,
+    "pub_id": 53,
+    "category_id": 71,
+    "price": "US$95.00 ",
+    "pub_year": 1947
+  },
+  {
+    "book_id": 142,
+    "bname": "On Surnames and the Rules of Law Affecting Their Change, Second Edition.BOUND WITH Supplement to ...",
+    "author_id": 136,
+    "pub_id": 72,
+    "category_id": 72,
+    "price": "US$32.69 ",
+    "pub_year": 1862
+  },
+  {
+    "book_id": 143,
+    "bname": "Chambers's Encyclopaedia. A Dictionary of Universal Knowledge. New Edition in Ten Volumes. NEAR F...",
+    "author_id": 137,
+    "pub_id": 72,
+    "category_id": 72,
+    "price": "US$385.74 ",
+    "pub_year": 1906
+  },
+  {
+    "book_id": 144,
+    "bname": "México y Sus Alrededores. Coleccion De Vistas Trajes y Monumentos Por C. Castro,J. Campillo,L. Au...",
+    "author_id": 138,
+    "pub_id": 72,
+    "category_id": 72,
+    "price": "US$313.83 ",
+    "pub_year": 1855
+  },
+  {
+    "book_id": 145,
+    "bname": "The Witches' Brew",
+    "author_id": 139,
+    "pub_id": 69,
+    "category_id": 73,
+    "price": "US$25.00 ",
+    "pub_year": 1925
+  },
+  {
+    "book_id": 146,
+    "bname": "The Book of Nightmares",
+    "author_id": 140,
+    "pub_id": 69,
+    "category_id": 73,
+    "price": "US$45.00 ",
+    "pub_year": 1971
+  },
+  {
+    "book_id": 147,
+    "bname": "The Journals of Susanna Moodie: Poems by Margaret Atwood",
+    "author_id": 141,
+    "pub_id": 69,
+    "category_id": 73,
+    "price": "US$40.00 ",
+    "pub_year": 1970
+  },
+  {
+    "book_id": 148,
+    "bname": "Collected Poems of Raymond Souster Volume Two 1955-62",
+    "author_id": 142,
+    "pub_id": 69,
+    "category_id": 73,
+    "price": "US$20.00 ",
+    "pub_year": 1981
+  },
+  {
+    "book_id": 149,
+    "bname": "The Titanic",
+    "author_id": 139,
+    "pub_id": 69,
+    "category_id": 73,
+    "price": "US$25.00 ",
+    "pub_year": 1935
+  },
+  {
+    "book_id": 150,
+    "bname": "TWELVE CHINKS AND A WOMAN. (Book #160 in the Vintage Harlequin Paperbacks Series; Later Published...",
+    "author_id": 143,
+    "pub_id": 73,
+    "category_id": 74,
+    "price": "US$21.00 ",
+    "pub_year": 1952
+  },
+  {
+    "book_id": 151,
+    "bname": "THE MANATEE (Vintage HARLEQUIN Book #1; Strange Loves of a Sea Man; Nantucket at the height of th...",
+    "author_id": 144,
+    "pub_id": 73,
+    "category_id": 74,
+    "price": "US$49.00 ",
+    "pub_year": 1949
+  },
+  {
+    "book_id": 152,
+    "bname": "The FLESH of the ORCHID. (# 111 in the Vintage Harlequin Series) story of Carol Blandish, daughte...",
+    "author_id": 143,
+    "pub_id": 73,
+    "category_id": 74,
+    "price": "US$89.00 ",
+    "pub_year": 1951
+  },
+  {
+    "book_id": 153,
+    "bname": "IN THE KITCHEN WITH ROSIE: Oprah's Favorite Recipes",
+    "author_id": 145,
+    "pub_id": 74,
+    "category_id": 75,
+    "price": "US$12.50 ",
+    "pub_year": 1994
+  },
+  {
+    "book_id": 154,
+    "bname": "POWER, FREEDOM AND GRACE : Living from the Source of Lasting Happiness",
+    "author_id": 146,
+    "pub_id": 74,
+    "category_id": 75,
+    "price": "US$16.50 ",
+    "pub_year": 2006
+  },
+  {
+    "book_id": 155,
+    "bname": "Stride Toward Freedom: The Montgomery Story",
+    "author_id": 147,
+    "pub_id": 75,
+    "category_id": 76,
+    "price": "US$35.00 ",
+    "pub_year": 1958
+  },
+  {
+    "book_id": 156,
+    "bname": "Alexander Hamilton",
+    "author_id": 148,
+    "pub_id": 75,
+    "category_id": 76,
+    "price": "US$12.00 ",
+    "pub_year": 2004
+  },
+  {
+    "book_id": 157,
+    "bname": "Forgotten Summers: The Story of the Citizens' Military Training Camps, 1921-1940",
+    "author_id": 149,
+    "pub_id": 75,
+    "category_id": 76,
+    "price": "US$39.00 ",
+    "pub_year": 1995
+  },
+  {
+    "book_id": 158,
+    "bname": "The Life of John Marshall: Four Volumes in Two Books",
+    "author_id": 150,
+    "pub_id": 75,
+    "category_id": 76,
+    "price": "US$19.00 ",
+    "pub_year": 1916
+  },
+  {
+    "book_id": 159,
+    "bname": "Challenges (Signed First Edition)",
+    "author_id": 151,
+    "pub_id": 76,
+    "category_id": 77,
+    "price": "US$650.00 ",
+    "pub_year": 1967
+  },
+  {
+    "book_id": 160,
+    "bname": "Collected Poems (Signed First Edition)",
+    "author_id": 152,
+    "pub_id": 76,
+    "category_id": 77,
+    "price": "US$350.00 ",
+    "pub_year": 2014
+  },
+  {
+    "book_id": 161,
+    "bname": "Your Hidden Skills: Clues to Careers and Future Pursuits",
+    "author_id": 153,
+    "pub_id": 77,
+    "category_id": 78,
+    "price": "US$22.00 ",
+    "pub_year": 1981
+  },
+  {
+    "book_id": 162,
+    "bname": "Sturtevant Heating and Ventilation",
+    "author_id": 154,
+    "pub_id": 77,
+    "category_id": 78,
+    "price": "US$24.00 ",
+    "pub_year": 1914
+  },
+  {
+    "book_id": 163,
+    "bname": "Prescriptions for Living: Inspirational Lessons for a Joyful, Loving Life",
+    "author_id": 155,
+    "pub_id": 77,
+    "category_id": 78,
+    "price": "US$18.00 ",
+    "pub_year": 1998
+  },
+  {
+    "book_id": 164,
+    "bname": "In Search of South Africa",
+    "author_id": 156,
+    "pub_id": 78,
+    "category_id": 79,
+    "price": "US$60.00 ",
+    "pub_year": 1948
+  },
+  {
+    "book_id": 165,
+    "bname": "Sandy Tracks to the Kraal",
+    "author_id": 157,
+    "pub_id": 78,
+    "category_id": 79,
+    "price": "US$70.00 ",
+    "pub_year": 1956
+  },
+  {
+    "book_id": 166,
+    "bname": "Richardsrun: Cape Agulhas to Kilimanjaro on foot",
+    "author_id": 158,
+    "pub_id": 78,
+    "category_id": 79,
+    "price": "US$35.00 ",
+    "pub_year": 2012
+  },
+  {
+    "book_id": 167,
+    "bname": "Do not take this road to El-Karama",
+    "author_id": 159,
+    "pub_id": 78,
+    "category_id": 79,
+    "price": "US$8.00 ",
+    "pub_year": 2008
+  },
+  {
+    "book_id": 168,
+    "bname": "Hope in Thyme: A Journey along the Coast of South Africa",
+    "author_id": 160,
+    "pub_id": 78,
+    "category_id": 79,
+    "price": "US$14.00 ",
+    "pub_year": 2009
+  },
+  {
+    "book_id": 169,
+    "bname": "THE ART OF FARRIERY both in theory and practice",
+    "author_id": 161,
+    "pub_id": 79,
+    "category_id": 43,
+    "price": "US$67.50 ",
+    "pub_year": 1759
+  },
+  {
+    "book_id": 170,
+    "bname": "The Dragon Waiting: A Masque of History",
+    "author_id": 162,
+    "pub_id": 79,
+    "category_id": 43,
+    "price": "US$61.00 ",
+    "pub_year": 1983
+  },
+  {
+    "book_id": 171,
+    "bname": "Under Taos Mountain: The Terrible Quarrel Of Magpie And Tia",
+    "author_id": 163,
+    "pub_id": 79,
+    "category_id": 43,
+    "price": "US$9.50 ",
+    "pub_year": 2009
+  },
+  {
+    "book_id": 172,
+    "bname": "The Words of My Perfect Teacher, Revised Edition (Sacred Literature Series)",
+    "author_id": 164,
+    "pub_id": 79,
+    "category_id": 43,
+    "price": "US$77.50 ",
+    "pub_year": 1998
+  },
+  {
+    "book_id": 173,
+    "bname": "The Element Encyclopedia of Witchcraft: The Complete A-Z for the Entire Magical World",
+    "author_id": 165,
+    "pub_id": 79,
+    "category_id": 43,
+    "price": "US$41.00 ",
+    "pub_year": 2005
+  },
+  {
+    "book_id": 174,
+    "bname": "Best of the Hammer, Vol. 1",
+    "author_id": 166,
+    "pub_id": 79,
+    "category_id": 43,
+    "price": "US$77.50 ",
+    "pub_year": 1985
+  },
+  {
+    "book_id": 175,
+    "bname": "The Conservative Complete, 1915 - 1923 -by H P Lovecraft / Necronomicon Press",
+    "author_id": 167,
+    "pub_id": 80,
+    "category_id": 80,
+    "price": "US$21.21 ",
+    "pub_year": 1977
+  },
+  {
+    "book_id": 176,
+    "bname": "Rivers",
+    "author_id": 168,
+    "pub_id": 81,
+    "category_id": 81,
+    "price": "US$32.69 ",
+    "pub_year": 2014
+  },
+  {
+    "book_id": 177,
+    "bname": "The Magpies: The Ecology and Behaviour of Black-billed and Yellow-billed Magpies",
+    "author_id": 169,
+    "pub_id": 81,
+    "category_id": 81,
+    "price": "US$32.69 ",
+    "pub_year": 1998
+  },
+  {
+    "book_id": 178,
+    "bname": "The Golden Eagle (T & AD Poyser)",
+    "author_id": 170,
+    "pub_id": 81,
+    "category_id": 81,
+    "price": "US$19.61 ",
+    "pub_year": 1997
+  },
+  {
+    "book_id": 179,
+    "bname": "Birds of Kenya and Northern Tanzania",
+    "author_id": 171,
+    "pub_id": 81,
+    "category_id": 81,
+    "price": "US$22.89 ",
+    "pub_year": 1996
+  },
+  {
+    "book_id": 180,
+    "bname": "Extinct Birds",
+    "author_id": 172,
+    "pub_id": 81,
+    "category_id": 81,
+    "price": "US$21.58 ",
+    "pub_year": 2012
+  },
+  {
+    "book_id": 181,
+    "bname": "Jesus Out to Sea; and Other Stories",
+    "author_id": 173,
+    "pub_id": 82,
+    "category_id": 54,
+    "price": "US$91.30 ",
+    "pub_year": 2008
+  },
+  {
+    "book_id": 182,
+    "bname": "Ali's Smile / Naked Scientology",
+    "author_id": 174,
+    "pub_id": 82,
+    "category_id": 54,
+    "price": "US$60.50 ",
+    "pub_year": 1978
+  },
+  {
+    "book_id": 183,
+    "bname": "The Bear and the Bird King",
+    "author_id": 175,
+    "pub_id": 83,
+    "category_id": 82,
+    "price": "US$25.00 ",
+    "pub_year": 1994
+  },
+  {
+    "book_id": 184,
+    "bname": "Grandfather's Journey",
+    "author_id": 176,
+    "pub_id": 83,
+    "category_id": 82,
+    "price": "US$10.00 ",
+    "pub_year": 1993
+  },
+  {
+    "book_id": 185,
+    "bname": "Once a Mouse.",
+    "author_id": 177,
+    "pub_id": 83,
+    "category_id": 82,
+    "price": "US$4.50 ",
+    "pub_year": 2003
+  },
+  {
+    "book_id": 186,
+    "bname": "Brundibar",
+    "author_id": 178,
+    "pub_id": 83,
+    "category_id": 82,
+    "price": "US$5.00 ",
+    "pub_year": 2003
+  },
+  {
+    "book_id": 187,
+    "bname": "Dreaming of You",
+    "author_id": 179,
+    "pub_id": 84,
+    "category_id": 4,
+    "price": "US$5.00 ",
+    "pub_year": 1994
+  },
+  {
+    "book_id": 188,
+    "bname": "Cinders to Satin",
+    "author_id": 180,
+    "pub_id": 84,
+    "category_id": 4,
+    "price": "US$5.00 ",
+    "pub_year": 1990
+  },
+  {
+    "book_id": 189,
+    "bname": "Wolf and the Dove",
+    "author_id": 181,
+    "pub_id": 84,
+    "category_id": 4,
+    "price": "US$5.00 ",
+    "pub_year": 1996
+  },
+  {
+    "book_id": 190,
+    "bname": "Wheres My Hero?",
+    "author_id": 182,
+    "pub_id": 84,
+    "category_id": 4,
+    "price": "US$5.00 ",
+    "pub_year": 2003
+  },
+  {
+    "book_id": 191,
+    "bname": "Antarctica: A Year at the Bottom of the World",
+    "author_id": 183,
+    "pub_id": 85,
+    "category_id": 83,
+    "price": "US$20.00 ",
+    "pub_year": 2002
+  },
+  {
+    "book_id": 192,
+    "bname": "French Lessons in Africa: Travels With My Briefcase Through French Africa",
+    "author_id": 184,
+    "pub_id": 85,
+    "category_id": 83,
+    "price": "US$7.06 ",
+    "pub_year": 1994
+  },
+  {
+    "book_id": 193,
+    "bname": "A Year in Provence",
+    "author_id": 185,
+    "pub_id": 85,
+    "category_id": 83,
+    "price": "US$9.41 ",
+    "pub_year": 1991
+  },
+  {
+    "book_id": 194,
+    "bname": "Smert i deva. Ekho neznakomtsev",
+    "author_id": 186,
+    "pub_id": 32,
+    "category_id": 84,
+    "price": "US$9.04 ",
+    "pub_year": 2019
+  },
+  {
+    "book_id": 195,
+    "bname": "Murder on the Leviathan. Erast Fandorin 3",
+    "author_id": 187,
+    "pub_id": 32,
+    "category_id": 84,
+    "price": "US$9.94 ",
+    "pub_year": 2004
+  },
+  {
+    "book_id": 196,
+    "bname": "Chasovschik s Filigrannoj ulitsy",
+    "author_id": 188,
+    "pub_id": 32,
+    "category_id": 84,
+    "price": "US$14.46 ",
+    "pub_year": 2019
+  },
+  {
+    "book_id": 197,
+    "bname": "Tokijskij Zodiak",
+    "author_id": 189,
+    "pub_id": 32,
+    "category_id": 84,
+    "price": "US$18.08 ",
+    "pub_year": 2023
+  },
+  {
+    "book_id": 198,
+    "bname": "Verekuu",
+    "author_id": 190,
+    "pub_id": 32,
+    "category_id": 84,
+    "price": "US$9.04 ",
+    "pub_year": 2023
+  },
+  {
+    "book_id": 199,
+    "bname": "The Myth of Freedom and the Way of Meditation (Shambhala Classics)",
+    "author_id": 191,
+    "pub_id": 86,
+    "category_id": 85,
+    "price": "US$3.00 ",
+    "pub_year": 2002
+  },
+  {
+    "book_id": 200,
+    "bname": "Destructive Emotions: How Can We Overcome Them? A Scientific Dialogue with the Dalai Lama",
+    "author_id": 192,
+    "pub_id": 86,
+    "category_id": 85,
+    "price": "US$10.00 ",
+    "pub_year": 2003
+  },
+  {
+    "book_id": 201,
+    "bname": "The Vision of the Buddha",
+    "author_id": 193,
+    "pub_id": 86,
+    "category_id": 85,
+    "price": "US$15.00 ",
+    "pub_year": 1996
+  },
+  {
+    "book_id": 202,
+    "bname": "Mind-Seal of the Buddhas: Patriarch Ou-i's Commentary on the Amitabha Sutra",
+    "author_id": 194,
+    "pub_id": 86,
+    "category_id": 85,
+    "price": "US$30.00 ",
+    "pub_year": 1998
+  },
+  {
+    "book_id": 203,
+    "bname": "Dharma Moments",
+    "author_id": 195,
+    "pub_id": 86,
+    "category_id": 85,
+    "price": "US$7.50 ",
+    "pub_year": 2005
+  },
+  {
+    "book_id": 204,
+    "bname": "Tree of Life: Buddhism and Protection of Nature",
+    "author_id": 196,
+    "pub_id": 86,
+    "category_id": 85,
+    "price": "US$6.50 ",
+    "pub_year": 1987
+  },
+  {
+    "book_id": 205,
+    "bname": "The history of Goody Two-Shoes",
+    "author_id": 197,
+    "pub_id": 87,
+    "category_id": 86,
+    "price": "US$45.77 ",
+    "pub_year": 1830
+  },
+  {
+    "book_id": 206,
+    "bname": "The two dolls",
+    "author_id": 198,
+    "pub_id": 87,
+    "category_id": 86,
+    "price": "US$45.77 ",
+    "pub_year": 1826
+  },
+  {
+    "book_id": 207,
+    "bname": "The merry tales of the wise men of Gotham.",
+    "author_id": 199,
+    "pub_id": 87,
+    "category_id": 86,
+    "price": "US$104.61 ",
+    "pub_year": 1785
+  },
+  {
+    "book_id": 208,
+    "bname": "Watts' divine songs in easy language for the use of children",
+    "author_id": 199,
+    "pub_id": 87,
+    "category_id": 86,
+    "price": "US$111.15 ",
+    "pub_year": 1810
+  },
+  {
+    "book_id": 209,
+    "bname": "The adventures of Captain Gulliver",
+    "author_id": 200,
+    "pub_id": 87,
+    "category_id": 86,
+    "price": "US$44.46 ",
+    "pub_year": 1810
+  },
+  {
+    "book_id": 210,
+    "bname": "The warbler of the woods; a collection of choice songs.",
+    "author_id": 200,
+    "pub_id": 87,
+    "category_id": 86,
+    "price": "US$49.69 ",
+    "pub_year": 1830
+  },
+  {
+    "book_id": 211,
+    "bname": "The history of Whittington and his cat, and the story of Puss in boots. 161 [ Dick Whittington ]",
+    "author_id": 197,
+    "pub_id": 87,
+    "category_id": 86,
+    "price": "US$104.61 ",
+    "pub_year": 1850
+  },
+  {
+    "book_id": 212,
+    "bname": "Everybody's Fool: A novel",
+    "author_id": 201,
+    "pub_id": 88,
+    "category_id": 87,
+    "price": "US$50.00 ",
+    "pub_year": 2016
+  },
+  {
+    "book_id": 213,
+    "bname": "The Heaven & Earth Grocery Store: A Novel",
+    "author_id": 202,
+    "pub_id": 88,
+    "category_id": 87,
+    "price": "US$35.00 ",
+    "pub_year": 2023
+  },
+  {
+    "book_id": 214,
+    "bname": "Backcloth. The Final Volume of His Autobiography",
+    "author_id": 203,
+    "pub_id": 89,
+    "category_id": 65,
+    "price": "US$26.36 ",
+    "pub_year": 1986
+  },
+  {
+    "book_id": 215,
+    "bname": "The Silkworm. A Cormoran Strike Novel",
+    "author_id": 204,
+    "pub_id": 89,
+    "category_id": 65,
+    "price": "US$32.96 ",
+    "pub_year": 2014
+  },
+  {
+    "book_id": 216,
+    "bname": "The House of Doctor Dee",
+    "author_id": 205,
+    "pub_id": 89,
+    "category_id": 65,
+    "price": "US$47.07 ",
+    "pub_year": 1993
+  },
+  {
+    "book_id": 217,
+    "bname": "Encyclopedia of World Military Aircraft - Single Volume Edition",
+    "author_id": 206,
+    "pub_id": 90,
+    "category_id": 88,
+    "price": "US$20.86 ",
+    "pub_year": 1996
+  },
+  {
+    "book_id": 218,
+    "bname": "Vorlesungen zur Geschichtstheorie 1 (Signed)",
+    "author_id": 207,
+    "pub_id": 90,
+    "category_id": 88,
+    "price": "US$20.86 ",
+    "pub_year": 1974
+  },
+  {
+    "book_id": 219,
+    "bname": "Ernst Kaltenbrunner: Ideological Soldier of the Third Reich",
+    "author_id": 208,
+    "pub_id": 90,
+    "category_id": 88,
+    "price": "US$48.32 ",
+    "pub_year": 1984
+  },
+  {
+    "book_id": 220,
+    "bname": "Russia and Germany: A Century of Conflict (1965)",
+    "author_id": 209,
+    "pub_id": 90,
+    "category_id": 88,
+    "price": "US$28.70 ",
+    "pub_year": 1965
+  },
+  {
+    "book_id": 221,
+    "bname": "Starry Messenger: A Book Depicting the Life of a Famous Scientist, Mathematician, Astronomer, Phi...",
+    "author_id": 210,
+    "pub_id": 91,
+    "category_id": 89,
+    "price": "US$12.00 ",
+    "pub_year": 1996
+  },
+  {
+    "book_id": 222,
+    "bname": "Old Possum's Book of Practical Cats.",
+    "author_id": 211,
+    "pub_id": 92,
+    "category_id": 90,
+    "price": "US$125.00 ",
+    "pub_year": 1982
+  },
+  {
+    "book_id": 223,
+    "bname": "Time of the Hero.",
+    "author_id": 212,
+    "pub_id": 92,
+    "category_id": 90,
+    "price": "US$250.00 ",
+    "pub_year": 1966
+  },
+  {
+    "book_id": 224,
+    "bname": "The Unconsoled.",
+    "author_id": 213,
+    "pub_id": 92,
+    "category_id": 90,
+    "price": "US$150.00 ",
+    "pub_year": 1995
+  },
+  {
+    "book_id": 225,
+    "bname": "Song of Solomon.",
+    "author_id": 214,
+    "pub_id": 92,
+    "category_id": 90,
+    "price": "US$100.00 ",
+    "pub_year": 1995
+  },
+  {
+    "book_id": 226,
+    "bname": "Unattainable Earth.",
+    "author_id": 215,
+    "pub_id": 92,
+    "category_id": 90,
+    "price": "US$25.00 ",
+    "pub_year": 1986
+  },
+  {
+    "book_id": 227,
+    "bname": "Collected Poems, 1948-1984.",
+    "author_id": 216,
+    "pub_id": 92,
+    "category_id": 90,
+    "price": "US$45.00 ",
+    "pub_year": 1992
+  },
+  {
+    "book_id": 228,
+    "bname": "Usagi Yojimbo Volume 23: Bridge of Tears",
+    "author_id": 217,
+    "pub_id": 93,
+    "category_id": 91,
+    "price": "US$12.50 ",
+    "pub_year": 2009
+  },
+  {
+    "book_id": 229,
+    "bname": "The Ghost in the Shell Vol. 1 (Koukaku Kidoutai) (in Japanese)",
+    "author_id": 218,
+    "pub_id": 93,
+    "category_id": 91,
+    "price": "US$19.95 ",
+    "pub_year": 1991
+  },
+  {
+    "book_id": 230,
+    "bname": "Vampire Knight, Vol. 19 (19)",
+    "author_id": 219,
+    "pub_id": 93,
+    "category_id": 91,
+    "price": "US$45.00 ",
+    "pub_year": 2014
+  },
+  {
+    "book_id": 231,
+    "bname": "Alien Nine: Emulators",
+    "author_id": 220,
+    "pub_id": 93,
+    "category_id": 91,
+    "price": "US$29.95 ",
+    "pub_year": 2003
+  },
+  {
+    "book_id": 232,
+    "bname": "K-ON!, Vol. 4",
+    "author_id": 221,
+    "pub_id": 93,
+    "category_id": 91,
+    "price": "US$14.95 ",
+    "pub_year": 2011
+  },
+  {
+    "book_id": 233,
+    "bname": "GTO: Great Teacher Onizuka, Vol. 4",
+    "author_id": 222,
+    "pub_id": 93,
+    "category_id": 91,
+    "price": "US$24.00 ",
+    "pub_year": 2002
+  },
+  {
+    "book_id": 234,
+    "bname": "The Hobbit, or There and back again",
+    "author_id": 223,
+    "pub_id": 94,
+    "category_id": 92,
+    "price": "US$124.22 ",
+    "pub_year": 1968
+  },
+  {
+    "book_id": 235,
+    "bname": "East of the Sun and West of the Moon",
+    "author_id": 224,
+    "pub_id": 94,
+    "category_id": 92,
+    "price": "US$65.38 ",
+    "pub_year": 1983
+  },
+  {
+    "book_id": 236,
+    "bname": "Mr Poppleberry and Fred the White Cockatoo",
+    "author_id": 225,
+    "pub_id": 94,
+    "category_id": 92,
+    "price": "US$45.77 ",
+    "pub_year": 1990
+  },
+  {
+    "book_id": 237,
+    "bname": "Orlando the Marmalade Cat Keeps a Dog",
+    "author_id": 226,
+    "pub_id": 94,
+    "category_id": 92,
+    "price": "US$948.02 ",
+    "pub_year": 1975
+  },
+  {
+    "book_id": 238,
+    "bname": "Are all the Giants Dead?",
+    "author_id": 224,
+    "pub_id": 94,
+    "category_id": 92,
+    "price": "US$39.23 ",
+    "pub_year": 1983
+  },
+  {
+    "book_id": 239,
+    "bname": "Tomb Raider Volume 1 : Season of the Witch",
+    "author_id": 132,
+    "pub_id": 71,
+    "category_id": 93,
+    "price": "US$4.99 ",
+    "pub_year": 2014
+  },
+  {
+    "book_id": 240,
+    "bname": "ApocalyptiGirl: An Aria for the End Times",
+    "author_id": 227,
+    "pub_id": 71,
+    "category_id": 93,
+    "price": "US$7.50 ",
+    "pub_year": 2015
+  },
+  {
+    "book_id": 241,
+    "bname": "Star Wars: Jango Fett",
+    "author_id": 228,
+    "pub_id": 71,
+    "category_id": 93,
+    "price": "US$49.99 ",
+    "pub_year": 2002
+  },
+  {
+    "book_id": 242,
+    "bname": "R.I.P.D. Volume 2: City of the Damned",
+    "author_id": 229,
+    "pub_id": 71,
+    "category_id": 93,
+    "price": "US$12.95 ",
+    "pub_year": 2013
+  },
+  {
+    "book_id": 243,
+    "bname": "Apocalypse Suite 1 The Umbrella Academy",
+    "author_id": 230,
+    "pub_id": 71,
+    "category_id": 93,
+    "price": "US$19.99 ",
+    "pub_year": 2008
+  },
+  {
+    "book_id": 244,
+    "bname": "Dallas 2 The Umbrella Academy",
+    "author_id": 231,
+    "pub_id": 71,
+    "category_id": 93,
+    "price": "US$8.99 ",
+    "pub_year": 2009
+  },
+  {
+    "book_id": 245,
+    "bname": "HANG-UPS paintings by jonathan winters",
+    "author_id": 232,
+    "pub_id": 95,
+    "category_id": 94,
+    "price": "US$57.94 ",
+    "pub_year": 1988
+  },
+  {
+    "book_id": 246,
+    "bname": "California Hot Shoes, CRA Sprint Cars 1955-1970, Volume 1",
+    "author_id": 233,
+    "pub_id": 95,
+    "category_id": 94,
+    "price": "US$30.00 ",
+    "pub_year": 1978
+  },
+  {
+    "book_id": 247,
+    "bname": "Merrick - 1st Edition/1st Printing",
+    "author_id": 234,
+    "pub_id": 96,
+    "category_id": 95,
+    "price": "US$60.33 ",
+    "pub_year": 2000
+  },
+  {
+    "book_id": 248,
+    "bname": "Violin - 1st Trade Edition",
+    "author_id": 234,
+    "pub_id": 96,
+    "category_id": 95,
+    "price": "US$371.25 ",
+    "pub_year": 1997
+  },
+  {
+    "book_id": 249,
+    "bname": "Blood and Gold - 1st Edition/1st Printing",
+    "author_id": 235,
+    "pub_id": 96,
+    "category_id": 95,
+    "price": "US$40.00 ",
+    "pub_year": 2001
+  },
+  {
+    "book_id": 250,
+    "bname": "Servant of the Bones - Limited B.E. Trice Edition",
+    "author_id": 234,
+    "pub_id": 96,
+    "category_id": 95,
+    "price": "US$51.05 ",
+    "pub_year": 1996
+  },
+  {
+    "book_id": 251,
+    "bname": "The Best Of Me - 1st Edition/1st Printing",
+    "author_id": 236,
+    "pub_id": 97,
+    "category_id": 96,
+    "price": "US$156.62 ",
+    "pub_year": 2011
+  },
+  {
+    "book_id": 252,
+    "bname": "The Wedding",
+    "author_id": 236,
+    "pub_id": 97,
+    "category_id": 96,
+    "price": "US$25.00 ",
+    "pub_year": 2003
+  },
+  {
+    "book_id": 253,
+    "bname": "Message in a Bottle - 1st Edition/1st Printing",
+    "author_id": 237,
+    "pub_id": 97,
+    "category_id": 96,
+    "price": "US$79.95 ",
+    "pub_year": 1998
+  },
+  {
+    "book_id": 254,
+    "bname": "At First Sight - 1st Edition/1st Printing",
+    "author_id": 236,
+    "pub_id": 97,
+    "category_id": 96,
+    "price": "US$25.00 ",
+    "pub_year": 2005
+  },
+  {
+    "book_id": 255,
+    "bname": "A Bend in the Road",
+    "author_id": 236,
+    "pub_id": 97,
+    "category_id": 96,
+    "price": "US$40.43 ",
+    "pub_year": 2001
+  },
+  {
+    "book_id": 256,
+    "bname": "HOUSE OF LEAVES",
+    "author_id": 238,
+    "pub_id": 98,
+    "category_id": 97,
+    "price": "US$1,250.00 ",
+    "pub_year": 2000
+  },
+  {
+    "book_id": 257,
+    "bname": "PET SEMATARY (signed 1st)",
+    "author_id": 239,
+    "pub_id": 98,
+    "category_id": 97,
+    "price": "US$27.00 ",
+    "pub_year": 1983
+  },
+  {
+    "book_id": 258,
+    "bname": "THE STAND (SIGNED AND INSCRIBED)",
+    "author_id": 240,
+    "pub_id": 98,
+    "category_id": 97,
+    "price": "US$39.00 ",
+    "pub_year": 1978
+  },
+  {
+    "book_id": 259,
+    "bname": "Prince Lestat: The Vampire Chronicles",
+    "author_id": 241,
+    "pub_id": 98,
+    "category_id": 97,
+    "price": "US$1,495.00 ",
+    "pub_year": 2014
+  },
+  {
+    "book_id": 260,
+    "bname": "Spook Country",
+    "author_id": 241,
+    "pub_id": 98,
+    "category_id": 97,
+    "price": "US$79.12 ",
+    "pub_year": 2007
+  },
+  {
+    "book_id": 261,
+    "bname": "The Killing Kind",
+    "author_id": 242,
+    "pub_id": 98,
+    "category_id": 97,
+    "price": "US$25.00 ",
+    "pub_year": 2001
+  },
+  {
+    "book_id": 262,
+    "bname": "Drums of Autumn",
+    "author_id": 243,
+    "pub_id": 99,
+    "category_id": 4,
+    "price": "US$25.00 ",
+    "pub_year": 1997
+  },
+  {
+    "book_id": 263,
+    "bname": "PASSION'S PRIZE",
+    "author_id": 245,
+    "pub_id": 99,
+    "category_id": 4,
+    "price": "US$1.00 ",
+    "pub_year": 1990
+  },
+  {
+    "book_id": 264,
+    "bname": "Shlomo Zabludowicz. Holokaustin kauhuista salaperäiseksi suomalaismiljardööriksi",
+    "author_id": 246,
+    "pub_id": 99,
+    "category_id": 4,
+    "price": "US$4.75 ",
+    "pub_year": 2021
+  },
+  {
+    "book_id": 265,
+    "bname": "Natsit tiesivät nimeni. Tarina selviytymisestä ja rohkeudesta Auschwitzissa",
+    "author_id": 4,
+    "pub_id": 99,
+    "category_id": 4,
+    "price": "US$1.35 ",
+    "pub_year": 2022
+  },
+  {
+    "book_id": 266,
+    "bname": "Lupauksen voima. Kuinka selviydyin Auschwitzista ja säilytin elämänhaluni",
+    "author_id": 247,
+    "pub_id": 99,
+    "category_id": 4,
+    "price": "US$4.20 ",
+    "pub_year": 2022
+  },
+  {
+    "book_id": 267,
+    "bname": "The Cat in the Hat",
+    "author_id": 248,
+    "pub_id": 100,
+    "category_id": 98,
+    "price": "US$491.11 ",
+    "pub_year": 1958
+  },
+  {
+    "book_id": 268,
+    "bname": "Bewilderment",
+    "author_id": 249,
+    "pub_id": 100,
+    "category_id": 98,
+    "price": "US$55.00 ",
+    "pub_year": 1974
+  },
+  {
+    "book_id": 269,
+    "bname": "The Art of Michael Whelan",
+    "author_id": 250,
+    "pub_id": 100,
+    "category_id": 98,
+    "price": "US$68.00 ",
+    "pub_year": 2001
+  },
+  {
+    "book_id": 270,
+    "bname": "Twenty Poems",
+    "author_id": 251,
+    "pub_id": 100,
+    "category_id": 98,
+    "price": "US$1,850.00 ",
+    "pub_year": 1988
+  },
+  {
+    "book_id": 271,
+    "bname": "The Information: A History, A Theory, A Flood",
+    "author_id": 252,
+    "pub_id": 100,
+    "category_id": 98,
+    "price": "US$295.00 ",
+    "pub_year": 2002
+  },
+  {
+    "book_id": 272,
+    "bname": "BIRDS. The Paintings of Terance James Bond. Signed Limited Edition",
+    "author_id": 253,
+    "pub_id": 100,
+    "category_id": 98,
+    "price": "US$950.00 ",
+    "pub_year": 2021
+  },
+  {
+    "book_id": 273,
+    "bname": "MURDER BY OWL LIGHT",
+    "author_id": 254,
+    "pub_id": 101,
+    "category_id": 99,
+    "price": "US$27.26 ",
+    "pub_year": 1992
+  },
+  {
+    "book_id": 274,
+    "bname": "TWO FOR THE LIONS",
+    "author_id": 255,
+    "pub_id": 101,
+    "category_id": 99,
+    "price": "US$8.18 ",
+    "pub_year": 1998
+  },
+  {
+    "book_id": 275,
+    "bname": "13 FOR LUCK! : A Selection of Mystery Stories",
+    "author_id": 256,
+    "pub_id": 101,
+    "category_id": 99,
+    "price": "US$6.82 ",
+    "pub_year": 1966
+  },
+  {
+    "book_id": 276,
+    "bname": "Drawing Conclusions",
+    "author_id": 256,
+    "pub_id": 101,
+    "category_id": 99,
+    "price": "US$6.82 ",
+    "pub_year": 2011
+  },
+  {
+    "book_id": 277,
+    "bname": "Nemesis",
+    "author_id": 256,
+    "pub_id": 101,
+    "category_id": 99,
+    "price": "US$6.82 ",
+    "pub_year": 2008
+  },
+  {
+    "book_id": 278,
+    "bname": "Coffin Road",
+    "author_id": 254,
+    "pub_id": 101,
+    "category_id": 99,
+    "price": "US$51.12 ",
+    "pub_year": 2016
+  },
+  {
+    "book_id": 279,
+    "bname": "The Lord of the Rings. The Fellowship of the Ring; The Two Towers; The Return of the King",
+    "author_id": 223,
+    "pub_id": 102,
+    "category_id": 100,
+    "price": "US$135,000.00 ",
+    "pub_year": 1954
+  },
+  {
+    "book_id": 280,
+    "bname": "American Dirt: A Novel ***AUTHOR SIGNED***",
+    "author_id": 257,
+    "pub_id": 102,
+    "category_id": 100,
+    "price": "US$150.00 ",
+    "pub_year": 2020
+  },
+  {
+    "book_id": 281,
+    "bname": "Rosa Parks: My Story",
+    "author_id": 258,
+    "pub_id": 102,
+    "category_id": 100,
+    "price": "US$81.47 ",
+    "pub_year": 1992
+  },
+  {
+    "book_id": 282,
+    "bname": "The Invention of Hugo Cabret",
+    "author_id": 259,
+    "pub_id": 102,
+    "category_id": 100,
+    "price": "US$40.00 ",
+    "pub_year": 2007
+  },
+  {
+    "book_id": 283,
+    "bname": "The Maidens: A Novel *** AUTHOR SIGNED ARC",
+    "author_id": 260,
+    "pub_id": 102,
+    "category_id": 100,
+    "price": "US$45.00 ",
+    "pub_year": 2021
+  },
+  {
+    "book_id": 284,
+    "bname": "The Fault in Our Stars",
+    "author_id": 261,
+    "pub_id": 102,
+    "category_id": 100,
+    "price": "US$79.35 ",
+    "pub_year": 2012
+  },
+  {
+    "book_id": 285,
+    "bname": "March: A Novel ***AUTHOR SIGNED***",
+    "author_id": 262,
+    "pub_id": 102,
+    "category_id": 100,
+    "price": "US$65.00 ",
+    "pub_year": 2005
+  },
+  {
+    "book_id": 286,
+    "bname": "Cloud Cuckoo Land",
+    "author_id": 263,
+    "pub_id": 103,
+    "category_id": 101,
+    "price": "US$76.00 ",
+    "pub_year": 2021
+  },
+  {
+    "book_id": 287,
+    "bname": "Our Missing Hearts",
+    "author_id": 264,
+    "pub_id": 103,
+    "category_id": 101,
+    "price": "US$61.00 ",
+    "pub_year": 2022
+  },
+  {
+    "book_id": 288,
+    "bname": "The Candy House",
+    "author_id": 265,
+    "pub_id": 103,
+    "category_id": 101,
+    "price": "US$62.00 ",
+    "pub_year": 2022
+  },
+  {
+    "book_id": 289,
+    "bname": "Audition: A Memoir",
+    "author_id": 266,
+    "pub_id": 103,
+    "category_id": 101,
+    "price": "US$49.00 ",
+    "pub_year": 2008
+  },
+  {
+    "book_id": 290,
+    "bname": "Go Tell the Bees That I Am Gone",
+    "author_id": 267,
+    "pub_id": 103,
+    "category_id": 101,
+    "price": "US$59.00 ",
+    "pub_year": 2021
+  },
+  {
+    "book_id": 291,
+    "bname": "The Water Dancer",
+    "author_id": 268,
+    "pub_id": 103,
+    "category_id": 101,
+    "price": "US$64.00 ",
+    "pub_year": 2019
+  },
+  {
+    "book_id": 292,
+    "bname": "The Wager: A Tale of Shipwreck, Mutiny and Murder",
+    "author_id": 269,
+    "pub_id": 104,
+    "category_id": 65,
+    "price": "US$150.00 ",
+    "pub_year": 2023
+  },
+  {
+    "book_id": 293,
+    "bname": "A Gentleman in Moscow: A Novel",
+    "author_id": 269,
+    "pub_id": 104,
+    "category_id": 65,
+    "price": "US$65.00 ",
+    "pub_year": 2016
+  },
+  {
+    "book_id": 294,
+    "bname": "Circe",
+    "author_id": 270,
+    "pub_id": 104,
+    "category_id": 65,
+    "price": "US$125.00 ",
+    "pub_year": 2018
+  },
+  {
+    "book_id": 295,
+    "bname": "What Do You Care What Other People Think?: Further Adventures of a Curious Character",
+    "author_id": 271,
+    "pub_id": 104,
+    "category_id": 65,
+    "price": "US$65.00 ",
+    "pub_year": 1988
+  },
+  {
+    "book_id": 296,
+    "bname": "The Song of the Cell: An Exploration of Medicine and the New Human",
+    "author_id": 249,
+    "pub_id": 104,
+    "category_id": 65,
+    "price": "US$85.00 ",
+    "pub_year": 2022
+  },
+  {
+    "book_id": 297,
+    "bname": "Freewater (Newbery & Coretta Scott King Award Winner)",
+    "author_id": 272,
+    "pub_id": 104,
+    "category_id": 65,
+    "price": "US$55.00 ",
+    "pub_year": 2022
+  },
+  {
+    "book_id": 298,
+    "bname": "Night of the Living Rez",
+    "author_id": 273,
+    "pub_id": 104,
+    "category_id": 65,
+    "price": "US$75.00 ",
+    "pub_year": 2022
+  },
+  {
+    "book_id": 299,
+    "bname": "The Art of Engraving",
+    "author_id": 274,
+    "pub_id": 105,
+    "category_id": 102,
+    "price": "US$32.69 ",
+    "pub_year": 1973
+  },
+  {
+    "book_id": 300,
+    "bname": "Tom Tichenor's Puppets",
+    "author_id": 275,
+    "pub_id": 105,
+    "category_id": 102,
+    "price": "US$20.00 ",
+    "pub_year": 1971
+  },
+  {
+    "book_id": 301,
+    "bname": "Prihynur og langsjöl - Icelandic edition, signed",
+    "author_id": 276,
+    "pub_id": 105,
+    "category_id": 102,
+    "price": "US$150.00 ",
+    "pub_year": 1988
+  },
+  {
+    "book_id": 302,
+    "bname": "The Art of Fair Isle: History, Technique, Color & Patterns",
+    "author_id": 277,
+    "pub_id": 105,
+    "category_id": 102,
+    "price": "US$84.99 ",
+    "pub_year": 1996
+  },
+  {
+    "book_id": 303,
+    "bname": "From Felt to Fabric: New Techniques in Nuno Felting (Signed)",
+    "author_id": 278,
+    "pub_id": 105,
+    "category_id": 102,
+    "price": "US$32.69 ",
+    "pub_year": 2011
+  },
+  {
+    "book_id": 304,
+    "bname": "Flip! for Decorating: A Page-by-Page, Piece-by-Piece, Room-by-Room Guide to Transforming Your Home",
+    "author_id": 279,
+    "pub_id": 105,
+    "category_id": 102,
+    "price": "US$20.00 ",
+    "pub_year": 2009
+  },
+  {
+    "book_id": 305,
+    "bname": "CALENDAR CLOCKS (with 1993 & 2000 Price Updates)",
+    "author_id": 280,
+    "pub_id": 105,
+    "category_id": 102,
+    "price": "US$95.00 ",
+    "pub_year": 1993
+  }
+]
