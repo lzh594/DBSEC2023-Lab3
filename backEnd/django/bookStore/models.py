@@ -2,36 +2,51 @@ from django.db import models
 
 
 class Users(models.Model):
-    uid = models.AutoField(primary_key=True)
+    uid = models.IntegerField(primary_key=True)
     uname = models.CharField(max_length=100, null=False)
     pwdhash = models.CharField(max_length=255, null=False)
     email = models.EmailField(max_length=100, null=True)
     tel = models.CharField(max_length=11, null=True)
 
+    class Meta:
+        db_table = 'users'
+
 
 class Authors(models.Model):
-    author_id = models.AutoField(primary_key=True)
+    author_id = models.IntegerField(primary_key=True)
     aname = models.CharField(max_length=255, null=False)
+
+    class Meta:
+        db_table = 'authors'
 
 
 class Publishers(models.Model):
-    pub_id = models.AutoField(primary_key=True)
+    pub_id = models.IntegerField(primary_key=True)
     pname = models.CharField(max_length=255, null=False)
+
+    class Meta:
+        db_table = 'publishers'
 
 
 class Category(models.Model):
-    category_id = models.AutoField(primary_key=True)
+    category_id = models.IntegerField(primary_key=True)
     category_name = models.CharField(max_length=255, null=False)
+
+    class Meta:
+        db_table = 'category'
 
 
 class Books(models.Model):
-    book_id = models.AutoField(primary_key=True)
+    book_id = models.IntegerField(primary_key=True)
     bname = models.CharField(max_length=255, null=False)
     author = models.ForeignKey(Authors, on_delete=models.CASCADE)
-    publishers = models.ForeignKey(Publishers, on_delete=models.CASCADE)
+    publishers = models.ForeignKey(Publishers, on_delete=models.CASCADE, db_column='pub_id')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     price = models.CharField(max_length=255, null=False)
     pub_year = models.IntegerField(null=False)
+
+    class Meta:
+        db_table = 'books'
 
 
 class Shoppingcarts(models.Model):
@@ -46,6 +61,7 @@ class Shoppingcarts(models.Model):
             models.UniqueConstraint(fields=['uid', 'book'], name='shoppingcarts'),
             models.CheckConstraint(check=models.Q(amount__gt=0), name="amount__gt=0")
         ]
+        db_table = 'shoppingcarts'
 
 
 class Shoppinghistory(models.Model):
@@ -59,6 +75,7 @@ class Shoppinghistory(models.Model):
         constraints = [
             models.UniqueConstraint(fields=['uid', 'book'], name='shoppinghistory'),
         ]
+        db_table = 'shopponghistory'
 
 
 class Collection(models.Model):
@@ -71,3 +88,4 @@ class Collection(models.Model):
         constraints = [
             models.UniqueConstraint(fields=['uid', 'book'], name='collection'),
         ]
+        db_table = 'collection'
