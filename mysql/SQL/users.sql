@@ -5,7 +5,7 @@ create table users
     uname   varchar(100) not null,
     email   varchar(100) null,
     tel     char(11)     null,
-    pwdhash varchar(255) null
+    pwdhash varchar(255) not null
 );
 
 INSERT INTO bookstoredb.users (uid, uname, email, tel, pwdhash) VALUES (0, 'Procter & Gamble', '04rc45acqq@mail.hk.com', '13171609678', '76bf9b6e8483bcfd6f5195d34d3d3a2af29f24af1b8f7b8839e48bdada2fa5f4');
