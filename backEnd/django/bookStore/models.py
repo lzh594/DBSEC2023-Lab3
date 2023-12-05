@@ -4,7 +4,7 @@ from django.db import models
 class Users(models.Model):
     uid = models.AutoField(primary_key=True)
     uname = models.CharField(max_length=100, null=False)
-    passwd = models.CharField(max_length=100, null=False)
+    pwdhash = models.CharField(max_length=255, null=False)
     email = models.EmailField(max_length=100, null=True)
     tel = models.CharField(max_length=11, null=True)
 
@@ -34,7 +34,7 @@ class Books(models.Model):
     pub_year = models.IntegerField(null=False)
 
 
-class ShoppingCarts(models.Model):
+class Shoppingcarts(models.Model):
     uid = models.IntegerField(null=False)
     book = models.ForeignKey(Books, on_delete=models.CASCADE)
     amount = models.IntegerField(null=False)
@@ -43,12 +43,12 @@ class ShoppingCarts(models.Model):
     class Meta:
         # 定义复合主键
         constraints = [
-            models.UniqueConstraint(fields=['uid', 'book'], name='shoppingCarts'),
+            models.UniqueConstraint(fields=['uid', 'book'], name='shoppingcarts'),
             models.CheckConstraint(check=models.Q(amount__gt=0), name="amount__gt=0")
         ]
 
 
-class ShoppingHistory(models.Model):
+class Shoppinghistory(models.Model):
     uid = models.IntegerField(null=False)
     book = models.ForeignKey(Books, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
@@ -57,7 +57,7 @@ class ShoppingHistory(models.Model):
     class Meta:
         # 定义复合主键
         constraints = [
-            models.UniqueConstraint(fields=['uid', 'book'], name='shoppingHistory'),
+            models.UniqueConstraint(fields=['uid', 'book'], name='shoppinghistory'),
         ]
 
 
