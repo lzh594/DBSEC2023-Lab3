@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2023-12-02T09:39:29.634Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="oRkKbuf7coJsR3W6BUYv" version="22.1.2" type="device">
+<mxfile host="Electron" modified="2023-12-05T05:35:46.281Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="NSVQTAbvJE8o2L8wqMcx" version="22.1.2" type="device">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
     <mxGraphModel dx="2056" dy="809" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
@@ -135,7 +135,7 @@
             <mxRectangle width="30" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="GhEM9INlbGcR_kuWZl3L-32" value="passwd varchar(100) NOT NULL" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;align=left;strokeColor=#E07A5F;top=0;left=0;bottom=0;right=0;spacingLeft=6;labelBackgroundColor=none;fontColor=#393C56;rounded=1;" parent="GhEM9INlbGcR_kuWZl3L-30" vertex="1">
+        <mxCell id="GhEM9INlbGcR_kuWZl3L-32" value="pwdhash varchar(255) NOT NULL" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;align=left;strokeColor=#E07A5F;top=0;left=0;bottom=0;right=0;spacingLeft=6;labelBackgroundColor=none;fontColor=#393C56;rounded=1;" parent="GhEM9INlbGcR_kuWZl3L-30" vertex="1">
           <mxGeometry x="30" width="200" height="30" as="geometry">
             <mxRectangle width="200" height="30" as="alternateBounds" />
           </mxGeometry>

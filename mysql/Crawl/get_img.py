@@ -1,8 +1,27 @@
 import requests
-import processBook
+import pandas as pd
 
-processBook.getBooks()
-all_book = processBook.all_book
+all_book = []
+
+# 获取所有书籍信息
+def getBooks():
+    filename = "data.csv"
+    alldata = pd.read_csv(filename)
+
+    num = len(alldata)
+    for i in range(num):
+        row = alldata.iloc[i]
+        all_book.append(
+            {
+                'title': row['title'],
+                'author': row['author'],
+                'pub_year': row['pub_year'],
+                'publisher': row['publisher'],
+                'price': row['price'],
+                'img': row['img'],
+                'category': row['class'],
+            }
+        )
 
 # 获取所有书本的图片
 def getImg():
@@ -19,4 +38,5 @@ def getImg():
             already.append(book['title'])
 
 if __name__ == "__main__":
+    getBooks()
     getImg()
