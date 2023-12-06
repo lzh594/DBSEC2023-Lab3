@@ -1,7 +1,7 @@
 <template>
     <div style="height: 100%; overflow-y: scroll;overflow-x: hidden">
         <v-scroll native>
-            <v-header ref="headerRef" :pageId="pageId"/>
+            <v-header ref="headerRef" :pageId="pageId" />
             <div class="content-box">
                 <h3>分类</h3>
                 <div class="BookTypeBox">
@@ -22,26 +22,58 @@
                 <h3>书籍</h3>
                 <div class="box">
                     <div class="unit-box" v-for="item in BookList">
-                        <el-image class="boxImg" :src="item.imgUrl"/>
+                        <el-image class="boxImg" :src="item.imgUrl" />
                         <span class="boxTitle">{{ item.name }}</span>
                         <span class="boxTitle">{{ item.author }}</span>
                     </div>
+                </div>
+                <div>
+                    <card></card>
                 </div>
                 <div style="height: 50px;margin-bottom: 30px"></div>
             </div>
         </v-scroll>
     </div>
+    <!-- 选中的条件栏 
+        <div>
+        <el-checkbox-group v-model="checkboxGroup1" size="large">
+            <el-checkbox-button v-for="city in cities" :key="city" :label="city">
+                {{ city }}
+            </el-checkbox-button>
+        </el-checkbox-group>
+    </div>
+    <div class="demo-button-style">
+        <el-checkbox-group v-model="checkboxGroup2">
+            <el-checkbox-button v-for="city in cities" :key="city" :label="city">{{
+                city
+            }}</el-checkbox-button>
+        </el-checkbox-group>
+    </div>
+    <div class="demo-button-style">
+        <el-checkbox-group v-model="checkboxGroup3" size="small">
+            <el-checkbox-button v-for="city in cities" :key="city" :label="city" :disabled="city === 'Beijing'">{{ city
+            }}</el-checkbox-button>
+        </el-checkbox-group>
+    </div>
+    <div class="demo-button-style">
+        <el-checkbox-group v-model="checkboxGroup4" size="small" disabled>
+            <el-checkbox-button v-for="city in cities" :key="city" :label="city">{{
+                city
+            }}</el-checkbox-button>
+        </el-checkbox-group>
+    </div> -->
 </template>
 
 <script setup lang="ts">
 import vHeader from '../components/header.vue';
-import {onMounted, ref} from "vue";
-import homeImg from "../assets/img/home-bg.png";
+import { onMounted, ref, reactive } from "vue";
+import { requestData } from '../api';
+import card from '../components/card.vue'
 
 const pageId = ref('4')
 const headerRef = ref(null)
 onMounted(() => {
-    console.log(headerRef.value?.selected)
+    //console.log(headerRef.value?.selected)
 })
 
 const BookTypeList = ref([]);
@@ -54,29 +86,12 @@ const LabelTypes = [
     '玄幻', '言情', '亲情', '爱情'
 ];
 var BookList = [
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
+    { name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" },
+    { name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" },
+    { name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" },
+    { name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" },
+    { name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" },
+    { name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" },
 ]
 
 const handleBookTypeListChange = () => {
@@ -90,6 +105,17 @@ const handleLabelTypeListChange = () => {
         return item;
     }))
 }
+
+
+
+// check out
+// const checkboxGroup1 = ref(['Shanghai'])
+// const checkboxGroup2 = ref(['Shanghai'])
+// const checkboxGroup3 = ref(['Shanghai'])
+// const checkboxGroup4 = ref(['Shanghai'])
+// const cities = ['Shanghai', 'Beijing', 'Guangzhou', 'Shenzhen']
+
+
 </script>
 
 <style scoped>
@@ -124,4 +150,9 @@ const handleLabelTypeListChange = () => {
     font-size: 15px;
     text-align: center;
 }
+
+/* .demo-button-style {
+  margin-top: 24px;
+} */
+
 </style>
