@@ -1,7 +1,7 @@
 <template>
     <div class="login-wrap">
         <div class="ms-login">
-            <div class="ms-title">S.Encryption</div>
+            <div class="ms-title">网上书店</div>
             <el-divider content-position="center"></el-divider>
             <el-form :model="param" :rules="rules" ref="login" class="ms-content">
                 <el-form-item prop="username" class="form-item">
@@ -140,7 +140,7 @@ tags.clearTags();
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url(../assets/img/login.jpg);
+    background-image: url(../assets/img/login.png);
     background-position: center center;
     background-size: 100%;
 }

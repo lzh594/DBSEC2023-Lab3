@@ -64,7 +64,7 @@ const identity = localStorage.getItem('ms_identity')
     display: block;
     position: absolute;
     left: 0;
-    top: 70px;
+    top: 100px;
     bottom: 0;
     overflow-y: scroll;
     font-size: 120px;
