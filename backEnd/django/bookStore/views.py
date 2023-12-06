@@ -1,7 +1,7 @@
 from django.http import JsonResponse
-from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.viewsets import ModelViewSet
 
 from .models import Users, Authors, Publishers, Category, Books, Shoppingcarts, Shoppinghistory, Collection
 from .serializers import UsersSerializer, AuthorsSerializer, PublishersSerializer, CategorySerializer, \
@@ -13,7 +13,7 @@ def index(request):
         {"index": "Welcome to bookStore!please access '/bookStore/api' or '/bookStore/docs'"})
 
 
-class UsersViewSet(viewsets.ModelViewSet):
+class UsersViewSet(ModelViewSet):
     """
         list: 获取全部 user 数据
         create: 创建新 user 数据
@@ -25,7 +25,7 @@ class UsersViewSet(viewsets.ModelViewSet):
     serializer_class = UsersSerializer
 
 
-class AuthorsViewSet(viewsets.ModelViewSet):
+class AuthorsViewSet(ModelViewSet):
     """
         list: 获取全部 author 数据
         create: 创建新 author 数据
@@ -37,7 +37,7 @@ class AuthorsViewSet(viewsets.ModelViewSet):
     serializer_class = AuthorsSerializer
 
 
-class PublishersViewSet(viewsets.ModelViewSet):
+class PublishersViewSet(ModelViewSet):
     """
         list: 获取全部 publisher 数据
         create: 创建新 publisher 数据
@@ -49,7 +49,7 @@ class PublishersViewSet(viewsets.ModelViewSet):
     serializer_class = PublishersSerializer
 
 
-class CategoryViewSet(viewsets.ModelViewSet):
+class CategoryViewSet(ModelViewSet):
     """
         list: 获取全部 category 数据
         create: 创建新 category 数据
@@ -61,7 +61,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
 
 
-class BooksViewSet(viewsets.ModelViewSet):
+class BooksViewSet(ModelViewSet):
     """
         list: 获取全部 books 数据
         create: 创建新 books 数据
@@ -82,7 +82,7 @@ class BooksViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
 
-class ShoppingcartsViewSet(viewsets.ModelViewSet):
+class ShoppingcartsViewSet(ModelViewSet):
     """
         list: 获取全部 shoppingcarts 数据
         create: 创建新 shoppingcarts 数据
@@ -94,7 +94,7 @@ class ShoppingcartsViewSet(viewsets.ModelViewSet):
     serializer_class = ShoppingcartsSerializer
 
 
-class ShoppinghistoryViewSet(viewsets.ModelViewSet):
+class ShoppinghistoryViewSet(ModelViewSet):
     """
         list: 获取全部 shoppinghistory 数据
         create: 创建新 shoppinghistory 数据
@@ -106,7 +106,7 @@ class ShoppinghistoryViewSet(viewsets.ModelViewSet):
     serializer_class = ShoppinghistorySerializer
 
 
-class CollectionViewSet(viewsets.ModelViewSet):
+class CollectionViewSet(ModelViewSet):
     """
         list: 获取全部 shoppinghistory 数据
         create: 创建新 shoppinghistory 数据
