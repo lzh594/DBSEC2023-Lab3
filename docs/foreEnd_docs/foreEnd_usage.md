@@ -138,7 +138,7 @@ npm run dev
     + #### 建立axios的http请求api：requestData
 
         ```typescript
-        export function requestData(     {url, method, query}: RequestDataParams): Promise<AxiosResponse<any, any>> | undefined
+        export function requestData({url, method, query}: RequestDataParams): Promise<AxiosResponse<any, any>> | undefined
         ```
 
     + #### usage-axios[官方文档](https://axios-http.com/zh/docs/intro)：
