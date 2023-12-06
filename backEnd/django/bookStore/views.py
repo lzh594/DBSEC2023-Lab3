@@ -69,7 +69,7 @@ class BooksViewSet(ModelViewSet):
         update: 更新 books 数据
         delete: 删除 books 数据
     """
-    queryset = Books.objects.all()
+    queryset = Books.objects.select_related('authors', 'publishers', 'category').all()
     serializer_class = BooksSerializer
 
     @action(methods=['get'], detail=False)

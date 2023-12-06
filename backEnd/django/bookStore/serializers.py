@@ -37,9 +37,9 @@ class CategorySerializer(ModelSerializer):
 
 
 class BooksSerializer(ModelSerializer):
-    author = PrimaryKeyRelatedField(queryset=Authors.objects.all())
-    publishers = PrimaryKeyRelatedField(queryset=Publishers.objects.all())
-    category = PrimaryKeyRelatedField(queryset=Category.objects.all())
+    authors = AuthorsSerializer()
+    publishers = PublishersSerializer()
+    category = CategorySerializer()
 
     class Meta:
         model = Books
@@ -47,8 +47,8 @@ class BooksSerializer(ModelSerializer):
 
 
 class ShoppingcartsSerializer(ModelSerializer):
-    book = PrimaryKeyRelatedField(queryset=Books.objects.all())
-    user = PrimaryKeyRelatedField(queryset=Users.objects.all())
+    books = BooksSerializer()
+    users = UsersSerializer()
 
     class Meta:
         model = Shoppingcarts
@@ -56,8 +56,8 @@ class ShoppingcartsSerializer(ModelSerializer):
 
 
 class ShoppinghistorySerializer(ModelSerializer):
-    book = PrimaryKeyRelatedField(queryset=Books.objects.all())
-    user = PrimaryKeyRelatedField(queryset=Users.objects.all())
+    books = BooksSerializer()
+    users = UsersSerializer()
 
     class Meta:
         model = Shoppinghistory
@@ -65,8 +65,8 @@ class ShoppinghistorySerializer(ModelSerializer):
 
 
 class CollectionSerializer(ModelSerializer):
-    book = PrimaryKeyRelatedField(queryset=Books.objects.all())
-    user = PrimaryKeyRelatedField(queryset=Users.objects.all())
+    books = BooksSerializer()
+    users = UsersSerializer()
 
     class Meta:
         model = Collection

@@ -39,7 +39,7 @@ class Category(models.Model):
 class Books(models.Model):
     book_id = models.IntegerField(primary_key=True)
     bname = models.CharField(max_length=255, null=False)
-    author = models.ForeignKey(Authors, on_delete=models.CASCADE)
+    authors = models.ForeignKey(Authors, on_delete=models.CASCADE)
     publishers = models.ForeignKey(Publishers, on_delete=models.CASCADE, db_column='pub_id')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     price = models.CharField(max_length=255, null=False)
