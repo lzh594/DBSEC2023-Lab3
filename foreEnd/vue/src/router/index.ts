@@ -10,16 +10,9 @@ const routes: RouteRecordRaw[] = [
         path: '/home',
         name: 'home',
         component: home,
-        children: [
-            {
-                path: '/HelloWorld',
-                name: 'HelloWorld',
-                meta: {
-                    title: 'HelloWorld',
-                },
-                component: () => import(/* webpackChunkName: "dashboard" */ '../views/HelloWorld.vue'),
-            },
-        ],
+        meta: {
+            title: '首页',
+        },
     },
     {
         path: '/login',
@@ -36,6 +29,54 @@ const routes: RouteRecordRaw[] = [
             title: '没有权限',
         },
         component: () => import(/* webpackChunkName: "403" */ '../views/403.vue'),
+    },
+    {
+        path: '/AdvancedSearch',
+        name: 'AdvancedSearch',
+        meta: {
+            title: '高级搜索',
+        },
+        component: () => import(/* webpackChunkName: "403" */ '../views/AdvancedSearch.vue'),
+    },
+    {
+        path: '/SellRanking',
+        name: 'SellRanking',
+        meta: {
+            title: '畅销排行榜',
+        },
+        component: () => import(/* webpackChunkName: "403" */ '../views/SellRanking.vue'),
+    },
+    {
+        path: '/BookBrowser',
+        name: 'BookBrowser',
+        meta: {
+            title: '书籍浏览',
+        },
+        component: () => import(/* webpackChunkName: "403" */ '../views/BookBrowser.vue'),
+    },
+    {
+        path: '/UserBookList',
+        name: 'UserBookList',
+        meta: {
+            title: '个性化书单',
+        },
+        component: () => import(/* webpackChunkName: "403" */ '../views/UserBookList.vue'),
+    },
+    {
+        path: '/UserInfo',
+        name: 'UserInfo',
+        meta: {
+            title: '个人中心',
+        },
+        component: () => import(/* webpackChunkName: "403" */ '../views/UserInfo.vue'),
+    },
+    {
+        path: '/Basket',
+        name: 'Basket',
+        meta: {
+            title: '购物车',
+        },
+        component: () => import(/* webpackChunkName: "403" */ '../views/Basket.vue'),
     },
 ];
 
