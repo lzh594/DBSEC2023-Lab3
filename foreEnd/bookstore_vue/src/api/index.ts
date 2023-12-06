@@ -15,11 +15,10 @@ export function requestData({url, method, query}: RequestDataParams) {
             url: url
         })
     }
-    if (method === 'post') {
+    if (method === 'post' || method === 'put' || method === 'delete') {
         return service({
             method: method,
             url: url,
-            // data: qs.stringify(query)
             data: query,
         })
     }

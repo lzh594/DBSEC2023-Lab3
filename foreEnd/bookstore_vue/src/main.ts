@@ -1,10 +1,10 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
-import * as ElementPlusIconsVue from '@element-plus/icons-vue';
 import App from './App.vue';
+import * as ElementPlusIconsVue from '@element-plus/icons-vue';
+import 'element-plus/dist/index.css'
 import router from './router';
 import { usePermissStore } from './store/permiss';
-import 'element-plus/dist/index.css';
 import './assets/css/icon.css';
 
 const app = createApp(App);

@@ -126,8 +126,7 @@ tags.clearTags();
     width: 60%;
     border-radius: 8px;
     margin: 20px auto;
-    //color: white;
-    text-align: center;
+//color: white; text-align: center;
     display: block;
     align-items: center;
 }
