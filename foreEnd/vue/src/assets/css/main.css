@@ -22,15 +22,17 @@ a {
 
 
 .content-box {
-    position: absolute;
-    left: 250px;
-    right: 0;
-    top: 70px;
-    bottom: 0;
+    left: 50px;
+    right: 50px;
+    top: 120px;
+    width: 1000px;
+    height: 1050px;
+    margin: 0 auto;
+    padding-top: 10px;
     padding-bottom: 30px;
     -webkit-transition: left .3s ease-in-out;
     transition: left .3s ease-in-out;
-    background: #f0f0f0;
+    background: #ffffff;
 }
 
 .content {
