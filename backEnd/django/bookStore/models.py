@@ -17,6 +17,11 @@ class Authors(Model):
     author_id = IntegerField(primary_key=True)
     aname = CharField(max_length=255, null=False)
 
+    @property
+    def name(self):
+        # 在这里根据需要返回具体的属性，例如，返回 aname 或 bname
+        return self.aname
+
     class Meta:
         db_table = 'authors'
 
@@ -25,6 +30,10 @@ class Publishers(Model):
     pub_id = IntegerField(primary_key=True)
     pname = CharField(max_length=255, null=False)
 
+    @property
+    def name(self):
+        return self.pname
+
     class Meta:
         db_table = 'publishers'
 
@@ -32,6 +41,10 @@ class Publishers(Model):
 class Category(Model):
     category_id = IntegerField(primary_key=True)
     category_name = CharField(max_length=255, null=False)
+
+    @property
+    def name(self):
+        return self.category_name
 
     class Meta:
         db_table = 'category'
@@ -45,6 +58,10 @@ class Books(Model):
     category = ForeignKey(Category, on_delete=CASCADE)
     price = CharField(max_length=255, null=False)
     pub_year = IntegerField(null=False)
+
+    @property
+    def name(self):
+        return self.bname
 
     class Meta:
         db_table = 'books'
