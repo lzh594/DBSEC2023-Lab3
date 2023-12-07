@@ -37,9 +37,12 @@ class CategorySerializer(ModelSerializer):
 
 
 class BooksSerializer(ModelSerializer):
-    authors = AuthorsSerializer()
-    publishers = PublishersSerializer()
-    category = CategorySerializer()
+    authors = AuthorsSerializer(read_only=True)
+    author_id = PrimaryKeyRelatedField(queryset=Authors.objects.all(), write_only=True)
+    publishers = PublishersSerializer(read_only=True)
+    pub_id = PrimaryKeyRelatedField(queryset=Publishers.objects.all(), write_only=True)
+    category = CategorySerializer(read_only=True)
+    category_id = PrimaryKeyRelatedField(queryset=Category.objects.all(), write_only=True)
 
     class Meta:
         model = Books
