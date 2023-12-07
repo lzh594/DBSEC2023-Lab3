@@ -5,422 +5,314 @@
   },
   {
     "pub_id": 1,
-    "pname": "Kona Bay Books"
+    "pname": "Streamside Books"
   },
   {
     "pub_id": 2,
-    "pname": "ThatsTheCatsMeow"
+    "pname": "Biblio Pursuit"
   },
   {
     "pub_id": 3,
-    "pname": "Sparrow's Bookshop, IOBA"
+    "pname": "Bookmarc's"
   },
   {
     "pub_id": 4,
-    "pname": "Never Too Many Books"
+    "pname": "Kona Bay Books"
   },
   {
     "pub_id": 5,
-    "pname": "Goldring Books"
+    "pname": "Underground Books, IOBA"
   },
   {
     "pub_id": 6,
-    "pname": "Linda's Rare Books"
+    "pname": "Book House in Dinkytown, IOBA"
   },
   {
     "pub_id": 7,
-    "pname": "Copperfield's Used and Rare Books"
+    "pname": "Lady Lisa's Bookshop"
   },
   {
     "pub_id": 8,
-    "pname": "Rob the Book Man"
+    "pname": "Metakomet Books"
   },
   {
     "pub_id": 9,
-    "pname": "Sapience Bookstore"
+    "pname": "Rob the Book Man"
   },
   {
     "pub_id": 10,
-    "pname": "Librarium"
+    "pname": "Copperfield's Used and Rare Books"
   },
   {
     "pub_id": 11,
-    "pname": "Oakholm Books"
-  },
-  {
-    "pub_id": 12,
-    "pname": "Ashton Rare Books  ABA : PBFA : ILAB"
-  },
-  {
-    "pub_id": 13,
-    "pname": "The Old Bookshelf"
-  },
-  {
-    "pub_id": 14,
-    "pname": "James F. Balsley, Bookseller"
-  },
-  {
-    "pub_id": 15,
-    "pname": "Zetetic Books"
-  },
-  {
-    "pub_id": 16,
-    "pname": "Picture This (ABA, ILAB, IVPDA)"
-  },
-  {
-    "pub_id": 17,
-    "pname": "Leakey's Bookshop Ltd."
-  },
-  {
-    "pub_id": 18,
-    "pname": "Charles Lewis Best Booksellers"
-  },
-  {
-    "pub_id": 19,
-    "pname": "Balfour Books"
-  },
-  {
-    "pub_id": 20,
-    "pname": "a2zbooks"
-  },
-  {
-    "pub_id": 21,
-    "pname": "Candleleaf"
-  },
-  {
-    "pub_id": 22,
-    "pname": "The Book Nest Ltd"
-  },
-  {
-    "pub_id": 23,
-    "pname": "Thompson Rare Books - ABAC / ILAB"
-  },
-  {
-    "pub_id": 24,
-    "pname": "Mare Booksellers ABAA, IOBA"
-  },
-  {
-    "pub_id": 25,
-    "pname": "CHILTON BOOKS"
-  },
-  {
-    "pub_id": 26,
     "pname": "Book Grove, RMABA"
   },
   {
-    "pub_id": 27,
-    "pname": "Lake Country Books and More"
+    "pub_id": 12,
+    "pname": "Bolerium Books Inc."
   },
   {
-    "pub_id": 28,
-    "pname": "Regent College Bookstore"
-  },
-  {
-    "pub_id": 29,
-    "pname": "Paperworks"
-  },
-  {
-    "pub_id": 30,
+    "pub_id": 13,
     "pname": "Hall of Books"
   },
   {
-    "pub_id": 31,
-    "pname": "Horizon Books"
+    "pub_id": 14,
+    "pname": "The Old Bookshelf"
   },
   {
-    "pub_id": 32,
-    "pname": "Ruslania"
+    "pub_id": 15,
+    "pname": "Oakholm Books"
   },
   {
-    "pub_id": 33,
-    "pname": "Vedic Book Services"
+    "pub_id": 16,
+    "pname": "Brentwood Books"
   },
   {
-    "pub_id": 34,
-    "pname": "J & J House Booksellers, ABAA"
+    "pub_id": 17,
+    "pname": "Before Your Quiet Eyes"
   },
   {
-    "pub_id": 35,
-    "pname": "cookbookjj"
+    "pub_id": 18,
+    "pname": "Borg Antiquarian"
   },
   {
-    "pub_id": 36,
-    "pname": "95 sellers"
+    "pub_id": 19,
+    "pname": "James F. Balsley, Bookseller"
   },
   {
-    "pub_id": 37,
-    "pname": "Rooke Books PBFA"
+    "pub_id": 20,
+    "pname": "Granny Goose Books"
   },
   {
-    "pub_id": 38,
-    "pname": "Open Door Books  MABA"
+    "pub_id": 21,
+    "pname": "M.Roberts - Books And ??????"
   },
   {
-    "pub_id": 39,
-    "pname": "Portman Rare Books"
+    "pub_id": 22,
+    "pname": "a2zbooks"
   },
   {
-    "pub_id": 40,
-    "pname": "Banfield House Booksellers"
+    "pub_id": 23,
+    "pname": "Balfour Books"
   },
   {
-    "pub_id": 41,
-    "pname": "Neville Wade"
+    "pub_id": 24,
+    "pname": "Champ & Mabel Collectibles"
   },
   {
-    "pub_id": 42,
-    "pname": "Inquiring Minds"
-  },
-  {
-    "pub_id": 43,
-    "pname": "Kirk Ruebotham Bookseller"
-  },
-  {
-    "pub_id": 44,
-    "pname": "Paraphernalia Books 'N' Stuff"
-  },
-  {
-    "pub_id": 45,
-    "pname": "Dunaway Books"
-  },
-  {
-    "pub_id": 46,
+    "pub_id": 25,
     "pname": "Pistil Books Online, IOBA"
   },
   {
-    "pub_id": 47,
-    "pname": "Carpe Diem Fine Books, ABAA"
+    "pub_id": 26,
+    "pname": "Caspian Books"
   },
   {
-    "pub_id": 48,
-    "pname": "Soaring Hawk Vintage"
+    "pub_id": 27,
+    "pname": "Paperworks"
   },
   {
-    "pub_id": 49,
-    "pname": "Zamboni & Huntington"
+    "pub_id": 28,
+    "pname": "Lake Country Books and More"
   },
   {
-    "pub_id": 50,
+    "pub_id": 29,
+    "pname": "Vedic Book Services"
+  },
+  {
+    "pub_id": 30,
     "pname": "Granada Bookstore,            IOBA"
   },
   {
-    "pub_id": 51,
-    "pname": "Brought to Book Ltd"
+    "pub_id": 31,
+    "pname": "Colin Martin Books"
   },
   {
-    "pub_id": 52,
-    "pname": "The Groaning Board"
+    "pub_id": 32,
+    "pname": "Soaring Hawk Vintage"
   },
   {
-    "pub_id": 53,
-    "pname": "Tennyson Williams Books and Fine Art"
+    "pub_id": 33,
+    "pname": "Portman Rare Books"
   },
   {
-    "pub_id": 54,
-    "pname": "! Turtle Creek Books  !"
+    "pub_id": 34,
+    "pname": "Banfield House Booksellers"
   },
   {
-    "pub_id": 55,
-    "pname": "Strand Book Store, ABAA"
+    "pub_id": 35,
+    "pname": "Ruslania"
   },
   {
-    "pub_id": 56,
+    "pub_id": 36,
     "pname": "Robinson Street Books, IOBA"
   },
   {
-    "pub_id": 57,
-    "pname": "Robin Bledsoe, Bookseller (ABAA)"
+    "pub_id": 37,
+    "pname": "Paraphernalia Books 'N' Stuff"
   },
   {
-    "pub_id": 58,
-    "pname": "High Ridge Books, Inc. - ABAA"
+    "pub_id": 38,
+    "pname": "Dunaway Books"
   },
   {
-    "pub_id": 59,
-    "pname": "World of Rare Books"
+    "pub_id": 39,
+    "pname": "Kirk Ruebotham Bookseller"
   },
   {
-    "pub_id": 60,
-    "pname": "Arroway Books"
+    "pub_id": 40,
+    "pname": "Inquiring Minds"
   },
   {
-    "pub_id": 61,
-    "pname": "The Book House, Inc.  - St. Louis"
-  },
-  {
-    "pub_id": 62,
-    "pname": "F枚ldv谩ri Books"
-  },
-  {
-    "pub_id": 63,
-    "pname": "Arundel Books"
-  },
-  {
-    "pub_id": 64,
-    "pname": "32.1  Rare Books + Ephemera, IOBA, ESA"
-  },
-  {
-    "pub_id": 65,
-    "pname": "Wittenborn Art Books"
-  },
-  {
-    "pub_id": 66,
-    "pname": "About Books"
-  },
-  {
-    "pub_id": 67,
-    "pname": "Whitmore Rare Books, Inc. -- ABAA, ILAB"
-  },
-  {
-    "pub_id": 68,
-    "pname": "Great Southern Books"
-  },
-  {
-    "pub_id": 69,
-    "pname": "Attic Books (ABAC, ILAB)"
-  },
-  {
-    "pub_id": 70,
-    "pname": "Abacus Bookshop"
-  },
-  {
-    "pub_id": 71,
-    "pname": "Firefly Bookstore"
-  },
-  {
-    "pub_id": 72,
-    "pname": "Carmarthenshire Rare Books"
-  },
-  {
-    "pub_id": 73,
-    "pname": "Comic World"
-  },
-  {
-    "pub_id": 74,
-    "pname": "100POCKETS"
-  },
-  {
-    "pub_id": 75,
-    "pname": "Mainly Books"
-  },
-  {
-    "pub_id": 76,
-    "pname": "Dan Pope Books"
-  },
-  {
-    "pub_id": 77,
-    "pname": "Gene The Book Peddler"
-  },
-  {
-    "pub_id": 78,
-    "pname": "Chapter 1"
-  },
-  {
-    "pub_id": 79,
-    "pname": "Bingo Books 2"
-  },
-  {
-    "pub_id": 80,
-    "pname": "Leonard Shoup"
-  },
-  {
-    "pub_id": 81,
-    "pname": "St Paul's Bookshop P.B.F.A."
-  },
-  {
-    "pub_id": 82,
-    "pname": "Anthology Booksellers"
-  },
-  {
-    "pub_id": 83,
-    "pname": "Books End Bookshop"
-  },
-  {
-    "pub_id": 84,
-    "pname": "Read It Again Books"
-  },
-  {
-    "pub_id": 85,
-    "pname": "The Parnassus BookShop"
-  },
-  {
-    "pub_id": 86,
-    "pname": "Molly's Brook Books"
-  },
-  {
-    "pub_id": 87,
-    "pname": "Stephen Rench"
-  },
-  {
-    "pub_id": 88,
-    "pname": "Vandello Books, Member IOBA"
-  },
-  {
-    "pub_id": 89,
-    "pname": "The London Bookworm"
-  },
-  {
-    "pub_id": 90,
-    "pname": "Maynard & Bradley"
-  },
-  {
-    "pub_id": 91,
-    "pname": "Crooked House Books & Paper, CBA"
-  },
-  {
-    "pub_id": 92,
-    "pname": "Grendel Books, ABAA/ILAB"
-  },
-  {
-    "pub_id": 93,
+    "pub_id": 41,
     "pname": "Recycle Bookstore"
   },
   {
-    "pub_id": 94,
+    "pub_id": 42,
+    "pname": "Firefly Bookstore"
+  },
+  {
+    "pub_id": 43,
     "pname": "MacKellar Art &  Books"
   },
   {
-    "pub_id": 95,
+    "pub_id": 44,
+    "pname": "Tennyson Williams Books and Fine Art"
+  },
+  {
+    "pub_id": 45,
+    "pname": "Strand Book Store, ABAA"
+  },
+  {
+    "pub_id": 46,
+    "pname": "Arroway Books"
+  },
+  {
+    "pub_id": 47,
+    "pname": "Crooked House Books & Paper, CBA"
+  },
+  {
+    "pub_id": 48,
+    "pname": "The Book House, Inc.  - St. Louis"
+  },
+  {
+    "pub_id": 49,
+    "pname": "Bingo Books 2"
+  },
+  {
+    "pub_id": 50,
+    "pname": "Anthology Booksellers"
+  },
+  {
+    "pub_id": 51,
+    "pname": "Mainly Books"
+  },
+  {
+    "pub_id": 52,
+    "pname": "The London Bookworm"
+  },
+  {
+    "pub_id": 53,
+    "pname": "Leonard Shoup"
+  },
+  {
+    "pub_id": 54,
+    "pname": "St Paul's Bookshop P.B.F.A."
+  },
+  {
+    "pub_id": 55,
+    "pname": "Great Southern Books"
+  },
+  {
+    "pub_id": 56,
+    "pname": "100POCKETS"
+  },
+  {
+    "pub_id": 57,
+    "pname": "Read It Again Books"
+  },
+  {
+    "pub_id": 58,
+    "pname": "Dan Pope Books"
+  },
+  {
+    "pub_id": 59,
+    "pname": "Books End Bookshop"
+  },
+  {
+    "pub_id": 60,
+    "pname": "Abacus Bookshop"
+  },
+  {
+    "pub_id": 61,
+    "pname": "Chapter 1"
+  },
+  {
+    "pub_id": 62,
+    "pname": "Grendel Books, ABAA/ILAB"
+  },
+  {
+    "pub_id": 63,
+    "pname": "Molly's Brook Books"
+  },
+  {
+    "pub_id": 64,
+    "pname": "About Books"
+  },
+  {
+    "pub_id": 65,
+    "pname": "Vandello Books, Member IOBA"
+  },
+  {
+    "pub_id": 66,
+    "pname": "Gene The Book Peddler"
+  },
+  {
+    "pub_id": 67,
+    "pname": "The Parnassus BookShop"
+  },
+  {
+    "pub_id": 68,
     "pname": "27 sellers"
   },
   {
-    "pub_id": 96,
+    "pub_id": 69,
     "pname": "22 sellers"
   },
   {
-    "pub_id": 97,
+    "pub_id": 70,
     "pname": "25 sellers"
   },
   {
-    "pub_id": 98,
-    "pname": "272 sellers"
-  },
-  {
-    "pub_id": 99,
-    "pname": "13 sellers"
-  },
-  {
-    "pub_id": 100,
-    "pname": "45 sellers"
-  },
-  {
-    "pub_id": 101,
-    "pname": "2 sellers"
-  },
-  {
-    "pub_id": 102,
-    "pname": "218 sellers"
-  },
-  {
-    "pub_id": 103,
-    "pname": "150 sellers"
-  },
-  {
-    "pub_id": 104,
+    "pub_id": 71,
     "pname": "109 sellers"
   },
   {
-    "pub_id": 105,
+    "pub_id": 72,
+    "pname": "13 sellers"
+  },
+  {
+    "pub_id": 73,
+    "pname": "2 sellers"
+  },
+  {
+    "pub_id": 74,
     "pname": "82 sellers"
+  },
+  {
+    "pub_id": 75,
+    "pname": "272 sellers"
+  },
+  {
+    "pub_id": 76,
+    "pname": "218 sellers"
+  },
+  {
+    "pub_id": 77,
+    "pname": "150 sellers"
+  },
+  {
+    "pub_id": 78,
+    "pname": "45 sellers"
   }
 ]

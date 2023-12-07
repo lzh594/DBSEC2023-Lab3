@@ -1,11 +1,26 @@
+import random
+
 from lxml import etree
 import requests
 import json
 import threading
 import csv
+import urllib3
+from fake_useragent import UserAgent
+from proxyPool import send_request
+
+urllib3.disable_warnings()
 
 baseUrl = 'https://www.abebooks.com'
 db = []
+
+ua = UserAgent()
+headers = {
+    'User-Agent': ua.random
+}
+
+s = requests.session()
+s.keep_alive = False
 
 # 获取所有的类别的相关信息
 def getClass():
@@ -34,7 +49,8 @@ def getBookOfClass(cla, url, pub):
     :param pub: 所属的出版社
     :return:
     """
-    source_code = requests.get(url).text  # 首先获取该类书籍的源代码
+    res = requests.get(url, headers=headers, verify=False)
+    source_code = res.text  # 首先获取该类书籍的源代码
     html = etree.HTML(source_code)  # 将该源代码解析为html
 
     prices = []
@@ -47,15 +63,19 @@ def getBookOfClass(cla, url, pub):
     urls = html.xpath(
         '//div[@class="grid-item col-xs-6 col-sm-fifteen-5 col-md-3 col-lg-fifteen-3 col-xl-2 col-xxl-fourteen-2"]/div/a/@href')  # 该类中每本书对应的url
     urls = [baseUrl + x for x in urls]
+    isbns = []
     for child_url in urls:
-        child_code = requests.get(child_url).text  # 获取该书对应网址的源代码
+        child_res = requests.get(child_url, headers=headers, verify=False)
+        child_code = child_res.text  # 获取该书对应网址的源代码
         child_html = etree.HTML(child_code)  # 将该源代码解析为html
         prices += child_html.xpath('//*[@id="book-price"]/text()')
+        isbns += child_html.xpath('//*[@id="isbn"]/a[1]/text()')
+        child_res.close()
     imgs = html.xpath(
         '//div[@class="grid-item col-xs-6 col-sm-fifteen-5 col-md-3 col-lg-fifteen-3 col-xl-2 col-xxl-fourteen-2"]/div/a/img/@src')  # 该类所有书的图片的url
     imgs = ['https:' + x for x in imgs]
 
-    for title, author, pub_year, price, img in zip(titles, authors, pub_years, prices, imgs):
+    for title, author, pub_year, price, img, isbn in zip(titles, authors, pub_years, prices, imgs, isbns):
         db.append(
             {
                 "title": title,
@@ -64,28 +84,34 @@ def getBookOfClass(cla, url, pub):
                 "publisher": pub,
                 "price": price,
                 "img": img,
-                "class": cla
+                "class": cla,
+                "isbn": isbn.strip().replace("\n", "")
             }
         )
     print("class " + cla + " is over!")
+    res.close()
 
 # 将数据录入csv文件
 def writeCSV():
-    with open("data.csv", "w", encoding="utf-8") as f:
+    with open("data1.csv", "w", encoding="utf-8", newline='') as f:
         csv_writer = csv.writer(f)
         # 表头
-        head = ["title", "author", "pub_year", "publisher", "price", "img", "class"]
+        head = ["title", "author", "pub_year", "publisher", "price", "img", "class", "isbn"]
         csv_writer.writerow(head)
         # 写入csv文件内容
         for book in db:
-            ele_list = [book["title"], book["author"], book["pub_year"], book["publisher"], book["price"], book["img"], book["class"]]
+            ele_list = [book["title"], book["author"], book["pub_year"], book["publisher"], book["price"], book["img"], book["class"], book["isbn"]]
             csv_writer.writerow(ele_list)
 
 if __name__ == "__main__":
     all_class, all_class_url, all_pub = getClass()
     threads = []
     # 多线程爬取各类书籍信息
+    ips = send_request()  # 获取所有代理ip
+    num = len(ips)  # 获得代理ip的数目
     for cla, url, pub in zip(all_class, all_class_url, all_pub):
+        i = random.randint(0, num - 1)
+        proxy = ips[i]
         thread = threading.Thread(target=getBookOfClass, args=(cla, url, pub))
         threads.append(thread)
         thread.start()
@@ -95,7 +121,7 @@ if __name__ == "__main__":
 
     # 剔除无效数据
     for book in db:
-        book["author"] = book["author"].strip(" ")
+        book["author"] = book["author"].strip()
         if book["author"] == "\n":
             db.remove(book)
             length = len(db)

@@ -5,139 +5,139 @@
   },
   {
     "category_id": 1,
-    "category_name": "Dreams"
-  },
-  {
-    "category_id": 2,
-    "category_name": "Time Management"
-  },
-  {
-    "category_id": 3,
-    "category_name": "Astronomy"
-  },
-  {
-    "category_id": 4,
-    "category_name": "Historical Romance"
-  },
-  {
-    "category_id": 5,
-    "category_name": "Antiques"
-  },
-  {
-    "category_id": 6,
-    "category_name": "Dr Seuss Books"
-  },
-  {
-    "category_id": 7,
-    "category_name": "Cookbooks General"
-  },
-  {
-    "category_id": 8,
-    "category_name": "Hypnosis"
-  },
-  {
-    "category_id": 9,
-    "category_name": "Travel, Asia"
-  },
-  {
-    "category_id": 10,
-    "category_name": "Fantasy"
-  },
-  {
-    "category_id": 11,
-    "category_name": "Gardening"
-  },
-  {
-    "category_id": 12,
-    "category_name": "Travel, Iconic"
-  },
-  {
-    "category_id": 13,
-    "category_name": "Christian Bible Study"
-  },
-  {
-    "category_id": 14,
-    "category_name": "Manga"
-  },
-  {
-    "category_id": 15,
-    "category_name": "Signed, Association Copies"
-  },
-  {
-    "category_id": 16,
-    "category_name": "Luggage Labels"
-  },
-  {
-    "category_id": 17,
-    "category_name": "Bibliography"
-  },
-  {
-    "category_id": 18,
-    "category_name": "American Literature"
-  },
-  {
-    "category_id": 19,
-    "category_name": "Architecture"
-  },
-  {
-    "category_id": 20,
-    "category_name": "Accounting"
-  },
-  {
-    "category_id": 21,
-    "category_name": "Fine Bindings"
-  },
-  {
-    "category_id": 22,
-    "category_name": "Horror & Ghost Stories"
-  },
-  {
-    "category_id": 23,
-    "category_name": "Signed and Inscribed Books"
-  },
-  {
-    "category_id": 24,
     "category_name": "New Age"
   },
   {
-    "category_id": 25,
-    "category_name": "Local History (Directories)"
+    "category_id": 2,
+    "category_name": "Adventure Fiction"
   },
   {
-    "category_id": 26,
-    "category_name": "Cookbooks"
+    "category_id": 3,
+    "category_name": "Travel & Adventure (Travel)"
   },
   {
-    "category_id": 27,
+    "category_id": 4,
+    "category_name": "Dreams"
+  },
+  {
+    "category_id": 5,
+    "category_name": "Fairy Tales, Mythology, & Folklore"
+  },
+  {
+    "category_id": 6,
+    "category_name": "Food Writing"
+  },
+  {
+    "category_id": 7,
+    "category_name": "Astronomy"
+  },
+  {
+    "category_id": 8,
     "category_name": "Biology"
   },
   {
-    "category_id": 28,
-    "category_name": "Dictionaries"
+    "category_id": 9,
+    "category_name": "Hypnosis"
   },
   {
-    "category_id": 29,
-    "category_name": "Agatha Christie"
+    "category_id": 10,
+    "category_name": "Cookbooks General"
   },
   {
-    "category_id": 30,
-    "category_name": "Travel, Africa"
+    "category_id": 11,
+    "category_name": "Cookbooks"
   },
   {
-    "category_id": 31,
+    "category_id": 12,
+    "category_name": "Dreams, dreaming, dream"
+  },
+  {
+    "category_id": 13,
     "category_name": "Travel (Asia)"
   },
   {
+    "category_id": 14,
+    "category_name": "Christian Bible Study"
+  },
+  {
+    "category_id": 15,
+    "category_name": "Gardening"
+  },
+  {
+    "category_id": 16,
+    "category_name": "Graphic Novels"
+  },
+  {
+    "category_id": 17,
+    "category_name": "Business"
+  },
+  {
+    "category_id": 18,
+    "category_name": "Sketches, Cartoons, & Caricatures"
+  },
+  {
+    "category_id": 19,
+    "category_name": "Manga"
+  },
+  {
+    "category_id": 20,
+    "category_name": "Board Books"
+  },
+  {
+    "category_id": 21,
+    "category_name": "Reference Dictionaries"
+  },
+  {
+    "category_id": 22,
+    "category_name": "Science Fiction"
+  },
+  {
+    "category_id": 23,
+    "category_name": "Accounting"
+  },
+  {
+    "category_id": 24,
+    "category_name": "Architecture"
+  },
+  {
+    "category_id": 25,
+    "category_name": "Children's Picture Books"
+  },
+  {
+    "category_id": 26,
+    "category_name": "Metaphysics"
+  },
+  {
+    "category_id": 27,
+    "category_name": "Agatha Christie"
+  },
+  {
+    "category_id": 28,
+    "category_name": "Hinduism"
+  },
+  {
+    "category_id": 29,
+    "category_name": "Agriculture"
+  },
+  {
+    "category_id": 30,
+    "category_name": "Fiction (Adventure Fiction)"
+  },
+  {
+    "category_id": 31,
+    "category_name": "Art History"
+  },
+  {
     "category_id": 32,
-    "category_name": "Memoirs"
+    "category_name": "Caldecott Medal Winners"
   },
   {
     "category_id": 33,
-    "category_name": "European History"
+    "category_name": "Politics"
   },
   {
     "category_id": 34,
-    "category_name": "Ghost Stories"
+    "category_name": "Ancient History"
   },
   {
     "category_id": 35,
@@ -145,270 +145,154 @@
   },
   {
     "category_id": 36,
-    "category_name": "Hinduism"
-  },
-  {
-    "category_id": 37,
-    "category_name": "Bibliography, Book Arts, Fine Printing"
-  },
-  {
-    "category_id": 38,
-    "category_name": "Food Writing"
-  },
-  {
-    "category_id": 39,
-    "category_name": "Crime Fiction"
-  },
-  {
-    "category_id": 40,
-    "category_name": "Atlases"
-  },
-  {
-    "category_id": 41,
-    "category_name": "Art History"
-  },
-  {
-    "category_id": 42,
-    "category_name": "Politics"
-  },
-  {
-    "category_id": 43,
-    "category_name": "Ancient History"
-  },
-  {
-    "category_id": 44,
-    "category_name": "Business, Management And Corporate"
-  },
-  {
-    "category_id": 45,
-    "category_name": "Graphic Novels Youth"
-  },
-  {
-    "category_id": 46,
-    "category_name": "Fantasy Fiction Hardcovers"
-  },
-  {
-    "category_id": 47,
-    "category_name": "Business and Industry"
-  },
-  {
-    "category_id": 48,
-    "category_name": "Music (Biographies)"
-  },
-  {
-    "category_id": 49,
-    "category_name": "Textiles"
-  },
-  {
-    "category_id": 50,
-    "category_name": "Fine Press"
-  },
-  {
-    "category_id": 51,
-    "category_name": "Caldecott Medal Winners"
-  },
-  {
-    "category_id": 52,
-    "category_name": "Autographs & Manuscripts"
-  },
-  {
-    "category_id": 53,
-    "category_name": "Agriculture"
-  },
-  {
-    "category_id": 54,
-    "category_name": "Literary First Editions"
-  },
-  {
-    "category_id": 55,
-    "category_name": "Music (Vintage Sheet Music 1900-1909)"
-  },
-  {
-    "category_id": 56,
-    "category_name": "Children-Board Books"
-  },
-  {
-    "category_id": 57,
     "category_name": "Humanities"
   },
   {
-    "category_id": 58,
-    "category_name": "Biographies of Horses and People"
+    "category_id": 37,
+    "category_name": "Business and Industry"
   },
   {
-    "category_id": 59,
-    "category_name": "Science Fiction"
+    "category_id": 38,
+    "category_name": "Music (Biographies)"
   },
   {
-    "category_id": 60,
-    "category_name": "American History (Presidents)"
+    "category_id": 39,
+    "category_name": "Fantasy Fiction Hardcovers"
   },
   {
-    "category_id": 61,
-    "category_name": "Broadsides & Prints"
+    "category_id": 40,
+    "category_name": "Graphic Novels Youth"
   },
   {
-    "category_id": 62,
-    "category_name": "Vintage Magazines"
-  },
-  {
-    "category_id": 63,
-    "category_name": "Book Arts"
-  },
-  {
-    "category_id": 64,
-    "category_name": "Journals, Periodicals and Magazines"
-  },
-  {
-    "category_id": 65,
-    "category_name": "Modern First Editions"
-  },
-  {
-    "category_id": 66,
-    "category_name": "Signed Books"
-  },
-  {
-    "category_id": 67,
-    "category_name": "Personal Memoirs"
-  },
-  {
-    "category_id": 68,
-    "category_name": "Rivers"
-  },
-  {
-    "category_id": 69,
-    "category_name": "Latin American Literature"
-  },
-  {
-    "category_id": 70,
-    "category_name": "DC Comics"
-  },
-  {
-    "category_id": 71,
-    "category_name": "Photographs"
-  },
-  {
-    "category_id": 72,
-    "category_name": "Antiquarian"
-  },
-  {
-    "category_id": 73,
-    "category_name": "Poetry"
-  },
-  {
-    "category_id": 74,
-    "category_name": "Canadian Vintage PB Harlequin Collins White Circle"
-  },
-  {
-    "category_id": 75,
-    "category_name": "Diet"
-  },
-  {
-    "category_id": 76,
-    "category_name": "American History"
-  },
-  {
-    "category_id": 77,
-    "category_name": "Association Copies"
-  },
-  {
-    "category_id": 78,
-    "category_name": "Self Help Hypnosis How To"
-  },
-  {
-    "category_id": 79,
-    "category_name": "Travel (Africa)"
-  },
-  {
-    "category_id": 80,
-    "category_name": "H P Lovecraft"
-  },
-  {
-    "category_id": 81,
-    "category_name": "Art Books"
-  },
-  {
-    "category_id": 82,
-    "category_name": "Children's Illustrated"
-  },
-  {
-    "category_id": 83,
-    "category_name": "Travel, Travel Writing, Travel Adventure"
-  },
-  {
-    "category_id": 84,
-    "category_name": "Detective"
-  },
-  {
-    "category_id": 85,
-    "category_name": "Buddhism"
-  },
-  {
-    "category_id": 86,
-    "category_name": "Chapbooks and broadsides"
-  },
-  {
-    "category_id": 87,
-    "category_name": "Signed & Inscribed"
-  },
-  {
-    "category_id": 88,
-    "category_name": "Politics & Government"
-  },
-  {
-    "category_id": 89,
-    "category_name": "Children's Picture Books"
-  },
-  {
-    "category_id": 90,
-    "category_name": "Nobel Prize Winners"
-  },
-  {
-    "category_id": 91,
+    "category_id": 41,
     "category_name": "Manga Box"
   },
   {
-    "category_id": 92,
+    "category_id": 42,
+    "category_name": "DC Comics"
+  },
+  {
+    "category_id": 43,
     "category_name": "Children's Illustrated Books"
   },
   {
-    "category_id": 93,
+    "category_id": 44,
+    "category_name": "Literary First Editions"
+  },
+  {
+    "category_id": 45,
+    "category_name": "Children-Board Books"
+  },
+  {
+    "category_id": 46,
+    "category_name": "American History (Presidents)"
+  },
+  {
+    "category_id": 47,
     "category_name": "Dark Horse"
   },
   {
-    "category_id": 94,
+    "category_id": 48,
+    "category_name": "American History"
+  },
+  {
+    "category_id": 49,
+    "category_name": "Modern First Editions"
+  },
+  {
+    "category_id": 50,
+    "category_name": "Detective"
+  },
+  {
+    "category_id": 51,
+    "category_name": "H P Lovecraft"
+  },
+  {
+    "category_id": 52,
+    "category_name": "Art Books"
+  },
+  {
+    "category_id": 53,
+    "category_name": "Personal Memoirs"
+  },
+  {
+    "category_id": 54,
+    "category_name": "Diet"
+  },
+  {
+    "category_id": 55,
+    "category_name": "Historical Romance"
+  },
+  {
+    "category_id": 56,
+    "category_name": "Association Copies"
+  },
+  {
+    "category_id": 57,
+    "category_name": "Children's Illustrated"
+  },
+  {
+    "category_id": 58,
+    "category_name": "Latin American Literature"
+  },
+  {
+    "category_id": 59,
+    "category_name": "Travel (Africa)"
+  },
+  {
+    "category_id": 60,
+    "category_name": "Nobel Prize Winners"
+  },
+  {
+    "category_id": 61,
+    "category_name": "Buddhism"
+  },
+  {
+    "category_id": 62,
+    "category_name": "Signed & Inscribed"
+  },
+  {
+    "category_id": 63,
+    "category_name": "Self Help Hypnosis How To"
+  },
+  {
+    "category_id": 64,
+    "category_name": "Travel, Travel Writing, Travel Adventure"
+  },
+  {
+    "category_id": 65,
     "category_name": "Crafts And Hobbies"
   },
   {
-    "category_id": 95,
+    "category_id": 66,
     "category_name": "Fiction (Horror)"
   },
   {
-    "category_id": 96,
+    "category_id": 67,
     "category_name": "Fiction (Romance)"
   },
   {
-    "category_id": 97,
-    "category_name": "Horror"
-  },
-  {
-    "category_id": 98,
-    "category_name": "Signed First Editions"
-  },
-  {
-    "category_id": 99,
+    "category_id": 68,
     "category_name": "Fiction (Crime Fiction)"
   },
   {
-    "category_id": 100,
+    "category_id": 69,
+    "category_name": "Crafts & Hobbies"
+  },
+  {
+    "category_id": 70,
+    "category_name": "Horror"
+  },
+  {
+    "category_id": 71,
     "category_name": "Signed"
   },
   {
-    "category_id": 101,
+    "category_id": 72,
     "category_name": "First Editions"
   },
   {
-    "category_id": 102,
-    "category_name": "Crafts & Hobbies"
+    "category_id": 73,
+    "category_name": "Signed First Editions"
   }
 ]
