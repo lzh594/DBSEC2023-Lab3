@@ -1,3 +1,4 @@
+import random
 import pandas as pd
 import pymysql
 
@@ -24,6 +25,7 @@ def getBooks():
                 'price': row['price'],
                 'img': row['img'],
                 'category': row['class'],
+                'isbn': row["isbn"]
             }
         )
 
@@ -85,15 +87,17 @@ def processBook():
             cursor.execute("select pub_id from publishers where pname=%s", [book['publisher']])
             pub_id = cursor.fetchone()
 
-            sql = "insert into books(book_id, bname, author_id, pub_id, category_id, price, pub_year) values(%s,%s,%s,%s,%s,%s,%s)"
-            cursor.execute(sql, [id, book['title'], author_id, pub_id, category_id, book['price'], book['pub_year']])
+            sql = "insert into books(book_id, bname, author_id, pub_id, category_id, price, pub_year, url, isbn, rate) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            price = float('%.2f'%(float(book['price'].replace("US$","").replace(",","")) * 7.16))
+            rate = float("%.1f"%random.uniform(3, 5))
+            cursor.execute(sql, [id, book['title'], author_id, pub_id, category_id, price, book['pub_year'], book['img'], book['isbn'], rate])
             conn.commit()
             already.append(book['title'])
             id += 1
 
 if __name__ == "__main__":
     getBooks()
-    processCategory()
-    processPub()
-    processAuthor()
+    # processCategory()
+    # processPub()
+    # processAuthor()
     processBook()
