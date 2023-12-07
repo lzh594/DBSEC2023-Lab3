@@ -42,7 +42,8 @@ def get_id_by_name(model, id_field, name_field):
 
     @action(methods=['get'], detail=False, schema=ManualSchema(
         description=f"通过 {name_field} 获取 {id_field}",
-        fields=[Field(name=name_field, required=True, location="query")]
+        fields=[Field(name=name_field, required=True, location="query",
+                      description=name_field, type='string', example='', schema='')]
     ))
     def get_id(self, request):
         name_value = request.query_params.get(name_field, None)
