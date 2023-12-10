@@ -1,9 +1,9 @@
 from coreapi import Field
-from django.db import IntegrityError
 from django.http import JsonResponse
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.schemas import ManualSchema
+from rest_framework.status import HTTP_400_BAD_REQUEST
 from rest_framework.viewsets import ModelViewSet
 
 from .models import Users, Authors, Publishers, Category, Books, Shoppingcarts, Shoppinghistory, Collection
@@ -37,7 +37,7 @@ def get_custom_filter(model):
     """
 
     @action(methods=['get'], detail=False, schema=ManualSchema(
-        description=f"复合查询",
+        description="自定义查询",
         fields=generate_fields_from_model(model)
     ))
     def custom_filter(self, request):
@@ -97,13 +97,23 @@ def get_id_by_name(model, id_field, name_field):
         except model.DoesNotExist:
             last_instance = model.objects.last()
             new_id = getattr(last_instance, id_field) + 1
-            try:
-                instance = model.objects.create(**{name_field: name_value}, **{id_field: new_id})
-                return Response({id_field: getattr(instance, id_field)})
-            except IntegrityError:
-                return Response({'created': False, 'error': f'Creating {model.__name__} instacnce failed'}, status=400)
+            return Response({id_field: new_id})
 
     return get_id
+
+
+def get_create(model):
+    def create(self, request, *args, **kwargs):
+        try:
+            user = Users.objects.get(uid=request.data.pop('uid'))
+            book = Books.objects.get(book_id=request.data.pop('book_id'))
+            instance = model.objects.create(**{"user": user, "book": book}, **request.data)
+        except Exception as e:
+            return Response({'error': str(e)}, status=HTTP_400_BAD_REQUEST)
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
+
+    return create
 
 
 def index(request):
@@ -118,11 +128,15 @@ class UsersViewSet(ModelViewSet):
         retrieve: 检索 user 数据
         update: 更新 user 数据
         delete: 删除 user 数据
+        last: 最后一个 user 数据
+
     """
     queryset = Users.objects.all()
     serializer_class = UsersSerializer
-    custom_filter = get_custom_filter(Users)
+
+    last = get_last(Users)
     get_id = get_id_by_name(Users, 'uid', 'uname')
+    custom_filter = get_custom_filter(Users)
 
 
 class AuthorsViewSet(ModelViewSet):
@@ -133,7 +147,6 @@ class AuthorsViewSet(ModelViewSet):
         update: 更新 author 数据
         delete: 删除 author 数据
         last: 最后一个 author 数据
-        custom_filter : 自定义筛选
     """
     queryset = Authors.objects.all()
     serializer_class = AuthorsSerializer
@@ -151,13 +164,12 @@ class PublishersViewSet(ModelViewSet):
         update: 更新 publisher 数据
         delete: 删除 publisher 数据
         last: 最后一个 publisher 数据
-
     """
     queryset = Publishers.objects.all()
     serializer_class = PublishersSerializer
 
-    get_id = get_id_by_name(Publishers, 'pub_id', 'pname')
     last = get_last(Publishers)
+    get_id = get_id_by_name(Publishers, 'pub_id', 'pname')
     custom_filter = get_custom_filter(Publishers)
 
 
@@ -173,8 +185,8 @@ class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
-    get_id = get_id_by_name(Category, 'category_id', 'category_name')
     last = get_last(Category)
+    get_id = get_id_by_name(Category, 'category_id', 'category_name')
     custom_filter = get_custom_filter(Category)
 
 
@@ -191,7 +203,18 @@ class BooksViewSet(ModelViewSet):
     serializer_class = BooksSerializer
 
     last = get_last(Books)
+    get_id = get_id_by_name(Books, 'book_id', 'bname')
     custom_filter = get_custom_filter(Books)
+
+    def create(self, request, *args, **kwargs):
+        # 创建 model 实例
+        author = Authors.objects.get(author_id=request.data.pop('author_id'))
+        publisher = Publishers.objects.get(pub_id=request.data.pop('pub_id'))
+        category = Category.objects.get(category_id=request.data.pop('category_id'))
+        instance = Books.objects.create(
+            **{"author": author, "publisher": publisher, "category": category}, **request.data)
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
 
 
 class ShoppingcartsViewSet(ModelViewSet):
@@ -201,9 +224,13 @@ class ShoppingcartsViewSet(ModelViewSet):
         retrieve: 检索 shoppingcarts 数据
         update: 更新 shoppingcarts 数据
         delete: 删除 shoppingcarts 数据
+        last: 最后一个 shoppingcarts 数据
    """
     queryset = Shoppingcarts.objects.all()
     serializer_class = ShoppingcartsSerializer
+
+    create = get_create(Shoppingcarts)
+    last = get_last(Shoppingcarts)
     custom_filter = get_custom_filter(Shoppingcarts)
 
 
@@ -214,9 +241,13 @@ class ShoppinghistoryViewSet(ModelViewSet):
         retrieve: 检索 shoppinghistory 数据
         update: 更新 shoppinghistory 数据
         delete: 删除 shoppinghistory 数据
+        last: 最后一个 shoppinghistory 数据
    """
     queryset = Shoppinghistory.objects.all()
     serializer_class = ShoppinghistorySerializer
+
+    create = get_create(Shoppinghistory)
+    last = get_last(Shoppinghistory)
     custom_filter = get_custom_filter(Shoppinghistory)
 
 
@@ -227,7 +258,11 @@ class CollectionViewSet(ModelViewSet):
         retrieve: 检索 collection 数据
         update: 更新 collection 数据
         delete: 删除 collection 数据
+        last: 最后一个 collection 数据
    """
     queryset = Collection.objects.all()
     serializer_class = CollectionSerializer
+
+    create = get_create(Collection)
+    last = get_last(Collection)
     custom_filter = get_custom_filter(Collection)

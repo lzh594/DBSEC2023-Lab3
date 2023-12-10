@@ -37,9 +37,9 @@ class CategorySerializer(ModelSerializer):
 
 
 class BooksSerializer(ModelSerializer):
-    authors = AuthorsSerializer(read_only=True)
+    author = AuthorsSerializer(read_only=True)
     author_id = PrimaryKeyRelatedField(queryset=Authors.objects.all(), write_only=True, help_text="作者序号")
-    publishers = PublishersSerializer(read_only=True)
+    publisher = PublishersSerializer(read_only=True)
     pub_id = PrimaryKeyRelatedField(queryset=Publishers.objects.all(), write_only=True, help_text="出版社序号")
     category = CategorySerializer(read_only=True)
     category_id = PrimaryKeyRelatedField(queryset=Category.objects.all(), write_only=True, help_text="种类序号")
@@ -75,8 +75,7 @@ class CollectionSerializer(ModelSerializer):
     user = UsersSerializer(read_only=True)
     uid = PrimaryKeyRelatedField(queryset=Collection.objects.all(), write_only=True, help_text="用户序号")
     book = BooksSerializer(read_only=True)
-    book_id = PrimaryKeyRelatedField(queryset=Collection.objects.all(), write_only=True,
-                                     help_text="书的序号")
+    book_id = PrimaryKeyRelatedField(queryset=Collection.objects.all(), write_only=True, help_text="书的序号")
 
     class Meta:
         model = Collection
