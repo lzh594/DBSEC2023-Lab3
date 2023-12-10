@@ -15,7 +15,11 @@ def generate_fields_from_model(model):
     fields = []
     for field in model._meta.fields:
         field_name = field.name
-        # field_type = field.type  # 你可能需要根据实际情况设置不同的类型
+        if model in [Collection, Shoppinghistory, Shoppingcarts]:
+            if field.name == 'user':
+                field_name = 'user_id'
+            if field.name == 'book':
+                field_name = 'book_id'
         description = f"{field_name} field of {model.__name__} model"
         example = ''  # 你可以根据需要设置示例值
         fields.append(Field(name=field_name, required=False, location="query", description=description,
