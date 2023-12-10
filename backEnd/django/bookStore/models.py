@@ -1,7 +1,5 @@
-from django.core.exceptions import FieldDoesNotExist
 from django.db.models import IntegerField, ForeignKey, CharField, Model, CASCADE, UniqueConstraint, \
     CheckConstraint, Q, DateTimeField, DecimalField
-from django.forms import EmailField
 
 
 class Authors(Model):
@@ -67,7 +65,7 @@ class Users(Model):
     uname = CharField(max_length=100, null=False, help_text="用户昵称")
     pwdhash = CharField(max_length=255, null=False, help_text="用户密码的哈希值")
     email = CharField(max_length=100, null=True, blank=True, help_text="用户邮箱")
-    tel = CharField(max_length=11, null=True, help_text="用户电话")
+    tel = CharField(max_length=11, null=True, blank=True, help_text="用户电话")
 
     class Meta:
         db_table = 'users'
