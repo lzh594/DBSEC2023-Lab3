@@ -11,6 +11,44 @@ from .serializers import UsersSerializer, AuthorsSerializer, PublishersSerialize
     BooksSerializer, ShoppingcartsSerializer, ShoppinghistorySerializer, CollectionSerializer
 
 
+def generate_fields_from_model(model):
+    fields = []
+    for field in model._meta.fields:
+        field_name = field.name
+        # field_type = field.type  # 你可能需要根据实际情况设置不同的类型
+        description = f"{field_name} field of {model.__name__} model"
+        example = ''  # 你可以根据需要设置示例值
+        fields.append(Field(name=field_name, required=False, location="query", description=description,
+                            example=example, schema=''))
+    return fields
+
+
+def get_custom_filter(model):
+    """
+    返回最新的 model 实例信息
+    Args:
+        model: 模型类
+    Returns:
+        Response: 复合查询条件下的 model 实例的响应对象
+    """
+
+    @action(methods=['get'], detail=False, schema=ManualSchema(
+        description=f"复合查询",
+        fields=generate_fields_from_model(model)
+    ))
+    def custom_filter(self, request):
+        # 获取前端提供的参数集合
+        filter_params = dict(request.query_params)
+        filter_params = {key: value[0] for key, value in filter_params.items()}
+        # 在这里根据参数集合进行自定义筛选逻辑
+        queryset = model.objects.all().filter(**filter_params)
+        # 序列化结果并返回
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+    return custom_filter
+
+
 def get_last(model):
     """
     返回最新的 model 实例信息
@@ -79,6 +117,8 @@ class UsersViewSet(ModelViewSet):
     """
     queryset = Users.objects.all()
     serializer_class = UsersSerializer
+    custom_filter = get_custom_filter(Users)
+    get_id = get_id_by_name(Users, 'uid', 'uname')
 
 
 class AuthorsViewSet(ModelViewSet):
@@ -89,12 +129,14 @@ class AuthorsViewSet(ModelViewSet):
         update: 更新 author 数据
         delete: 删除 author 数据
         last: 最后一个 author 数据
+        custom_filter : 自定义筛选
     """
     queryset = Authors.objects.all()
     serializer_class = AuthorsSerializer
 
     last = get_last(Authors)
     get_id = get_id_by_name(Authors, 'author_id', 'aname')
+    custom_filter = get_custom_filter(Authors)
 
 
 class PublishersViewSet(ModelViewSet):
@@ -112,6 +154,7 @@ class PublishersViewSet(ModelViewSet):
 
     get_id = get_id_by_name(Publishers, 'pub_id', 'pname')
     last = get_last(Publishers)
+    custom_filter = get_custom_filter(Publishers)
 
 
 class CategoryViewSet(ModelViewSet):
@@ -128,6 +171,7 @@ class CategoryViewSet(ModelViewSet):
 
     get_id = get_id_by_name(Category, 'category_id', 'category_name')
     last = get_last(Category)
+    custom_filter = get_custom_filter(Category)
 
 
 class BooksViewSet(ModelViewSet):
@@ -143,6 +187,7 @@ class BooksViewSet(ModelViewSet):
     serializer_class = BooksSerializer
 
     last = get_last(Books)
+    custom_filter = get_custom_filter(Books)
 
 
 class ShoppingcartsViewSet(ModelViewSet):
@@ -155,6 +200,7 @@ class ShoppingcartsViewSet(ModelViewSet):
    """
     queryset = Shoppingcarts.objects.all()
     serializer_class = ShoppingcartsSerializer
+    custom_filter = get_custom_filter(Shoppingcarts)
 
 
 class ShoppinghistoryViewSet(ModelViewSet):
@@ -167,15 +213,17 @@ class ShoppinghistoryViewSet(ModelViewSet):
    """
     queryset = Shoppinghistory.objects.all()
     serializer_class = ShoppinghistorySerializer
+    custom_filter = get_custom_filter(Shoppinghistory)
 
 
 class CollectionViewSet(ModelViewSet):
     """
-        list: 获取全部 shoppinghistory 数据
-        create: 创建新 shoppinghistory 数据
-        retrieve: 检索 shoppinghistory 数据
-        update: 更新 shoppinghistory 数据
-        delete: 删除 shoppinghistory 数据
+        list: 获取全部 collection 数据
+        create: 创建新 collection 数据
+        retrieve: 检索 collection 数据
+        update: 更新 collection 数据
+        delete: 删除 collection 数据
    """
     queryset = Collection.objects.all()
     serializer_class = CollectionSerializer
+    custom_filter = get_custom_filter(Collection)
