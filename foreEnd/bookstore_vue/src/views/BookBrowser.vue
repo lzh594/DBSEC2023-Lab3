@@ -1,158 +1,179 @@
 <template>
-    <div style="height: 100%; overflow-y: scroll;overflow-x: hidden">
-        <v-scroll native>
-            <v-header ref="headerRef" :pageId="pageId" />
-            <div class="content-box">
+    <!-- 重构为layout! -->
+    <v-header ref="headerRef" :pageId="pageId" />
+    <div class="main-interface">
+        <div class="filters-area">
+            <h3>年份</h3>
+            <el-checkbox-group v-model="selectedYear" size="large">
+                <el-checkbox-button v-for="item in years" :label="item">
+                    {{ item }}
+                </el-checkbox-button>
+            </el-checkbox-group>
+            <div>
                 <h3>分类</h3>
-                <div class="BookTypeBox">
-                    <el-checkbox-group v-model="BookTypeList" @change="handleBookTypeListChange">
-                        <el-checkbox v-for="BookType in BookTypes" :label=BookType :key="BookType">
-                            {{ BookType }}
-                        </el-checkbox>
-                    </el-checkbox-group>
-                </div>
-                <h3>标签（可多选）</h3>
-                <div class="LabelBox">
-                    <el-checkbox-group v-model="LabelTypeList" @change="handleLabelTypeListChange">
-                        <el-checkbox v-for="LabelType in LabelTypes" :label=LabelType :key="LabelType">
-                            {{ LabelType }}
-                        </el-checkbox>
-                    </el-checkbox-group>
-                </div>
-                <h3>书籍</h3>
-                <div class="box">
-                    <div class="unit-box" v-for="item in BookList">
-                        <el-image class="boxImg" :src="item.imgUrl" />
-                        <span class="boxTitle">{{ item.name }}</span>
-                        <span class="boxTitle">{{ item.author }}</span>
-                    </div>
-                </div>
-                <div>
-                    <card></card>
-                </div>
-                <div style="height: 50px;margin-bottom: 30px"></div>
+                <el-radio-group v-model="selectedType" size="large" @change="handleTypeChange">
+                    <el-radio-button v-for="item in types" :label="item" :key="item">
+                        {{ item }}
+                    </el-radio-button>
+                </el-radio-group>
             </div>
-        </v-scroll>
+            <div>
+                <h3>价格（元）</h3>
+                <el-checkbox-group v-model="selectedPrice" size="large">
+                    <el-checkbox-button v-for="item in prices" :label="item" :key="item">
+                        {{ item }}
+                    </el-checkbox-button>
+                </el-checkbox-group>
+            </div>
+        </div>
+        <div class="content-area">
+            <el-scrollbar>
+                <el-scrollbar>
+                    <div class="hscroll">
+                        <div v-for="book in books" class="book-card">
+                            <book-card :book="book" @clicked="onCardClick" />
+                        </div>
+                    </div>
+                </el-scrollbar>
+                <div class="spacer"></div>
+            </el-scrollbar>
+        </div>
     </div>
-    <!-- 选中的条件栏 
-        <div>
-        <el-checkbox-group v-model="checkboxGroup1" size="large">
-            <el-checkbox-button v-for="city in cities" :key="city" :label="city">
-                {{ city }}
-            </el-checkbox-button>
-        </el-checkbox-group>
+    <div v-if="isPopup">
+    <bookPopup :book="clickedBook" @close="onPopupClose" />
     </div>
-    <div class="demo-button-style">
-        <el-checkbox-group v-model="checkboxGroup2">
-            <el-checkbox-button v-for="city in cities" :key="city" :label="city">{{
-                city
-            }}</el-checkbox-button>
-        </el-checkbox-group>
-    </div>
-    <div class="demo-button-style">
-        <el-checkbox-group v-model="checkboxGroup3" size="small">
-            <el-checkbox-button v-for="city in cities" :key="city" :label="city" :disabled="city === 'Beijing'">{{ city
-            }}</el-checkbox-button>
-        </el-checkbox-group>
-    </div>
-    <div class="demo-button-style">
-        <el-checkbox-group v-model="checkboxGroup4" size="small" disabled>
-            <el-checkbox-button v-for="city in cities" :key="city" :label="city">{{
-                city
-            }}</el-checkbox-button>
-        </el-checkbox-group>
-    </div> -->
-</template>
+</template> 
 
 <script setup lang="ts">
 import vHeader from '../components/header.vue';
-import { onMounted, ref, reactive } from "vue";
-import { requestData } from '../api';
-import card from '../components/card.vue'
+import { onMounted, reactive, ref } from "vue";
+import bookCard from '../components/bookCard.vue'
+import { ElScrollbar } from 'element-plus';
+
+import { Book } from "../api/models"
+import { BookService } from '../api/services';
 
 const pageId = ref('4')
 const headerRef = ref(null)
-onMounted(() => {
-    //console.log(headerRef.value?.selected)
+
+// data  
+const books = ref<Book[]>([]);
+const myBookService = new BookService();
+
+onMounted(async () => {
+    // books.value.push(...myBookService.getBooks())
+    await myBookService.AddBooks();
+    books.value = myBookService.getBooks();
 })
 
-const BookTypeList = ref([]);
-const BookTypes = [
-    '小说类', '教育类', '纪实类', '科幻类'
-];
 
-const LabelTypeList = ref([]);
-const LabelTypes = [
-    '玄幻', '言情', '亲情', '爱情'
-];
-var BookList = [
-    { name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" },
-    { name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" },
-    { name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" },
-    { name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" },
-    { name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" },
-    { name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" },
+// filter
+const selectedType = ref([]);
+const types = [
+    'fiction', 'art', 'history', 'biology', 'travel', 'novel',
+] //fiction, histor, biolo, art(music), travel, cookbooks
+
+const selectedPrice = ref([]);
+const prices = [
+    '小于30', '30-50', '50-100', '100-200', '200以上',
 ]
 
-const handleBookTypeListChange = () => {
-    console.log(BookTypeList.value.map(item => {
-        return item;
+const years = [
+    '<1980', '1980s', '1990s', '2000s', '2010s', '2020s',
+]
+const selectedYear = ref([])
+
+const options = [
+    '按热度', '按价格', '按时间',
+]
+const selectedOption = ref([])
+
+const handleTypeChange = () => {
+    console.log(selectedType.value.map(item => {
+        return item
     }))
 }
 
-const handleLabelTypeListChange = () => {
-    console.log(BookTypeList.value.map(item => {
-        return item;
-    }))
+
+// callback for card
+const isPopup = ref(false);
+const clickedBook = ref<Book|null>(null);
+const onCardClick = (values: Book) => {
+    clickedBook.value = values
+    isPopup.value = true;
 }
-
-
-
-// check out
-// const checkboxGroup1 = ref(['Shanghai'])
-// const checkboxGroup2 = ref(['Shanghai'])
-// const checkboxGroup3 = ref(['Shanghai'])
-// const checkboxGroup4 = ref(['Shanghai'])
-// const cities = ['Shanghai', 'Beijing', 'Guangzhou', 'Shenzhen']
-
-
+const onPopupClose = () => {
+    // console.log(isPopup.value)
+    isPopup.value = false;
+}
 </script>
 
+
 <style scoped>
-.box {
-    width: 100%;
-    padding-left: 5px;
-    padding-right: 5px;
+* {
+    margin-bottom: 7px;
+}
+
+.main-interface {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: auto;
+    /* min-height: 100vh;
+ justify-content: center; */
+    padding: 10px;
+    /* background: var(--el-color-primary-light-9); */
+    color: var(--el-color-primary);
 }
 
-.unit-box {
-    display: inline-block;
-    width: 240px;
-    margin-right: 10px;
-    background-color: #f0f0f0;
-    margin-bottom: 15px;
+
+.filters-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.boxImg {
-    display: block;
-    width: 240px;
-    height: 200px;
-    margin-right: 10px;
+.content-area {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
-.boxTitle {
-    display: block;
-    width: 240px;
-    height: 30px;
-    margin-right: 10px;
-    font-size: 15px;
-    text-align: center;
+.hscroll {
+    width: 100%;
+    display: flex;
+    /* margin: 10px; */
+    padding: 20px;
 }
 
-/* .demo-button-style {
-  margin-top: 24px;
+.spacer {
+    height: 5px;
+    margin-bottom: 5px;
+}
+
+.book-card {
+    margin: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* .content-box {
+    left: 50px;
+    right: 50px;
+    top: 120px;
+    width: 1400px;
+    height: 1050px;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    -webkit-transition: left .3s ease-in-out;
+    transition: left .3s ease-in-out;
+    background: #ffffff;
 } */
-
 </style>

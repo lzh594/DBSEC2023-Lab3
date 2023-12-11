@@ -65,7 +65,7 @@ import {onMounted, ref} from "vue";
 
 const headerRef = ref(null)
 onMounted(() => {
-    console.log(headerRef.value?.selected)
+    // console.log(headerRef.value?.selected)
 })
 const pageId = ref('1')
 
@@ -98,7 +98,7 @@ var paperList = [
 
 .homeimg {
     width: 100%;
-//height: 300px; aspect-ratio: auto 988 / 318;
+/* //height: 300px; aspect-ratio: auto 988 / 318; */
     height: 318px;
 }
 

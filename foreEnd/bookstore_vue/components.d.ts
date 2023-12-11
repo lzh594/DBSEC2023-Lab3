@@ -7,6 +7,13 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    BookCard: typeof import('./src/components/bookCard.vue')['default']
+    BookDetails: typeof import('./src/components/bookDetails.vue')['default']
+    BookDetails2: typeof import('./src/components/bookDetails2.vue')['default']
+    BookDetials: typeof import('./src/components/bookDetials.vue')['default']
+    BookDetials2: typeof import('./src/components/bookDetials2.vue')['default']
+    BookDetialsDialog: typeof import('./src/components/bookDetialsDialog.vue')['default']
+    BookPopup: typeof import('./src/components/bookPopup.vue')['default']
     Car: typeof import('./src/components/car.vue')['default']
     Card: typeof import('./src/components/card.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
@@ -19,12 +26,20 @@ declare module '@vue/runtime-core' {
     ElCol: typeof import('element-plus/es')['ElCol']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
+    ElDialog: typeof import('element-plus/es')['ElDialog']
     ElDivider: typeof import('element-plus/es')['ElDivider']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
+    ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
+    ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
     ElImage: typeof import('element-plus/es')['ElImage']
+    ElImg: typeof import('element-plus/es')['ElImg']
     ElInput: typeof import('element-plus/es')['ElInput']
+    ElRadioButton: typeof import('element-plus/es')['ElRadioButton']
+    ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
+    ElRate: typeof import('element-plus/es')['ElRate']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElTable: typeof import('element-plus/es')['ElTable']
@@ -35,5 +50,6 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     Sidebar: typeof import('./src/components/sidebar.vue')['default']
     Tags: typeof import('./src/components/tags.vue')['default']
+    UserBookStore: typeof import('./src/components/userBookStore.vue')['default']
   }
 }
