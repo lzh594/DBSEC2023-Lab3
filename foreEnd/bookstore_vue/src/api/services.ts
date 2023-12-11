@@ -7,11 +7,7 @@ export class BookService {
   private books: Book[] = [];
   private currentPage: number = 1;
 
-  constructor() {
-    this.AddBooks()
-  }
-
-  // 从 database 拿去新页
+  // 从 database 拿新页
   async AddBooks(pageReq: number = 3) {
     for (let i = 0; i < pageReq; i++) {
       try {
