@@ -1,9 +1,11 @@
 create table shoppinghistory
 (
-    uid     int  not null,
-    book_id int  not null,
-    date    date not null,
-    primary key (uid, book_id, date),
+    id      int auto_increment
+        primary key,
+    uid     int      not null,
+    book_id int      not null,
+    date    datetime not null,
+    amount  int      not null,
     constraint shoppinghistory_ibfk_1
         foreign key (uid) references users (uid)
             on update cascade on delete cascade,
@@ -14,4 +16,7 @@ create table shoppinghistory
 
 create index book_id
     on shoppinghistory (book_id);
+
+create index uid
+    on shoppinghistory (uid);
 
