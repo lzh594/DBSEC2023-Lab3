@@ -63,7 +63,7 @@ class Books(Model):
 class Users(Model):
     uid = IntegerField(primary_key=True, help_text="用户序号")
     uname = CharField(max_length=100, null=False, help_text="用户昵称")
-    pwdhash = CharField(max_length=255, null=False, help_text="用户密码的哈希值")
+    pwdhash = CharField(max_length=255, null=False, blank=False, help_text="用户密码的哈希值")
     email = CharField(max_length=100, null=True, blank=True, help_text="用户邮箱")
     tel = CharField(max_length=11, null=True, blank=True, help_text="用户电话")
 
