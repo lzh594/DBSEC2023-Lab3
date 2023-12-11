@@ -58,11 +58,10 @@ const headerRef = ref(null)
 
 // data  
 const books = ref<Book[]>([]);
-const myBookService = new BookService();
 
 onMounted(async () => {
     // books.value.push(...myBookService.getBooks())
-    await myBookService.AddBooks();
+    const myBookService = new BookService();
     books.value = myBookService.getBooks();
 })
 

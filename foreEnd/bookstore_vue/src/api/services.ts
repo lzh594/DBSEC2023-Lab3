@@ -1,5 +1,4 @@
 import { Book, User, RawToBook, BooksApiRaw } from './models';
-import { reactive } from 'vue';
 import { requestData } from '../api';
 
 
@@ -7,23 +6,22 @@ export class BookService {
   total: number = 0; // database 中书总数
   private books: Book[] = [];
   private currentPage: number = 1;
-  private request = reactive({
-    url: '',
-    method: '',
-    query: {}
-  })
 
   constructor() {
-    this.request.url = 'books/';
-    this.request.method = 'get';
+    this.AddBooks()
   }
 
   // 从 database 拿去新页
   async AddBooks(pageReq: number = 3) {
     for (let i = 0; i < pageReq; i++) {
-      this.request.query = { page: (this.currentPage + i).toString() };
       try {
-        const res = await requestData(this.request);
+        const res = await requestData({
+          url: 'books/',
+          method: 'get',
+          query: {
+            page: (this.currentPage + i).toString()
+          }
+        });
         const data = RawToBook(res?.data);
         this.books.push(...data.books);
         this.total = data.totalBooks;
@@ -123,43 +121,57 @@ class BookSorter {
 
 
 export class UserService {
-  private user: User;
-  private request = reactive({
-    url: '',
-    method: '',
-    query: {}
-  })
+  private me!: User;
+  constructor(username: string) {
+    this.getUser(username);
+  }
 
-  constructor(me: User) {
-    this.user = me;
+  async getUser(username: string){
+    // 其实应该是静态方法。。
+    try {
+      const idResponse = await requestData({
+        url: 'users/get_id/',
+        method: 'get',
+        query: { uname: username },
+      })
+      const id = idResponse?.data.uid;
+      const userResponse = await requestData({
+        url: `/users/${id}`,
+        method: 'get',
+        query: { uid: id, }
+      })
+      this.me = userResponse?.data;
+    } catch (error) {
+      throw new Error('get user failed')
+    }
   }
 
   async addShoppingCart(bookID: number, amount: number = 1) {
-    this.request.url = 'shoppingcarts/'
-    this.request.method = 'post';
-    const data = {
-      uid: this.user.id,
-      book_id: bookID,
-      amount: amount,
-    }
-    this.request.query = data;
     try {
-      await requestData(this.request);
+      await requestData({
+        url: 'shoppingcarts/',
+        method: 'post',
+        query: {
+          uid: this.me.id,
+          book_id: bookID,
+          amount: amount,
+        }
+      });
     } catch (error) {
       throw new Error('update shopping cart failed')
     }
   }
 
   async addCollection(bookID: number) {
-    this.request.url = 'shoppingcarts/'
-    this.request.method = 'post';
-    const data = {
-      uid: this.user.id,
-      book_id: bookID,
-    }
-    this.request.query = data;
     try {
-      await requestData(this.request);
+      await requestData({
+        url: 'collection/',
+        method: 'post',
+        query: {
+          uid: this.me.id,
+          book_id: bookID,
+        }
+      });
     } catch (error) {
       throw new Error('update shopping cart failed')
     }
