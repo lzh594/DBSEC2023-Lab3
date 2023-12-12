@@ -42,9 +42,9 @@ export class BookService {
     return new BookSorter(this.books);
   }
 
-  output2CSV(filename: string) {
+  static output2CSV(filename: string, books: Book[]) {
     // filename 无需后缀
-    const csvContent = this.books.map(book => {
+    const csvContent = books.map(book => {
       return [
         book.id,
         `"${book.title.replace(/"/g, '""')}"`,

@@ -182,7 +182,7 @@ function download() {
     const filename = [
         "筛选条件", bookPrice, bookType, bookYear, bookSortOrder, timestamp
     ].filter(Boolean).join('_');
-    oracle.output2CSV(filename);
+    BookService.output2CSV(filename, books.value);
 }
 
 // callback for card
