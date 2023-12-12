@@ -9,7 +9,7 @@ export class BookService {
   private currentPage: number = 1;
 
   // 从 database 拿新页
-  async AddBooks(pageReq: number = 3) {
+  async AddBooks(pageReq: number = 5) {
     for (let i = 0; i < pageReq; i++) {
       try {
         const res = await requestData({
@@ -40,11 +40,11 @@ export class BookService {
     return this.origin;
   }
 
-  filterBooks(): BookFilter {
+  bFilter(): BookFilter {
     return new BookFilter(this.books);
   }
 
-  sortBooks(): BookSorter {
+  bSort(): BookSorter {
     return new BookSorter(this.books);
   }
 
@@ -105,7 +105,11 @@ class BookFilter {
     return this;
   }
 
-  byCategory(categories: string[]): BookFilter {
+  byCategory(categories: string[]|null): BookFilter {
+    // 如果传入null，不进行过滤
+    if (categories === null) {
+      return this;
+    }
     this.books = this.books.filter(book =>
       categories.some(category =>
         book.category.toLowerCase().includes(
@@ -129,7 +133,8 @@ class BookFilter {
 }
 
 
-class BookSorter {
+class BookSorter { 
+  // 书籍排序器，支持链式调用
   private books: Book[];
 
   constructor(books: Book[]) {

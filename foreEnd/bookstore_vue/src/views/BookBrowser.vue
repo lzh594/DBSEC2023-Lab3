@@ -28,7 +28,7 @@
         </el-row>
         <el-row align="middle">
             <el-col :span="3" :offset="2">
-                <h3>价格</h3>
+                <h3>价格 (元)</h3>
             </el-col>
             <el-col :span="17">
                 <el-radio-group v-model="chosenPrice" size="large" @change="onPriceChange">
@@ -89,20 +89,20 @@ onMounted(async () => {
 // category filter
 const chosenType = ref('全部');
 const types = [
-    '全部', '小说', '艺术', '历史', '生物', '旅游', '手册',
+    '全部', '小说', '艺术', '历史', '生物', '旅游', '人文',
 ]
-const typeMap: { [key: string]: string[] } = {
-    '全部': ['all'],
+const typeMap: { [key: string]: string[]|null } = {
+    '全部': null,
     '小说': ['fiction', 'novel'],
     '艺术': ['art', 'music'],
-    '历史': ['histor'],
+    '历史': ['his'],
     '生物': ['biolo'],
     '旅游': ['travel'],
-    '手册': ['cookbook']
+    '人文': ['human']
 };
 const onTypeChange = () => {
     const types = typeMap[chosenType.value]
-    books.value = oracle.filterBooks().byCategory(types).getBooks()
+    books.value = oracle.bFilter().byCategory(types).getBooks()
 }
 
 // price filter
@@ -110,11 +110,21 @@ const chosenPrice = ref('全部');
 const prices = [
     '全部', '小于30', '30-50', '50-100', '100-200', '200以上',
 ]
-const onPriceChange = (chosenPrice: string) => {
-    console.log(chosenPrice)
+const priceMap: { [key: string]: number[] } = {
+    '全部': [0, 10000],
+    '小于30': [0, 30],
+    '30-50': [30, 50],
+    '50-100': [50,100],
+    '100-200': [100, 200],
+    '200以上': [200, 10000],
+};
+const onPriceChange = () => {
+    const [minPrice, maxPrice] = priceMap[chosenPrice.value];
+    books.value = oracle.bFilter().byPrice(minPrice, maxPrice).getBooks();
 }
 
 // year filter
+const chosenYear = ref('全部')
 const years = [
     '全部', '<1980', '1980s', '1990s', '2000s', '2010s', '2020s',
 ]
@@ -127,15 +137,9 @@ const yearMap: { [key: string]: number[] } = {
     '2010s': [2010, 2020],
     '2020s': [2020, 2030],
 };
-const chosenYear = ref('全部')
 const onYearChange = () => {
-    if (chosenYear.value == '全部'){
-        books.value = oracle.getBooks();
-    }
-    else {
-        const types = typeMap[chosenYear.value]
-        // oracle.filterBooks().byPrice(...types)
-    }
+    const [startYear, endYear] = yearMap[chosenYear.value];
+    books.value = oracle.bFilter().byYear(startYear, endYear).getBooks();
 }
 
 
@@ -151,15 +155,16 @@ const sortOrders = [
 function onSortChange(label: string) {
     chosenSortOrder.value = label;
     if (label == '随机排序') {
-        oracle.sortBooks().byRandom();
+        oracle.bSort().byRandom();
     } else if (label == '按价格排序') {
-        oracle.sortBooks().byPrice();
+        oracle.bSort().byPrice();
         
     } else if (label == '按时间排序') {
-        oracle.sortBooks().byYear();
-    } else {
-        oracle.sortBooks().bySales();
+        oracle.bSort().byYear();
+    } else { // 按热度
+        oracle.bSort().bySales();
     }
+    books.value = [];
     books.value = oracle.getBooks();
 }
 

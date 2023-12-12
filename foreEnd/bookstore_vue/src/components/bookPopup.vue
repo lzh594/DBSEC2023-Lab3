@@ -1,10 +1,10 @@
 <template>
   <el-dialog v-model="visible" title="书籍详细信息" style="width: 960px;height:550px;" @close="onClose">
     <el-row>
-      <el-col :span="8">
+      <el-col :span="7" :offset="1">
         <el-image style="margin-left: 10px; max-width:250px;object-fit: contain" fit="cover" :src=book.url></el-image>
       </el-col>
-      <el-col :span="16">
+      <el-col :span="14" :offset="2">
         <el-row align="middle">
           <!-- :gutter 添加space -->
           <el-col :span="4"><span>书名</span></el-col>
