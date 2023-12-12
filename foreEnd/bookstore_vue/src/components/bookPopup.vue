@@ -4,7 +4,7 @@
       <el-col :span="7" :offset="1">
         <el-image style="margin-left: 10px; max-width:250px;object-fit: contain" fit="cover" :src=book.url></el-image>
       </el-col>
-      <el-col :span="14" :offset="2">
+      <el-col :span="15" :offset="1">
         <el-row align="middle">
           <!-- :gutter 添加space -->
           <el-col :span="4"><span>书名</span></el-col>
