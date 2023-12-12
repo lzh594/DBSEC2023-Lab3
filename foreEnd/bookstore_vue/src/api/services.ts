@@ -4,6 +4,7 @@ import { requestData } from '../api';
 
 export class BookService {
   total: number = 0; // database 中书总数
+  private origin: Book[] = [];
   private books: Book[] = [];
   private currentPage: number = 1;
 
@@ -19,7 +20,8 @@ export class BookService {
           }
         });
         const data = RawToBook(res?.data);
-        this.books.push(...data.books);
+        this.origin.push(...data.books); // 保留一份副本
+        this.books = this.origin.slice();
         this.total = data.totalBooks;
         this.currentPage += 1;
       } catch (error) {
@@ -34,12 +36,51 @@ export class BookService {
     return this.books;
   }
 
+  getOriginalBooks(): Book[] {
+    return this.origin;
+  }
+
   filterBooks(): BookFilter {
     return new BookFilter(this.books);
   }
 
   sortBooks(): BookSorter {
     return new BookSorter(this.books);
+  }
+
+  output2CSV() {
+    const csvContent = this.books.map(book => {
+      return [
+        book.id,
+        `"${book.title.replace(/"/g, '""')}"`,
+        book.author,
+        book.publisher,
+        book.category,
+        book.year,
+        book.isbn,
+        book.price,
+        book.sales,
+        book.url,
+        book.rate
+      ].join(",");
+    }).join("\n");
+
+    const header = "ID,Title,Author,Publisher,Category,Year,ISBN,Price,Sales,URL,Rate\n";
+    const csvFile = header + csvContent;
+
+    const blob = new Blob([csvFile], { type: 'text/csv;charset=utf-8;' });
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'books.csv'); //filename
+
+    link.style.visibility = 'hidden'; //hide the link
+    document.body.appendChild(link);
+    link.click();
+
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   }
 }
 
@@ -64,9 +105,13 @@ class BookFilter {
     return this;
   }
 
-  byCategory(category: string): BookFilter {
+  byCategory(categories: string[]): BookFilter {
     this.books = this.books.filter(book =>
-      book.category.toLowerCase().includes(category.toLowerCase())
+      categories.some(category =>
+        book.category.toLowerCase().includes(
+          category.toLowerCase()
+        )
+      )
     );
     return this;
   }
@@ -88,6 +133,7 @@ class BookSorter {
   private books: Book[];
 
   constructor(books: Book[]) {
+    // 直接修改外部引用
     this.books = books;
   }
 
@@ -110,8 +156,9 @@ class BookSorter {
     return this;
   }
 
-  getBooks(): Book[] {
-    return this.books;
+    byRandom() {
+    this.books.sort(() => Math.random() - 0.5);
+    return this;
   }
 }
 
@@ -122,7 +169,7 @@ export class UserService {
     this.getUser(username);
   }
 
-  async getUser(username: string){
+  async getUser(username: string) {
     // 其实应该是静态方法。。
     try {
       const idResponse = await requestData({

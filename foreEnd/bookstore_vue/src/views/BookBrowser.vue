@@ -1,46 +1,66 @@
 <template>
     <!-- 重构为layout! -->
     <v-header ref="headerRef" :pageId="pageId" />
-    <div class="main-interface">
-        <div class="filters-area">
-            <h3>年份</h3>
-            <el-checkbox-group v-model="selectedYear" size="large">
-                <el-checkbox-button v-for="item in years" :label="item">
-                    {{ item }}
-                </el-checkbox-button>
-            </el-checkbox-group>
-            <div>
+    <div class="page">
+        <el-row align="middle">
+            <el-col :span="3" :offset="2">
+                <h3>年份</h3>
+            </el-col>
+            <el-col :span="17">
+                <el-radio-group v-model="chosenYear" size="large" @change="onYearChange">
+                    <el-radio-button v-for="item in years" :label="item">
+                        {{ item }}
+                    </el-radio-button>
+                </el-radio-group>
+            </el-col>
+        </el-row>
+        <el-row align="middle">
+            <el-col :span="3" :offset="2">
                 <h3>分类</h3>
-                <el-radio-group v-model="selectedType" size="large" @change="handleTypeChange">
+            </el-col>
+            <el-col :span="17">
+                <el-radio-group v-model="chosenType" size="large" @change="onTypeChange">
                     <el-radio-button v-for="item in types" :label="item" :key="item">
                         {{ item }}
                     </el-radio-button>
                 </el-radio-group>
-            </div>
-            <div>
-                <h3>价格（元）</h3>
-                <el-checkbox-group v-model="selectedPrice" size="large">
-                    <el-checkbox-button v-for="item in prices" :label="item" :key="item">
+            </el-col>
+        </el-row>
+        <el-row align="middle">
+            <el-col :span="3" :offset="2">
+                <h3>价格</h3>
+            </el-col>
+            <el-col :span="17">
+                <el-radio-group v-model="chosenPrice" size="large" @change="onPriceChange">
+                    <el-radio-button v-for="item in prices" :label="item" :key="item">
                         {{ item }}
-                    </el-checkbox-button>
-                </el-checkbox-group>
-            </div>
-        </div>
-        <div class="content-area">
+                    </el-radio-button>
+                </el-radio-group>
+            </el-col>
+        </el-row>
+        <el-row align="middle">
+            <el-col :span="12" :offset="3">
+                <el-button v-for="button in sortOrders" :key="button.label"
+                    :type="chosenSortOrder === button.label ? 'primary' : 'default'" @click="onSortChange(button.label)">
+                    {{ button.label }}
+                </el-button>
+            </el-col>
+            <el-col :span="9">
+                <el-button icon="download" @click="download">下载CSV格式统计结果</el-button>
+            </el-col>
+        </el-row>
+        <el-row align="middle">
             <el-scrollbar>
-                <el-scrollbar>
-                    <div class="hscroll">
-                        <div v-for="book in books" class="book-card">
-                            <book-card :book="book" @clicked="onCardClick" />
-                        </div>
+                <div class="gallery">
+                    <div v-for="book in books" class="book-card">
+                        <book-card :book="book" @clicked="onCardClick" />
                     </div>
-                </el-scrollbar>
-                <div class="spacer"></div>
+                </div>
             </el-scrollbar>
+        </el-row>
+        <div v-if="isPopup">
+            <bookPopup :book="clickedBook" @close="onPopupClose" />
         </div>
-    </div>
-    <div v-if="isPopup">
-    <bookPopup :book="clickedBook" @close="onPopupClose" />
     </div>
 </template> 
 
@@ -58,45 +78,101 @@ const headerRef = ref(null)
 
 // data  
 const books = ref<Book[]>([]);
+const oracle = new BookService();
 
 onMounted(async () => {
-    const myBookService = new BookService();
-    await myBookService.AddBooks();
-    books.value = myBookService.getBooks();
+    await oracle.AddBooks();
+    books.value = oracle.getBooks();
 })
 
 
-// filter
-const selectedType = ref([]);
+// category filter
+const chosenType = ref('全部');
 const types = [
-    'fiction', 'art', 'history', 'biology', 'travel', 'novel',
-] //fiction, histor, biolo, art(music), travel, cookbooks
+    '全部', '小说', '艺术', '历史', '生物', '旅游', '手册',
+]
+const typeMap: { [key: string]: string[] } = {
+    '全部': ['all'],
+    '小说': ['fiction', 'novel'],
+    '艺术': ['art', 'music'],
+    '历史': ['histor'],
+    '生物': ['biolo'],
+    '旅游': ['travel'],
+    '手册': ['cookbook']
+};
+const onTypeChange = () => {
+    const types = typeMap[chosenType.value]
+    books.value = oracle.filterBooks().byCategory(types).getBooks()
+}
 
-const selectedPrice = ref([]);
+// price filter
+const chosenPrice = ref('全部');
 const prices = [
-    '小于30', '30-50', '50-100', '100-200', '200以上',
+    '全部', '小于30', '30-50', '50-100', '100-200', '200以上',
 ]
+const onPriceChange = (chosenPrice: string) => {
+    console.log(chosenPrice)
+}
 
+// year filter
 const years = [
-    '<1980', '1980s', '1990s', '2000s', '2010s', '2020s',
+    '全部', '<1980', '1980s', '1990s', '2000s', '2010s', '2020s',
 ]
-const selectedYear = ref([])
+const yearMap: { [key: string]: number[] } = {
+    '全部': [0, 3000],
+    '<1980': [0, 1980],
+    '1980s': [1980, 1990],
+    '1990s': [1990, 2000],
+    '2000s': [2000, 2010],
+    '2010s': [2010, 2020],
+    '2020s': [2020, 2030],
+};
+const chosenYear = ref('全部')
+const onYearChange = () => {
+    if (chosenYear.value == '全部'){
+        books.value = oracle.getBooks();
+    }
+    else {
+        const types = typeMap[chosenYear.value]
+        // oracle.filterBooks().byPrice(...types)
+    }
+}
 
-const options = [
-    '按热度', '按价格', '按时间',
-]
-const selectedOption = ref([])
 
-const handleTypeChange = () => {
-    console.log(selectedType.value.map(item => {
-        return item
-    }))
+// button
+const chosenSortOrder = ref<string>('');
+const sortOrders = [
+    { label: '随机排序' },
+    { label: '按热度排序' },
+    { label: '按价格排序' },
+    { label: '按时间排序' },
+];
+
+function onSortChange(label: string) {
+    chosenSortOrder.value = label;
+    if (label == '随机排序') {
+        oracle.sortBooks().byRandom();
+    } else if (label == '按价格排序') {
+        oracle.sortBooks().byPrice();
+        
+    } else if (label == '按时间排序') {
+        oracle.sortBooks().byYear();
+    } else {
+        oracle.sortBooks().bySales();
+    }
+    books.value = oracle.getBooks();
+}
+
+
+// download csv
+function download() {
+    oracle.output2CSV();
 }
 
 
 // callback for card
 const isPopup = ref(false);
-const clickedBook = ref<Book|null>(null);
+const clickedBook = ref<Book | null>(null);
 const onCardClick = (values: Book) => {
     clickedBook.value = values
     isPopup.value = true;
@@ -113,66 +189,37 @@ const onPopupClose = () => {
     margin-bottom: 7px;
 }
 
-.main-interface {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 60%;
-    margin: auto;
-    /* min-height: 100vh;
- justify-content: center; */
-    padding: 10px;
-    /* background: var(--el-color-primary-light-9); */
+.page {
     color: var(--el-color-primary);
-}
-
-
-.filters-area {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.content-area {
-    width: 100%;
-    display: flex;
-    overflow: hidden;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-
-.hscroll {
-    width: 100%;
-    display: flex;
-    /* margin: 10px; */
+    /* background: var(--el-color-primary-light-9); */
+    width: 70%;
+    margin: 5px auto;
+    /* 居中显示, 外边距 */
+    border: 2px solid var(--el-border-color);
+    border-radius: 6%;
     padding: 20px;
+    /* 内边距 */
 }
 
-.spacer {
-    height: 5px;
-    margin-bottom: 5px;
+.gallery {
+    width: 100%;
+    display: flex;
+    /* 动态排列搭配横滚动条*/
 }
 
 .book-card {
     margin: 7px;
+    /* 卡片间距 */
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
+.el-row {
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
 
-/* .content-box {
-    left: 50px;
-    right: 50px;
-    top: 120px;
-    width: 1400px;
-    height: 1050px;
-    margin: 0 auto;
-    padding-top: 10px;
-    padding-bottom: 30px;
-    -webkit-transition: left .3s ease-in-out;
-    transition: left .3s ease-in-out;
-    background: #ffffff;
-} */
+.button-group {
+    display: flex;
+    align-items: center;
+}
 </style>

@@ -55,12 +55,12 @@ const routes: RouteRecordRaw[] = [
         component: () => import(/* webpackChunkName: "403" */ '../views/BookBrowser.vue'),
     },
     {
-        path: '/UserBookList',
-        name: 'UserBookList',
+        path: '/usercollections',
+        name: 'usercollections',
         meta: {
-            title: '个性化书单',
+            title: '个人收藏夹',
         },
-        component: () => import(/* webpackChunkName: "403" */ '../views/UserBookList.vue'),
+        component: () => import(/* webpackChunkName: "403" */ '../views/usercollections.vue'),
     },
     {
         path: '/UserInfo',
@@ -77,6 +77,14 @@ const routes: RouteRecordRaw[] = [
             title: '购物车',
         },
         component: () => import(/* webpackChunkName: "403" */ '../views/Basket.vue'),
+    },
+    {
+        path: '/register',
+        name: 'register',
+        meta: {
+            title: '注册',
+        },
+        component: () => import(/* webpackChunkName: "403" */ '../views/register.vue'),
     },
 ];
 

@@ -65,7 +65,7 @@ const onClick = () => {
   border-radius: 8px;
   flex-direction: column;
   align-items: flex-start;
-  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2); 
 }
 
 .title {

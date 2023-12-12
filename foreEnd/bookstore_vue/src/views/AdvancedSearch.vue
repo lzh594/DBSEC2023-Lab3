@@ -30,7 +30,7 @@
           <el-row>
             <el-col :span="10">
               <el-form-item label="类别" prop="type" class="UnitInput">
-                <el-input v-model="ruleForm.type" placeholder="各个关键词之间用.隔开，如 bible.history" />
+                <el-input v-model="ruleForm.type" placeholder="输入类别关键词" />
               </el-form-item>
             </el-col>
             <el-col :span="13" :offset="1">
@@ -109,17 +109,17 @@
                       </div>
                     </div>
                     <div class="right-dialog">
-                      <div class="unit-description" style="height: 100%">
-                        <span class="des-label" style="width: 30%; height: 100%">书名</span>
-                        <span class="des-content" style="width: 70%">{{ShowingBook.name}}</span>
+                      <div class="unit-description">
+                        <span class="des-label">书名</span>
+                        <span class="des-content">{{ShowingBook.name}}</span>
 
                       </div>
-                      <div class="unit-description">
+                      <div class="unit-description" >
                         <span class="des-label">作者</span>
                         <span class="des-content">{{ShowingBook.author}}</span>
 
                       </div>
-                      <div class="unit-description">
+                      <div class="unit-description" >
                         <span class="des-label">类型</span>
                         <span class="des-content">{{ShowingBook.type}}</span>
 
@@ -132,6 +132,11 @@
                       <div class="unit-description">
                         <span class="des-label">出版年</span>
                         <span class="des-content">{{ShowingBook.date}}</span>
+
+                      </div>
+                      <div class="unit-description">
+                        <span class="des-label">书籍评分</span>
+                        <span class="des-content">{{ShowingBook.rate}}</span>
 
                       </div>
                       <div class="unit-description">
@@ -161,6 +166,7 @@
                   <template #footer>
                     <span class="dialog-footer">
                       <el-button @click="CacelUp">取消</el-button>
+                      <el-button type="warning" :icon="Star" @click="addToCollections">收藏</el-button>
                       <el-button type="primary" @click="AddToBasket">
                         加入购物车
                       </el-button>
@@ -187,6 +193,7 @@ import type { FormInstance, FormRules, FormProps } from 'element-plus';
 import {requestData} from "../api";
 import router from "../router"
 import {ElMessage} from "element-plus";
+import {Star} from "@element-plus/icons-vue";
 const pageId = ref('2')
 const headerRef = ref(null)
 const BookVisible = ref(false)
@@ -235,19 +242,15 @@ const ruleForm = reactive<RuleForm>({
 const rules = reactive<FormRules<RuleForm>>({
   name: [
     { required: false, message: 'Please input Activity name', trigger: 'blur' },
-    { min: 1, max: 25, message: 'Length should be 3 to 5', trigger: 'blur' },
+    { min: 2, max: 50, message: 'Length should be 2 to 50', trigger: 'blur' },
   ],
   bookName: [
     { required: false, message: 'Please input Activity name', trigger: 'blur' },
-    { min: 1, max: 30, message: 'Length should be 3 to 5', trigger: 'blur' },
+    { min: 2, max: 50, message: 'Length should be 2 to 50', trigger: 'blur' },
   ],
-  // ISBN:[
-  //   { required: false, message: 'Please input Activity name', trigger: 'blur' },
-  //   { min: 1, max: 25, message: 'Length should be 3 to 5', trigger: 'blur' },
-  // ],
   Publisher:[
     { required: false, message: 'Please input Activity name', trigger: 'blur' },
-    { min: 1, max: 25, message: 'Length should be 3 to 5', trigger: 'blur' },
+    { min: 2, max: 40, message: 'Length should be 2 to 40', trigger: 'blur' },
   ],
   StartTime: [
     {
@@ -295,25 +298,27 @@ const submitForm = async (formEl: FormInstance | undefined) => {
       }
       const searchResults = searchBooks(searchCriteria);
       const convertedResults = searchResults.map((result: any) => ({
+        id: result.book_id,
         ImgAddress: result.url,
         name: result.bname,
-        author: result.authors.aname,
-        publisher: result.publishers.pname,
+        author: result.author.aname,
+        publisher: result.publisher.pname,
         date: result.pub_year,
         price: result.price,
         type: result.category.category_name,
+        rate: result.rate,
       }));
 
       BookListRef.value = convertedResults;
-      console.log('BookList: ', BookListRef.value);
+      console.log('检索结果（后端原始数据: ', searchResults);
       ElMessage({
-        message: 'Submit Succeeded, Books Matched: '+String(BookListRef.value.length),
+        message: '检索结果共 '+String(BookListRef.value.length)+' 条',
         type: 'success',
         })
     } else {
       console.log('error submit!', fields)
       ElMessage({
-        message: 'Invalid Submit',
+        message: '检索出错！',
         type: 'warning',
         });
       }
@@ -366,7 +371,7 @@ const request = reactive({
 const funcData = async () => {
     let page = 1;
 
-  while (page < 3) {
+  while (page < 10) {
       // 修改请求的 page 参数
       request.query.page = String(page);
 
@@ -400,16 +405,19 @@ const funcData = async () => {
 
 }
 interface bookData {
+  id:string,
   name: string,
   ImgAddress: string,
   author: string,
   publisher:string,
   date:string,
   price:number,
-  type:string
+  type:string,
+  rate:string,
 }
 
 interface ShowBookData {
+  id: string
   name: string,
   ImgAddress: string,
   author: string,
@@ -417,49 +425,41 @@ interface ShowBookData {
   date:string,
   price:number,
   buyNumber:number,
-  type:string
+  type:string,
+  rate:string,
 }
 const bookList = reactive<bookData[]>([])
 const BookListRef = ref(bookList);
 
 const ShowingBook = reactive<ShowBookData>(
     {
+      id: '',
       name: '',
-  ImgAddress: '',
-  author: '',
-  publisher:'',
-  date:'',
-  price:0,
-  buyNumber:1,
-  type:'',
+      ImgAddress: '',
+      author: '',
+      publisher:'',
+      date:'',
+      price:0,
+      buyNumber:1,
+      type:'',
+      rate:''
     }
 )
 let tableKey = 1;
 
-const DeleteBook = (index: number) => {
-  bookList.splice(index, 1);
-  console.log(index)
-  console.log(bookList)
-  tableKey++;
-  console.log(tableKey)
-}
-const options = Array.from({ length: 10000 }).map((_, idx) => ({
-  value: `${idx + 1}`,
-  label: `${idx + 1}`,
-}))
 
-let buynumber = 1;
 const ShowBook = (index:number)=>{
   console.log('bookList to show:', bookList);
+  ShowingBook.id = BookListRef.value[index].id
   ShowingBook.name = BookListRef.value[index].name
   ShowingBook.author = BookListRef.value[index].author
   ShowingBook.ImgAddress = BookListRef.value[index].ImgAddress
   ShowingBook.publisher = BookListRef.value[index].publisher
   ShowingBook.date = BookListRef.value[index].date
   ShowingBook.price = BookListRef.value[index].price
-  ShowingBook.buyNumber = buynumber;
-  ShowingBook.type = BookListRef.value[index].type;
-  buynumber += 1;
+  ShowingBook.buyNumber = 1
+  ShowingBook.type = BookListRef.value[index].type
+  ShowingBook.rate = BookListRef.value[index].rate;
   BookVisible.value = !BookVisible.value
 }
 
@@ -480,8 +480,96 @@ const ShowWarning = ()=>{
     }
   }
 }
+
+const addToCollections = () => {
+  let uid = localStorage.getItem('ms_uid');
+  let filterToBasketRequest = {
+    url: 'collection/custom_filter/',
+    method: 'get',
+    query: {
+      'user_id': uid,
+      'book_id': ShowingBook.id,
+    },
+  }
+  requestData(filterToBasketRequest)!.then(res => {
+    if (res.data.length > 0) {
+      ElMessage.error('该书籍已添加到收藏单,重复提交')
+    } else {
+        let createBasketRequest = {
+        url: 'collection/',
+        method: 'post',
+        query: {
+          'uid': uid,
+          'book_id': ShowingBook.id,
+        },
+      }
+      requestData(createBasketRequest)!.then(res => {
+        console.log('create to basket.')
+         ElMessage.success('添加成功')
+      })
+    }
+
+  })
+}
 const AddToBasket = () =>{
-  console.log("Book Added")
+  const point: RegExp = /\./;
+  if (point.test(ShowingBook.buyNumber.toString())) {
+    showWarning.value = true
+    return
+  } else {
+    if (ShowingBook.buyNumber < 1) {
+      showWarning.value = true
+      return;
+    } else {
+      showWarning.value = false
+    }
+  }
+  let uid = localStorage.getItem('ms_uid');
+  let filterToBasketRequest = {
+    url: 'shoppingcarts/custom_filter/',
+    method: 'get',
+    query: {
+      'user_id': uid,
+      'book_id': ShowingBook.id,
+    },
+  }
+  requestData(filterToBasketRequest)!.then(res => {
+    console.log(res.data)
+    if (res.data.length > 0) {
+      let basket_id = res.data[0]['id']
+      let old_amount = res.data[0]['amount']
+      let new_amount = (Number(old_amount) + ShowingBook.buyNumber).toString()
+      let updateBasketRequest = {
+        url: 'shoppingcarts/' + basket_id + '/',
+        method: 'put',
+        query: {
+          'uid': uid,
+          'book_id': ShowingBook.id,
+          'amount': new_amount,
+        },
+      }
+      console.log(updateBasketRequest)
+      requestData(updateBasketRequest)!.then(res => {
+        console.log('add to basket.')
+      })
+    } else {
+        let createBasketRequest = {
+        url: 'shoppingcarts/',
+        method: 'post',
+        query: {
+          'uid': uid,
+          'book_id': ShowingBook.id,
+          'amount': ShowingBook.buyNumber.toString(),
+        },
+      }
+      requestData(createBasketRequest)!.then(res => {
+        console.log('create to basket.')
+      })
+    }
+  })
+  console.log(ShowingBook)
+  console.log("submit")
+  BookVisible.value = !BookVisible.value;
 }
 
 const addBuyNumber = () =>{
@@ -570,7 +658,8 @@ const deleteBuyNumber = () =>{
 }
 
 .unit-description{
-  margin-bottom: 40px;
+  //margin-bottom: 40px;
+  margin-top: 40px;
   width: 100%;
   height: 40px;
 }

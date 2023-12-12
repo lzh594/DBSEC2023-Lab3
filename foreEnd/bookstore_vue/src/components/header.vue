@@ -4,17 +4,7 @@
       <el-image style="width: 150px; height: 40px;margin-top: 15px" :src="logoImg" :fit="'contain'"/>
     </div>
 
-    <div class="search">
-      <select v-model="selected" class="header-select">
-        <option disabled value="">Please select one</option>
-        <option>书名</option>
-        <option>作者</option>
-        <option>出版社</option>
-        <option>书单</option>
-      </select>
-      <input type="text" class="searchInput" placeholder="">
-      <span>搜索</span>
-    </div>
+
     <div class="header-right">
       <a class="basket_a" @click="toBasket">
             <span>
@@ -63,7 +53,7 @@
 <script setup lang="ts">
 import {ref} from 'vue'
 import {onMounted} from 'vue';
-import {useSidebarStore} from '../store/sidebar';
+
 import {useRouter} from 'vue-router';
 import userImg from '../assets/img/user.jpg';
 import orgImg from '../assets/img/org.jpg';
@@ -73,13 +63,11 @@ import {ArrowDown, Expand, Fold} from "@element-plus/icons-vue";
 const username: string | null = localStorage.getItem('ms_username');
 const identity = localStorage.getItem('ms_identity');
 
-const sidebar = useSidebarStore();
+
 
 defineProps<{ pageId: string }>()
 // 侧边栏折叠
-const collapseChage = () => {
-  sidebar.handleCollapse();
-};
+
 const toHome = () => {
   router.push({
     path: '/home',
@@ -122,7 +110,7 @@ const toBasket = () => {
 }
 const toUserBookStore = () => {
   router.push({
-    path: '/UserBookStore',
+    path: '/usercollections',
     query: {},
   })
 }
@@ -133,11 +121,6 @@ defineExpose({
   selected,
 });
 
-onMounted(() => {
-  if (document.body.clientWidth < 1500) {
-    collapseChage();
-  }
-});
 
 // 用户名下拉菜单选择事件
 const router = useRouter();

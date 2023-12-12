@@ -2,7 +2,8 @@
     <div class="MainBox">
         <el-scrollbar class="scroll" height="720px">
             <el-backtop target=".MainBox .el-scrollbar__wrap" :bottom="20">
-                <div style="
+                <div
+                    style="
                height: 100%;
                width: 100px;
                background-color: var(--el-bg-color-overlay);
@@ -12,11 +13,12 @@
                color: #1989fa;
                border-radius: 2px;
                font-size: 16px;
-             ">
+             "
+                >
                     顶部
                 </div>
             </el-backtop>
-            <v-Header ref="headerRef" :pageId="pageId" />
+            <v-Header ref="headerRef" :pageId="pageId"/>
             <div class="TableBox">
                 <el-card class="box-card">
                     <template #header>
@@ -25,19 +27,19 @@
                         </div>
                     </template>
                     <!--    <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>-->
-                    <el-table :data="RankData" border :header-cell-style="{ textAlign: 'center' }"
-                        :cell-style="{ textAlign: 'center' }" height="1480" style="width: 100%">
-                        <el-table-column type="index" label="排名" width="60" />
+                    <el-table :data="RankData" border :header-cell-style="{textAlign: 'center'}"
+                              :cell-style="{ textAlign: 'center' }" height="1480" style="width: 100%">
+                        <el-table-column type="index" label="排名" width="60"/>
                         <el-table-column prop="ImgAddress" label="图片" width="220" key="slot">
                             <template slot-scope="scope" #default="scope">
-                            　
-                                <el-image :src="scope.row.ImgAddress" />
-                            　　
+                                　
+                                <el-image :src="scope.row.ImgAddress"/>
+                                　　
                             </template>
                         </el-table-column>
-                        <el-table-column prop="BookName" label="书名" width="150" />
-                        <el-table-column prop="Author" label="作者" width="150" />
-                        <el-table-column prop="UnitPrice" label="单价（元）" width="180" />
+                        <el-table-column prop="BookName" label="书名" width="150"/>
+                        <el-table-column prop="Author" label="作者" width="150"/>
+                        <el-table-column prop="UnitPrice" label="单价（元）" width="180"/>
                         <el-table-column label="操作">
                             <template #default>
                                 <el-button type="primary" @click="ShowDetail">查看详情</el-button>
@@ -57,7 +59,7 @@
 
 <script setup lang="ts">
 import vHeader from '../components/header.vue';
-import { onMounted, ref } from "vue";
+import {onMounted, ref} from "vue";
 import router from "../router";
 
 const pageId = ref('3')
@@ -135,9 +137,8 @@ const RankData = [
     },
 ]
 
-
 onMounted(() => {
-    // console.log(headerRef.value?.selected)
+    console.log(headerRef.value?.selected)
 })
 
 const ShowDetail = () => {
