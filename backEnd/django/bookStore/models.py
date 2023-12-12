@@ -74,7 +74,7 @@ class Users(Model):
 class Shoppingcarts(Model):
     user = ForeignKey(Users, on_delete=CASCADE, help_text="用户序号", db_column='uid')
     book = ForeignKey(Books, on_delete=CASCADE, help_text="书的序号", db_column='book_id')
-    amount = IntegerField(null=False, help_text="购买数量")
+    amount = IntegerField(null=False, default=1, help_text="购买数量")
 
     class Meta:
         # 定义复合主键
@@ -89,12 +89,9 @@ class Shoppinghistory(Model):
     user = ForeignKey(Users, on_delete=CASCADE, help_text="用户序号", db_column='uid')
     book = ForeignKey(Books, on_delete=CASCADE, help_text="书的序号", db_column='book_id')
     date = DateTimeField(auto_now_add=True, help_text="购买日期")
+    amount = IntegerField(null=False, default=1, help_text="购买数量")
 
     class Meta:
-        # 定义复合主键
-        constraints = [
-            UniqueConstraint(fields=['user', 'book'], name='shoppinghistory_id'),
-        ]
         db_table = 'shoppinghistory'
 
 

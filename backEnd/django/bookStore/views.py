@@ -246,7 +246,6 @@ class ShoppinghistoryViewSet(ModelViewSet):
     queryset = Shoppinghistory.objects.all()
     serializer_class = ShoppinghistorySerializer
 
-    create = get_create(Shoppinghistory)
     last = get_last(Shoppinghistory)
     custom_filter = get_custom_filter(Shoppinghistory)
 
