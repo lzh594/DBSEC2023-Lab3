@@ -1,91 +1,107 @@
-from django.db import models
+from django.db.models import IntegerField, ForeignKey, CharField, Model, CASCADE, UniqueConstraint, \
+    CheckConstraint, Q, DateTimeField, DecimalField
 
 
-class Users(models.Model):
-    uid = models.IntegerField(primary_key=True)
-    uname = models.CharField(max_length=100, null=False)
-    pwdhash = models.CharField(max_length=255, null=False)
-    email = models.EmailField(max_length=100, null=True)
-    tel = models.CharField(max_length=11, null=True)
+class Authors(Model):
+    author_id = IntegerField(primary_key=True, help_text="作者序号")
+    aname = CharField(max_length=255, null=False, help_text="作者名称")
 
-    class Meta:
-        db_table = 'users'
-
-
-class Authors(models.Model):
-    author_id = models.IntegerField(primary_key=True)
-    aname = models.CharField(max_length=255, null=False)
+    @property
+    def name(self):
+        # 在这里根据需要返回具体的属性，例如，返回 aname 或 bname
+        return self.aname
 
     class Meta:
         db_table = 'authors'
 
 
-class Publishers(models.Model):
-    pub_id = models.IntegerField(primary_key=True)
-    pname = models.CharField(max_length=255, null=False)
+class Publishers(Model):
+    pub_id = IntegerField(primary_key=True, help_text="出版社序号")
+    pname = CharField(max_length=255, null=False, help_text="出版社名称")
+
+    @property
+    def name(self):
+        return self.pname
 
     class Meta:
         db_table = 'publishers'
 
 
-class Category(models.Model):
-    category_id = models.IntegerField(primary_key=True)
-    category_name = models.CharField(max_length=255, null=False)
+class Category(Model):
+    category_id = IntegerField(primary_key=True, help_text="种类序号")
+    category_name = CharField(max_length=255, null=False, help_text="种类名称")
+
+    @property
+    def name(self):
+        return self.category_name
 
     class Meta:
         db_table = 'category'
 
 
-class Books(models.Model):
-    book_id = models.IntegerField(primary_key=True)
-    bname = models.CharField(max_length=255, null=False)
-    author = models.ForeignKey(Authors, on_delete=models.CASCADE)
-    publishers = models.ForeignKey(Publishers, on_delete=models.CASCADE, db_column='pub_id')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    price = models.CharField(max_length=255, null=False)
-    pub_year = models.IntegerField(null=False)
+class Books(Model):
+    book_id = IntegerField(primary_key=True, help_text="书的序号")
+    bname = CharField(max_length=255, null=False, help_text='书名')
+    author = ForeignKey(Authors, on_delete=CASCADE, db_column='author_id')
+    publisher = ForeignKey(Publishers, on_delete=CASCADE, db_column='pub_id')
+    category = ForeignKey(Category, on_delete=CASCADE, db_column='category_id')
+    price = DecimalField(max_digits=10, decimal_places=2, null=False, help_text="价格")
+    pub_year = IntegerField(null=False, help_text='出版年份')
+    url = CharField(max_length=255, null=False, help_text="书籍图片链接")
+    isbn = CharField(max_length=10, null=False, help_text="书籍isbn号")
+    sales = IntegerField(null=True, default=0, help_text="书籍销售量")
+    rate = DecimalField(max_digits=2, decimal_places=1, null=False, help_text="书籍评分")
+
+    @property
+    def name(self):
+        return self.bname
 
     class Meta:
         db_table = 'books'
 
 
-class Shoppingcarts(models.Model):
-    uid = models.IntegerField(null=False)
-    book = models.ForeignKey(Books, on_delete=models.CASCADE)
-    amount = models.IntegerField(null=False)
-    user = models.ForeignKey(Users, on_delete=models.CASCADE)
+class Users(Model):
+    uid = IntegerField(primary_key=True, help_text="用户序号")
+    uname = CharField(max_length=100, null=False, help_text="用户昵称")
+    pwdhash = CharField(max_length=255, null=False, blank=False, help_text="用户密码的哈希值")
+    email = CharField(max_length=100, null=True, blank=True, help_text="用户邮箱")
+    tel = CharField(max_length=11, null=True, blank=True, help_text="用户电话")
+
+    class Meta:
+        db_table = 'users'
+
+
+class Shoppingcarts(Model):
+    user = ForeignKey(Users, on_delete=CASCADE, help_text="用户序号", db_column='uid')
+    book = ForeignKey(Books, on_delete=CASCADE, help_text="书的序号", db_column='book_id')
+    amount = IntegerField(null=False, default=1, help_text="购买数量")
 
     class Meta:
         # 定义复合主键
         constraints = [
-            models.UniqueConstraint(fields=['uid', 'book'], name='shoppingcarts'),
-            models.CheckConstraint(check=models.Q(amount__gt=0), name="amount__gt=0")
+            UniqueConstraint(fields=['user', 'book'], name='shoppingcarts_id'),
+            CheckConstraint(check=Q(amount__gt=0), name="amount__gt=0")
         ]
         db_table = 'shoppingcarts'
 
 
-class Shoppinghistory(models.Model):
-    uid = models.IntegerField(null=False)
-    book = models.ForeignKey(Books, on_delete=models.CASCADE)
-    date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(Users, on_delete=models.CASCADE)
+class Shoppinghistory(Model):
+    user = ForeignKey(Users, on_delete=CASCADE, help_text="用户序号", db_column='uid')
+    book = ForeignKey(Books, on_delete=CASCADE, help_text="书的序号", db_column='book_id')
+    date = DateTimeField(auto_now_add=True, help_text="购买日期")
+    amount = IntegerField(null=False, default=1, help_text="购买数量")
+
+    class Meta:
+        db_table = 'shoppinghistory'
+
+
+class Collection(Model):
+    user = ForeignKey(Users, on_delete=CASCADE, help_text="用户序号", db_column='uid')
+    book = ForeignKey(Books, on_delete=CASCADE, help_text="书的序号", db_column='book_id')
 
     class Meta:
         # 定义复合主键
         constraints = [
-            models.UniqueConstraint(fields=['uid', 'book'], name='shoppinghistory'),
-        ]
-        db_table = 'shopponghistory'
-
-
-class Collection(models.Model):
-    uid = models.IntegerField(null=False)
-    book = models.ForeignKey(Books, on_delete=models.CASCADE)
-    user = models.ForeignKey(Users, on_delete=models.CASCADE)
-
-    class Meta:
-        # 定义复合主键
-        constraints = [
-            models.UniqueConstraint(fields=['uid', 'book'], name='collection'),
+            UniqueConstraint(fields=['user', 'book'], name='collection_id'),
         ]
         db_table = 'collection'

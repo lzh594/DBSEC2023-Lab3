@@ -37,9 +37,12 @@ class CategorySerializer(ModelSerializer):
 
 
 class BooksSerializer(ModelSerializer):
-    author = PrimaryKeyRelatedField(queryset=Authors.objects.all())
-    publishers = PrimaryKeyRelatedField(queryset=Publishers.objects.all())
-    category = PrimaryKeyRelatedField(queryset=Category.objects.all())
+    author = AuthorsSerializer(read_only=True)
+    author_id = PrimaryKeyRelatedField(queryset=Authors.objects.all(), write_only=True, help_text="作者序号")
+    publisher = PublishersSerializer(read_only=True)
+    pub_id = PrimaryKeyRelatedField(queryset=Publishers.objects.all(), write_only=True, help_text="出版社序号")
+    category = CategorySerializer(read_only=True)
+    category_id = PrimaryKeyRelatedField(queryset=Category.objects.all(), write_only=True, help_text="种类序号")
 
     class Meta:
         model = Books
@@ -47,8 +50,10 @@ class BooksSerializer(ModelSerializer):
 
 
 class ShoppingcartsSerializer(ModelSerializer):
-    book = PrimaryKeyRelatedField(queryset=Books.objects.all())
-    user = PrimaryKeyRelatedField(queryset=Users.objects.all())
+    user = UsersSerializer(read_only=True)
+    uid = PrimaryKeyRelatedField(queryset=Shoppingcarts.objects.all(), write_only=True, help_text="用户序号")
+    book = BooksSerializer(read_only=True)
+    book_id = PrimaryKeyRelatedField(queryset=Shoppingcarts.objects.all(), write_only=True, help_text="书的序号")
 
     class Meta:
         model = Shoppingcarts
@@ -56,8 +61,10 @@ class ShoppingcartsSerializer(ModelSerializer):
 
 
 class ShoppinghistorySerializer(ModelSerializer):
-    book = PrimaryKeyRelatedField(queryset=Books.objects.all())
-    user = PrimaryKeyRelatedField(queryset=Users.objects.all())
+    user = UsersSerializer(read_only=True)
+    uid = PrimaryKeyRelatedField(queryset=Shoppinghistory.objects.all(), write_only=True, help_text="用户序号")
+    book = BooksSerializer(read_only=True)
+    book_id = PrimaryKeyRelatedField(queryset=Shoppinghistory.objects.all(), write_only=True, help_text="书的序号")
 
     class Meta:
         model = Shoppinghistory
@@ -65,8 +72,10 @@ class ShoppinghistorySerializer(ModelSerializer):
 
 
 class CollectionSerializer(ModelSerializer):
-    book = PrimaryKeyRelatedField(queryset=Books.objects.all())
-    user = PrimaryKeyRelatedField(queryset=Users.objects.all())
+    user = UsersSerializer(read_only=True)
+    uid = PrimaryKeyRelatedField(queryset=Collection.objects.all(), write_only=True, help_text="用户序号")
+    book = BooksSerializer(read_only=True)
+    book_id = PrimaryKeyRelatedField(queryset=Collection.objects.all(), write_only=True, help_text="书的序号")
 
     class Meta:
         model = Collection
