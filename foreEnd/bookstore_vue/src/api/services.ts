@@ -4,7 +4,6 @@ import { requestData } from '../api';
 
 export class BookService {
   total: number = 0; // database 中书总数
-  private origin: Book[] = [];
   private books: Book[] = [];
   private currentPage: number = 1;
 
@@ -20,8 +19,7 @@ export class BookService {
           }
         });
         const data = RawToBook(res?.data);
-        this.origin.push(...data.books); // 保留一份副本
-        this.books = this.origin.slice();
+        this.books.push(...data.books); 
         this.total = data.totalBooks;
         this.currentPage += 1;
       } catch (error) {
@@ -36,10 +34,6 @@ export class BookService {
     return this.books;
   }
 
-  getOriginalBooks(): Book[] {
-    return this.origin;
-  }
-
   bFilter(): BookFilter {
     return new BookFilter(this.books);
   }
@@ -48,7 +42,8 @@ export class BookService {
     return new BookSorter(this.books);
   }
 
-  output2CSV() {
+  output2CSV(filename: string) {
+    // filename 无需后缀
     const csvContent = this.books.map(book => {
       return [
         book.id,
@@ -73,7 +68,7 @@ export class BookService {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.setAttribute('download', 'books.csv'); //filename
+    link.setAttribute('download', `${filename}.csv`); //filename
 
     link.style.visibility = 'hidden'; //hide the link
     document.body.appendChild(link);
@@ -86,6 +81,7 @@ export class BookService {
 
 
 class BookFilter {
+  // filter 会返回新切片，而不是修改原数据
   private books: Book[];
 
   constructor(books: Book[]) {

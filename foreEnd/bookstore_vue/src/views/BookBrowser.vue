@@ -7,7 +7,7 @@
                 <h3>年份</h3>
             </el-col>
             <el-col :span="17">
-                <el-radio-group v-model="chosenYear" size="large" @change="onYearChange">
+                <el-radio-group v-model="chosenYear" size="large" @change="reFilter">
                     <el-radio-button v-for="item in years" :label="item">
                         {{ item }}
                     </el-radio-button>
@@ -19,7 +19,7 @@
                 <h3>分类</h3>
             </el-col>
             <el-col :span="17">
-                <el-radio-group v-model="chosenType" size="large" @change="onTypeChange">
+                <el-radio-group v-model="chosenType" size="large" @change="reFilter">
                     <el-radio-button v-for="item in types" :label="item" :key="item">
                         {{ item }}
                     </el-radio-button>
@@ -31,7 +31,7 @@
                 <h3>价格 (元)</h3>
             </el-col>
             <el-col :span="17">
-                <el-radio-group v-model="chosenPrice" size="large" @change="onPriceChange">
+                <el-radio-group v-model="chosenPrice" size="large" @change="reFilter">
                     <el-radio-button v-for="item in prices" :label="item" :key="item">
                         {{ item }}
                     </el-radio-button>
@@ -41,7 +41,7 @@
         <el-row align="middle">
             <el-col :span="12" :offset="3">
                 <el-button v-for="button in sortOrders" :key="button.label"
-                    :type="chosenSortOrder === button.label ? 'primary' : 'default'" @click="onSortChange(button.label)">
+                    :type="chosenSortOrder === button.label ? 'primary' : 'default'" @click="reSort(button.label)">
                     {{ button.label }}
                 </el-button>
             </el-col>
@@ -64,9 +64,10 @@
     </div>
 </template> 
 
+
 <script setup lang="ts">
 import vHeader from '../components/header.vue';
-import { onMounted, reactive, ref } from "vue";
+import { onMounted, ref } from "vue";
 import bookCard from '../components/bookCard.vue'
 import { ElScrollbar } from 'element-plus';
 
@@ -85,7 +86,6 @@ onMounted(async () => {
     books.value = oracle.getBooks();
 })
 
-
 // category filter
 const chosenType = ref('全部');
 const types = [
@@ -100,10 +100,6 @@ const typeMap: { [key: string]: string[]|null } = {
     '旅游': ['travel'],
     '人文': ['human']
 };
-const onTypeChange = () => {
-    const types = typeMap[chosenType.value]
-    books.value = oracle.bFilter().byCategory(types).getBooks()
-}
 
 // price filter
 const chosenPrice = ref('全部');
@@ -118,10 +114,7 @@ const priceMap: { [key: string]: number[] } = {
     '100-200': [100, 200],
     '200以上': [200, 10000],
 };
-const onPriceChange = () => {
-    const [minPrice, maxPrice] = priceMap[chosenPrice.value];
-    books.value = oracle.bFilter().byPrice(minPrice, maxPrice).getBooks();
-}
+
 
 // year filter
 const chosenYear = ref('全部')
@@ -137,11 +130,18 @@ const yearMap: { [key: string]: number[] } = {
     '2010s': [2010, 2020],
     '2020s': [2020, 2030],
 };
-const onYearChange = () => {
-    const [startYear, endYear] = yearMap[chosenYear.value];
-    books.value = oracle.bFilter().byYear(startYear, endYear).getBooks();
-}
 
+const reFilter = () => {
+    // 结合三种筛选
+    const [startYear, endYear] = yearMap[chosenYear.value];
+    const [minPrice, maxPrice] = priceMap[chosenPrice.value];
+    const types = typeMap[chosenType.value]
+    books.value = oracle.bFilter()
+        .byCategory(types)
+        .byPrice(minPrice, maxPrice)
+        .byYear(startYear, endYear)
+        .getBooks();
+}
 
 // button
 const chosenSortOrder = ref<string>('');
@@ -152,7 +152,7 @@ const sortOrders = [
     { label: '按时间排序' },
 ];
 
-function onSortChange(label: string) {
+function reSort(label: string) {
     chosenSortOrder.value = label;
     if (label == '随机排序') {
         oracle.bSort().byRandom();
@@ -164,16 +164,26 @@ function onSortChange(label: string) {
     } else { // 按热度
         oracle.bSort().bySales();
     }
-    books.value = [];
-    books.value = oracle.getBooks();
+    // 对原始数据重新排序后，重新过滤一次，得到过滤数据
+    reFilter();
 }
-
 
 // download csv
 function download() {
-    oracle.output2CSV();
-}
+    // 格式化文件名
+    const now = new Date();
+    const timestamp = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
 
+    const bookPrice = "价格-"+chosenPrice.value.replace(/\s+/g, '-').toLowerCase();
+    const bookType = "类型-"+chosenType.value.replace(/\s+/g, '-').toLowerCase();
+    const bookSortOrder = "排序方式"+chosenSortOrder.value.replace(/\s+/g, '-').toLowerCase();
+    const bookYear = "年份-"+chosenYear.value.replace(/\s+/g, '-').toLowerCase();
+
+    const filename = [
+        "筛选条件", bookPrice, bookType, bookYear, bookSortOrder, timestamp
+    ].filter(Boolean).join('_');
+    oracle.output2CSV(filename);
+}
 
 // callback for card
 const isPopup = ref(false);
