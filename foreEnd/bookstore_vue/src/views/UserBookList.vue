@@ -62,7 +62,7 @@ import {onMounted, reactive, ref} from "vue";
 const pageId = ref('5')
 const headerRef = ref(null)
 onMounted(() => {
-    console.log(headerRef.value?.selected)
+    // console.log(headerRef.value?.selected)
 })
 
 interface bookData {

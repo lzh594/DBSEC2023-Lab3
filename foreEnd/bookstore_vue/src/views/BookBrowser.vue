@@ -1,127 +1,225 @@
 <template>
-    <div style="height: 100%; overflow-y: scroll;overflow-x: hidden">
-        <v-scroll native>
-            <v-header ref="headerRef" :pageId="pageId"/>
-            <div class="content-box">
+    <!-- 重构为layout! -->
+    <v-header ref="headerRef" :pageId="pageId" />
+    <div class="page">
+        <el-row align="middle">
+            <el-col :span="3" :offset="2">
+                <h3>年份</h3>
+            </el-col>
+            <el-col :span="17">
+                <el-radio-group v-model="chosenYear" size="large" @change="onYearChange">
+                    <el-radio-button v-for="item in years" :label="item">
+                        {{ item }}
+                    </el-radio-button>
+                </el-radio-group>
+            </el-col>
+        </el-row>
+        <el-row align="middle">
+            <el-col :span="3" :offset="2">
                 <h3>分类</h3>
-                <div class="BookTypeBox">
-                    <el-checkbox-group v-model="BookTypeList" @change="handleBookTypeListChange">
-                        <el-checkbox v-for="BookType in BookTypes" :label=BookType :key="BookType">
-                            {{ BookType }}
-                        </el-checkbox>
-                    </el-checkbox-group>
-                </div>
-                <h3>标签（可多选）</h3>
-                <div class="LabelBox">
-                    <el-checkbox-group v-model="LabelTypeList" @change="handleLabelTypeListChange">
-                        <el-checkbox v-for="LabelType in LabelTypes" :label=LabelType :key="LabelType">
-                            {{ LabelType }}
-                        </el-checkbox>
-                    </el-checkbox-group>
-                </div>
-                <h3>书籍</h3>
-                <div class="box">
-                    <div class="unit-box" v-for="item in BookList">
-                        <el-image class="boxImg" :src="item.imgUrl"/>
-                        <span class="boxTitle">{{ item.name }}</span>
-                        <span class="boxTitle">{{ item.author }}</span>
+            </el-col>
+            <el-col :span="17">
+                <el-radio-group v-model="chosenType" size="large" @change="onTypeChange">
+                    <el-radio-button v-for="item in types" :label="item" :key="item">
+                        {{ item }}
+                    </el-radio-button>
+                </el-radio-group>
+            </el-col>
+        </el-row>
+        <el-row align="middle">
+            <el-col :span="3" :offset="2">
+                <h3>价格</h3>
+            </el-col>
+            <el-col :span="17">
+                <el-radio-group v-model="chosenPrice" size="large" @change="onPriceChange">
+                    <el-radio-button v-for="item in prices" :label="item" :key="item">
+                        {{ item }}
+                    </el-radio-button>
+                </el-radio-group>
+            </el-col>
+        </el-row>
+        <el-row align="middle">
+            <el-col :span="12" :offset="3">
+                <el-button v-for="button in sortOrders" :key="button.label"
+                    :type="chosenSortOrder === button.label ? 'primary' : 'default'" @click="onSortChange(button.label)">
+                    {{ button.label }}
+                </el-button>
+            </el-col>
+            <el-col :span="9">
+                <el-button icon="download" @click="download">下载CSV格式统计结果</el-button>
+            </el-col>
+        </el-row>
+        <el-row align="middle">
+            <el-scrollbar>
+                <div class="gallery">
+                    <div v-for="book in books" class="book-card">
+                        <book-card :book="book" @clicked="onCardClick" />
                     </div>
                 </div>
-                <div style="height: 50px;margin-bottom: 30px"></div>
-            </div>
-        </v-scroll>
+            </el-scrollbar>
+        </el-row>
+        <div v-if="isPopup">
+            <bookPopup :book="clickedBook" @close="onPopupClose" />
+        </div>
     </div>
-</template>
+</template> 
 
 <script setup lang="ts">
 import vHeader from '../components/header.vue';
-import {onMounted, ref} from "vue";
-import homeImg from "../assets/img/home-bg.png";
+import { onMounted, reactive, ref } from "vue";
+import bookCard from '../components/bookCard.vue'
+import { ElScrollbar } from 'element-plus';
+
+import { Book } from "../api/models"
+import { BookService } from '../api/services';
 
 const pageId = ref('4')
 const headerRef = ref(null)
-onMounted(() => {
-    console.log(headerRef.value?.selected)
+
+// data  
+const books = ref<Book[]>([]);
+const oracle = new BookService();
+
+onMounted(async () => {
+    await oracle.AddBooks();
+    books.value = oracle.getBooks();
 })
 
-const BookTypeList = ref([]);
-const BookTypes = [
-    '小说类', '教育类', '纪实类', '科幻类'
-];
 
-const LabelTypeList = ref([]);
-const LabelTypes = [
-    '玄幻', '言情', '亲情', '爱情'
-];
-var BookList = [
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
-    {name: "1", author: 'kaluo', imgUrl: "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"},
+// category filter
+const chosenType = ref('全部');
+const types = [
+    '全部', '小说', '艺术', '历史', '生物', '旅游', '手册',
 ]
-
-const handleBookTypeListChange = () => {
-    console.log(BookTypeList.value.map(item => {
-        return item;
-    }))
+const typeMap: { [key: string]: string[] } = {
+    '全部': ['all'],
+    '小说': ['fiction', 'novel'],
+    '艺术': ['art', 'music'],
+    '历史': ['histor'],
+    '生物': ['biolo'],
+    '旅游': ['travel'],
+    '手册': ['cookbook']
+};
+const onTypeChange = () => {
+    const types = typeMap[chosenType.value]
+    books.value = oracle.filterBooks().byCategory(types).getBooks()
 }
 
-const handleLabelTypeListChange = () => {
-    console.log(BookTypeList.value.map(item => {
-        return item;
-    }))
+// price filter
+const chosenPrice = ref('全部');
+const prices = [
+    '全部', '小于30', '30-50', '50-100', '100-200', '200以上',
+]
+const onPriceChange = (chosenPrice: string) => {
+    console.log(chosenPrice)
+}
+
+// year filter
+const years = [
+    '全部', '<1980', '1980s', '1990s', '2000s', '2010s', '2020s',
+]
+const yearMap: { [key: string]: number[] } = {
+    '全部': [0, 3000],
+    '<1980': [0, 1980],
+    '1980s': [1980, 1990],
+    '1990s': [1990, 2000],
+    '2000s': [2000, 2010],
+    '2010s': [2010, 2020],
+    '2020s': [2020, 2030],
+};
+const chosenYear = ref('全部')
+const onYearChange = () => {
+    if (chosenYear.value == '全部'){
+        books.value = oracle.getBooks();
+    }
+    else {
+        const types = typeMap[chosenYear.value]
+        // oracle.filterBooks().byPrice(...types)
+    }
+}
+
+
+// button
+const chosenSortOrder = ref<string>('');
+const sortOrders = [
+    { label: '随机排序' },
+    { label: '按热度排序' },
+    { label: '按价格排序' },
+    { label: '按时间排序' },
+];
+
+function onSortChange(label: string) {
+    chosenSortOrder.value = label;
+    if (label == '随机排序') {
+        oracle.sortBooks().byRandom();
+    } else if (label == '按价格排序') {
+        oracle.sortBooks().byPrice();
+        
+    } else if (label == '按时间排序') {
+        oracle.sortBooks().byYear();
+    } else {
+        oracle.sortBooks().bySales();
+    }
+    books.value = oracle.getBooks();
+}
+
+
+// download csv
+function download() {
+    oracle.output2CSV();
+}
+
+
+// callback for card
+const isPopup = ref(false);
+const clickedBook = ref<Book | null>(null);
+const onCardClick = (values: Book) => {
+    clickedBook.value = values
+    isPopup.value = true;
+}
+const onPopupClose = () => {
+    // console.log(isPopup.value)
+    isPopup.value = false;
 }
 </script>
 
+
 <style scoped>
-.box {
+* {
+    margin-bottom: 7px;
+}
+
+.page {
+    color: var(--el-color-primary);
+    /* background: var(--el-color-primary-light-9); */
+    width: 70%;
+    margin: 5px auto;
+    /* 居中显示, 外边距 */
+    border: 2px solid var(--el-border-color);
+    border-radius: 6%;
+    padding: 20px;
+    /* 内边距 */
+}
+
+.gallery {
     width: 100%;
-    padding-left: 5px;
-    padding-right: 5px;
     display: flex;
-    flex-wrap: wrap;
+    /* 动态排列搭配横滚动条*/
 }
 
-.unit-box {
-    display: inline-block;
-    width: 240px;
-    margin-right: 10px;
-    background-color: #f0f0f0;
-    margin-bottom: 15px;
+.book-card {
+    margin: 7px;
+    /* 卡片间距 */
+    display: flex;
 }
 
-.boxImg {
-    display: block;
-    width: 240px;
-    height: 200px;
-    margin-right: 10px;
+.el-row {
+    margin-bottom: 10px;
+    margin-left: 20px;
 }
 
-.boxTitle {
-    display: block;
-    width: 240px;
-    height: 30px;
-    margin-right: 10px;
-    font-size: 15px;
-    text-align: center;
+.button-group {
+    display: flex;
+    align-items: center;
 }
 </style>
