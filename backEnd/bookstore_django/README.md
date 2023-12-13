@@ -47,14 +47,47 @@ create database bookStoreDB；
 
 ## 配置Django中mysql相关设置
 
-```shell
+```python
 # ./backend_django/settings.py
-
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'bookstore_django.db.backends.mysql',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'NAME': 'bookStoreDB',
+        'USER': 'root',
+        'PASSWORD': '[yourpasswd]',
+    }
+}
 ```
 
+## 运行数据库迁移
 
+```shell
+python3 manage.py migrate
+```
 
-## 启动后端命令
++ 该命令会在数据库bookStoreDB中创建各表（我们在[DBSEC2023-Lab3/mysql/SQL](../../mysql/SQL)中提供了创建schema和插入原始数据的SQL语句，但在项目构建中我们建议使用Django的数据库特性，使用其封装的api等进行数据库表的创建与数据导入）
+
+## 导入原始数据
+
+```shell
+python3 manage.py loaddata ./django.json 
+```
+
++ 我们使用Django原生命令`dumpdata`将数据库中的数据导出为Django可用的json文件
+
+## 创建触发器
+
++ 由于Django并未提供原生的触发器机制（虽然有信号机制可以替代），但经测试，使用mysql原生触发器语句进行创建并为与Django发生冲突，故触发器`删除购物车后自动添加历史记录`功能需要运行原生SQL [trigger](../../mysql/SQL/script.sql)
+
++ 我们建议使用`Navicat/DataGrip`可视化工具运行该文件（也可以mysql命令行运行）
+
+    ![image-20231213110407531](./README/image-20231213110407531.png)
+
+## 启动后端服务器
 
 ### 使用命令行
 
@@ -90,3 +123,7 @@ python3 manage.py runserver [[ip]:[port]]
 #### 可以设置主机IP与端口
 
 ![image-20231213104359265](./README/image-20231213104359265.png)
+
+### 服务器启动成功
+
+![image-20231213111331007](./README/image-20231213111331007.png)
