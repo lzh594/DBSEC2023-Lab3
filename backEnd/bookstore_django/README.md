@@ -3,27 +3,33 @@
 ## 后端项目Django结构
 
 ```
-.
-├── backend_django
+bookstore_django # 后端项目文件
+├── backend_django # 后端项目基础目录
 │   ├── asgi.py
-│   ├── settings.py
-│   ├── urls.py
+│   ├── settings.py # 后端项目配置文件
+│   ├── urls.py # 后端项目总url
 │   └── wsgi.py
-├── bookStore
-│   ├── migrations
+├── bookStore # Django应用
+│   ├── migrations # 迁移文件
 │   ├── admin.py
 │   ├── apps.py
-│   ├── models.py
-│   ├── serializers.py
+│   ├── models.py # 模型文件
+│   ├── serializers.py # 序列化器文件
 │   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── django.json
-├── manage.py
-└── README.md
+│   ├── urls.py # 应用url
+│   └── views.py # 视图文件
+├── django.json # Django可用的数据库数据文件
+├── manage.py # Django项目命令文件
+└── README.md # 后端项目readme文件
 ```
 
 ## 运行环境配置要求
+
+### 主机：MacBook Pro
+
+### OS：macOS Sonoma 14.1
+
+### 芯片：Apple M1 Pro
 
 ### Python：3.10.8
 
@@ -127,3 +133,23 @@ python3 manage.py runserver [[ip]:[port]]
 ### 服务器启动成功
 
 ![image-20231213111331007](./README/image-20231213111331007.png)
+
+### 访问后端项目首页
+
++ http://10.192.240.148:8000/ or http://10.192.240.148:8000/bookstore 
+
+    ![image-20231213132803875](./README/image-20231213132803875.png)
+
+<!--注意服务器应该运行在启动的ip:port上，本文测试在本机ip：10.192.240.148上。-->
+
++ #### Interactive API Documentation：可互动的api文档，详细提供了后端提供的api接口说明，并支持交互界面。由coreapi生成，推荐使用。
+
+    ![image-20231213133849567](./README/image-20231213133849567.png)
+
++ #### The Browsable API：DRF原生可浏览的api交互界面
+
+    ![image-20231213133911259](./README/image-20231213133911259.png)
+
+## 后端搭建并启动成功
+
+#### 保持Django服务器开启，前端项目可通过跨域请求后端提供的api，实现前后端分离

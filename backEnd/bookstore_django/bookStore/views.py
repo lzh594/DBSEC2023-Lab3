@@ -12,6 +12,13 @@ from .serializers import UsersSerializer, AuthorsSerializer, PublishersSerialize
 
 
 def generate_fields_from_model(model):
+    """
+    获取模型的属性域信息
+    Args:
+        model: 模型类
+    Returns:
+        fields: 属性域信息列表
+    """
     fields = []
     for field in model._meta.fields:
         field_name = field.name
@@ -103,6 +110,14 @@ def get_id_by_name(model, id_field, name_field):
 
 
 def get_create(model):
+    """
+    重写含嵌套序列化器的create方法
+    Args:
+        model: 模型类
+    Returns:
+        create: 含嵌套序列化器的create方法
+    """
+
     def create(self, request, *args, **kwargs):
         try:
             user = Users.objects.get(uid=request.data.pop('uid'))
@@ -117,18 +132,20 @@ def get_create(model):
 
 
 def index(request):
+    """
+    首页导航
+    """
     return render(request, 'index.html')
 
 
 class UsersViewSet(ModelViewSet):
     """
-        list: 获取全部 user 数据
-        create: 创建新 user 数据
-        retrieve: 检索 user 数据
-        update: 更新 user 数据
-        delete: 删除 user 数据
-        last: 最后一个 user 数据
-
+    list: 获取全部 user 数据
+    create: 创建新 user 数据
+    retrieve: 检索 user 数据
+    update: 更新 user 数据
+    delete: 删除 user 数据
+    last: 最后一个 user 数据
     """
     queryset = Users.objects.all()
     serializer_class = UsersSerializer
@@ -140,12 +157,12 @@ class UsersViewSet(ModelViewSet):
 
 class AuthorsViewSet(ModelViewSet):
     """
-        list: 获取全部 author 数据
-        create: 创建新 author 数据
-        retrieve: 检索 author 数据
-        update: 更新 author 数据
-        delete: 删除 author 数据
-        last: 最后一个 author 数据
+    list: 获取全部 author 数据
+    create: 创建新 author 数据
+    retrieve: 检索 author 数据
+    update: 更新 author 数据
+    delete: 删除 author 数据
+    last: 最后一个 author 数据
     """
     queryset = Authors.objects.all()
     serializer_class = AuthorsSerializer
@@ -157,12 +174,12 @@ class AuthorsViewSet(ModelViewSet):
 
 class PublishersViewSet(ModelViewSet):
     """
-        list: 获取全部 publisher 数据
-        create: 创建新 publisher 数据
-        retrieve: 检索 publisher 数据
-        update: 更新 publisher 数据
-        delete: 删除 publisher 数据
-        last: 最后一个 publisher 数据
+    list: 获取全部 publisher 数据
+    create: 创建新 publisher 数据
+    retrieve: 检索 publisher 数据
+    update: 更新 publisher 数据
+    delete: 删除 publisher 数据
+    last: 最后一个 publisher 数据
     """
     queryset = Publishers.objects.all()
     serializer_class = PublishersSerializer
@@ -174,12 +191,12 @@ class PublishersViewSet(ModelViewSet):
 
 class CategoryViewSet(ModelViewSet):
     """
-        list: 获取全部 category 数据
-        create: 创建新 category 数据
-        retrieve: 检索 category 数据
-        update: 更新 category 数据
-        delete: 删除 category 数据
-        last: 最后一个 category 数据
+    list: 获取全部 category 数据
+    create: 创建新 category 数据
+    retrieve: 检索 category 数据
+    update: 更新 category 数据
+    delete: 删除 category 数据
+    last: 最后一个 category 数据
     """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
@@ -191,12 +208,12 @@ class CategoryViewSet(ModelViewSet):
 
 class BooksViewSet(ModelViewSet):
     """
-        list: 获取全部 books 数据
-        create: 创建新 books 数据
-        retrieve: 检索 books 数据
-        update: 更新 books 数据
-        delete: 删除 books 数据
-        last: 最后一个 books 数据
+    list: 获取全部 books 数据
+    create: 创建新 books 数据
+    retrieve: 检索 books 数据
+    update: 更新 books 数据
+    delete: 删除 books 数据
+    last: 最后一个 books 数据
     """
     queryset = Books.objects.all()
     serializer_class = BooksSerializer
@@ -218,12 +235,12 @@ class BooksViewSet(ModelViewSet):
 
 class ShoppingcartsViewSet(ModelViewSet):
     """
-        list: 获取全部 shoppingcarts 数据
-        create: 创建新 shoppingcarts 数据
-        retrieve: 检索 shoppingcarts 数据
-        update: 更新 shoppingcarts 数据
-        delete: 删除 shoppingcarts 数据
-        last: 最后一个 shoppingcarts 数据
+    list: 获取全部 shoppingcarts 数据
+    create: 创建新 shoppingcarts 数据
+    retrieve: 检索 shoppingcarts 数据
+    update: 更新 shoppingcarts 数据
+    delete: 删除 shoppingcarts 数据
+    last: 最后一个 shoppingcarts 数据
    """
     queryset = Shoppingcarts.objects.all()
     serializer_class = ShoppingcartsSerializer
@@ -235,12 +252,12 @@ class ShoppingcartsViewSet(ModelViewSet):
 
 class ShoppinghistoryViewSet(ModelViewSet):
     """
-        list: 获取全部 shoppinghistory 数据
-        create: 创建新 shoppinghistory 数据
-        retrieve: 检索 shoppinghistory 数据
-        update: 更新 shoppinghistory 数据
-        delete: 删除 shoppinghistory 数据
-        last: 最后一个 shoppinghistory 数据
+    list: 获取全部 shoppinghistory 数据
+    create: 创建新 shoppinghistory 数据
+    retrieve: 检索 shoppinghistory 数据
+    update: 更新 shoppinghistory 数据
+    delete: 删除 shoppinghistory 数据
+    last: 最后一个 shoppinghistory 数据
    """
     queryset = Shoppinghistory.objects.all()
     serializer_class = ShoppinghistorySerializer
@@ -251,12 +268,12 @@ class ShoppinghistoryViewSet(ModelViewSet):
 
 class CollectionViewSet(ModelViewSet):
     """
-        list: 获取全部 collection 数据
-        create: 创建新 collection 数据
-        retrieve: 检索 collection 数据
-        update: 更新 collection 数据
-        delete: 删除 collection 数据
-        last: 最后一个 collection 数据
+    list: 获取全部 collection 数据
+    create: 创建新 collection 数据
+    retrieve: 检索 collection 数据
+    update: 更新 collection 数据
+    delete: 删除 collection 数据
+    last: 最后一个 collection 数据
    """
     queryset = Collection.objects.all()
     serializer_class = CollectionSerializer
