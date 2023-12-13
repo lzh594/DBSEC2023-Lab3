@@ -3,7 +3,7 @@ from django.shortcuts import render
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.schemas import ManualSchema
-from rest_framework.status import HTTP_400_BAD_REQUEST
+from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_201_CREATED
 from rest_framework.viewsets import ModelViewSet
 
 from .models import Users, Authors, Publishers, Category, Books, Shoppingcarts, Shoppinghistory, Collection
@@ -30,7 +30,7 @@ def generate_fields_from_model(model):
         description = f"{field_name} field of {model.__name__} model"
         example = ''  # 你可以根据需要设置示例值
         fields.append(Field(name=field_name, required=False, location="query", description=description,
-                            example=example, schema=''))
+                            example=example, schema='', type=''))
     return fields
 
 
@@ -94,7 +94,7 @@ def get_id_by_name(model, id_field, name_field):
         fields=[Field(name=name_field, required=True, location="query",
                       description=name_field, type='string', example='', schema='')]
     ))
-    def get_id(self, request):
+    def get_id(request):
         name_value = request.query_params.get(name_field, None)
         if not name_value:
             return Response({'error': f'Please provide {name_field} parameter'}, status=400)
@@ -111,11 +111,11 @@ def get_id_by_name(model, id_field, name_field):
 
 def get_create(model):
     """
-    重写含嵌套序列化器的create方法
+    重写含嵌套序列化器的 create 方法
     Args:
         model: 模型类
     Returns:
-        create: 含嵌套序列化器的create方法
+        create: 含嵌套序列化器的 create 方法
     """
 
     def create(self, request, *args, **kwargs):
@@ -126,7 +126,8 @@ def get_create(model):
         except Exception as e:
             return Response({'error': str(e)}, status=HTTP_400_BAD_REQUEST)
         serializer = self.get_serializer(instance)
-        return Response(serializer.data)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=HTTP_201_CREATED, headers=headers)
 
     return create
 
@@ -218,10 +219,6 @@ class BooksViewSet(ModelViewSet):
     queryset = Books.objects.all()
     serializer_class = BooksSerializer
 
-    last = get_last(Books)
-    get_id = get_id_by_name(Books, 'book_id', 'bname')
-    custom_filter = get_custom_filter(Books)
-
     def create(self, request, *args, **kwargs):
         # 创建 model 实例
         author = Authors.objects.get(author_id=request.data.pop('author_id'))
@@ -230,7 +227,32 @@ class BooksViewSet(ModelViewSet):
         instance = Books.objects.create(
             **{"author": author, "publisher": publisher, "category": category}, **request.data)
         serializer = self.get_serializer(instance)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=HTTP_201_CREATED, headers=headers)
+
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        try:
+            instance = self.get_object()
+            instance.author_id = request.data.pop('author_id')
+            instance.pub_id = request.data.pop('pub_id')
+            instance.category_id = request.data.pop('category_id')
+            instance.bname = request.data.pop('bname')
+            instance.price = request.data.pop('price')
+            instance.pub_year = request.data.pop('pub_year')
+            instance.url = request.data.pop('url')
+            instance.isbn = request.data.pop('isbn')
+            instance.sales = request.data.pop('sales')
+            instance.rate = request.data.pop('rate')
+            instance.save()
+        except Exception as e:
+            return Response({'error': str(e)}, status=HTTP_400_BAD_REQUEST)
+        serializer = self.get_serializer(instance, partial=partial)
         return Response(serializer.data)
+
+    last = get_last(Books)
+    get_id = get_id_by_name(Books, 'book_id', 'bname')
+    custom_filter = get_custom_filter(Books)
 
 
 class ShoppingcartsViewSet(ModelViewSet):
@@ -246,6 +268,20 @@ class ShoppingcartsViewSet(ModelViewSet):
     serializer_class = ShoppingcartsSerializer
 
     create = get_create(Shoppingcarts)
+
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        try:
+            instance = self.get_object()
+            instance.uid = request.data.pop('uid')
+            instance.book_id = request.data.pop('book_id')
+            instance.amount = request.data.pop('amount')
+            instance.save()
+        except Exception as e:
+            return Response({'error': str(e)}, status=HTTP_400_BAD_REQUEST)
+        serializer = self.get_serializer(instance, partial=partial)
+        return Response(serializer.data)
+
     last = get_last(Shoppingcarts)
     custom_filter = get_custom_filter(Shoppingcarts)
 
