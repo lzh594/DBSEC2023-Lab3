@@ -63,7 +63,7 @@
         <el-card class="box-card">
           <template #header>
             <div class="card-header">
-              <span style="font-weight: bold;font-size: 18px">访问历史</span>
+              <span style="font-weight: bold;font-size: 18px">书籍浏览历史</span>
             </div>
           </template>
           <div>

@@ -8,7 +8,7 @@ export class BookService {
   private currentPage: number = 1;
 
   // 从 database 拿新页
-  async AddBooks(pageReq: number = 5) {
+  async AddBooks(pageReq: number = 10) {
     for (let i = 0; i < pageReq; i++) {
       try {
         const res = await requestData({
@@ -19,7 +19,7 @@ export class BookService {
           }
         });
         const data = RawToBook(res?.data);
-        this.books.push(...data.books); 
+        this.books.push(...data.books);
         this.total = data.totalBooks;
         this.currentPage += 1;
       } catch (error) {
@@ -44,19 +44,29 @@ export class BookService {
 
   static output2CSV(filename: string, books: Book[]) {
     // filename 无需后缀
+
+    const escapeField = (field: string | number) => {
+      const strField = String(field);
+      if (strField.includes(',') || strField.includes('"') || strField.includes('\n')) {
+        return `"${strField.replace(/"/g, '""')}"`;
+      }
+      return strField;
+    };
+
+    // Map each book to a CSV row
     const csvContent = books.map(book => {
       return [
-        book.id,
-        `"${book.title.replace(/"/g, '""')}"`,
-        book.author,
-        book.publisher,
-        book.category,
-        book.year,
-        book.isbn,
-        book.price,
-        book.sales,
-        book.url,
-        book.rate
+        escapeField(book.id),
+        escapeField(book.title),
+        escapeField(book.author),
+        escapeField(book.publisher),
+        escapeField(book.category),
+        escapeField(book.year),
+        escapeField(book.isbn),
+        escapeField(book.price),
+        escapeField(book.sales),
+        escapeField(book.url),
+        escapeField(book.rate)
       ].join(",");
     }).join("\n");
 
@@ -101,7 +111,7 @@ class BookFilter {
     return this;
   }
 
-  byCategory(categories: string[]|null): BookFilter {
+  byCategory(categories: string[] | null): BookFilter {
     // 如果传入null，不进行过滤
     if (categories === null) {
       return this;
@@ -129,7 +139,7 @@ class BookFilter {
 }
 
 
-class BookSorter { 
+class BookSorter {
   // 书籍排序器，支持链式调用
   private books: Book[];
 
@@ -157,7 +167,7 @@ class BookSorter {
     return this;
   }
 
-    byRandom() {
+  byRandom() {
     this.books.sort(() => Math.random() - 0.5);
     return this;
   }
@@ -190,7 +200,7 @@ export class UserService {
     }
   }
 
-  async addShoppingCart(bookID: number, amount: number = 1) {
+  async addToCart(bookID: number, amount: number = 1) {
     try {
       await requestData({
         url: 'shoppingcarts/',
@@ -206,18 +216,29 @@ export class UserService {
     }
   }
 
-  async addCollection(bookID: number) {
-    try {
-      await requestData({
-        url: 'collection/',
-        method: 'post',
-        query: {
-          uid: this.me.id,
-          book_id: bookID,
-        }
-      });
-    } catch (error) {
-      throw new Error('update shopping cart failed')
+  async addtoFavors(bookID: number) {
+    const myQuery = {
+      uid: this.me.id,
+      book_id: bookID.toString(),
     }
+    requestData({
+      url: 'collection/custom_filter/',
+      method: 'get',
+      query: myQuery,
+    })!.then(res => {
+      if (res.data.length > 0) {
+        throw new Error('book already in collection');
+      } else {
+        try {
+          requestData({
+            url: 'collection/',
+            method: 'post',
+            query: myQuery,
+          })
+        } catch (error) {
+          throw new Error('add to collection failed');
+        }
+      }
+    })
   }
 }
