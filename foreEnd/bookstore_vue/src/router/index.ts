@@ -23,28 +23,12 @@ const routes: RouteRecordRaw[] = [
         component: () => import(/* webpackChunkName: "login" */ '../views/login.vue'),
     },
     {
-        path: '/403',
-        name: '403',
-        meta: {
-            title: '没有权限',
-        },
-        component: () => import(/* webpackChunkName: "403" */ '../views/403.vue'),
-    },
-    {
         path: '/AdvancedSearch',
         name: 'AdvancedSearch',
         meta: {
             title: '高级搜索',
         },
         component: () => import(/* webpackChunkName: "403" */ '../views/AdvancedSearch.vue'),
-    },
-    {
-        path: '/SellRanking',
-        name: 'SellRanking',
-        meta: {
-            title: '畅销排行榜',
-        },
-        component: () => import(/* webpackChunkName: "403" */ '../views/SellRanking.vue'),
     },
     {
         path: '/BookBrowser',
