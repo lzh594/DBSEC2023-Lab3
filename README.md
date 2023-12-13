@@ -15,6 +15,20 @@
 + Vue+Django+Mysql
 + 前后端分离
 
+### 项目仓库
+
++ https://github.com/lzh594/DBSEC2023-Lab3
+
++ git
+
+    ```shell
+    git clone https://github.com/lzh594/DBSEC2023-Lab3.git
+    ```
+
+    ```shell
+    git clone git@github.com:lzh594/DBSEC2023-Lab3.git
+    ```
+
 ## 项目结构
 
 ```
