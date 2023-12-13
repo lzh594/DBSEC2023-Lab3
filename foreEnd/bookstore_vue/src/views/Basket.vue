@@ -43,10 +43,8 @@
 import vHeader from '../components/header.vue';
 import {onMounted, reactive, ref, watch} from "vue";
 import router from "../router";
-import {Delete} from "@element-plus/icons-vue";
 import {requestData} from "../api";
 import {toRaw} from "vue";
-import {updateHandler} from "md-editor-v3/lib/types/MdEditor/utils/dom";
 
 const pageId = ref('9')
 const headerRef = ref(null)
@@ -84,7 +82,7 @@ const toHome = () => {
 }
 
 onMounted(() => {
-    console.log(headerRef.value?.selected)
+    // console.log(headerRef.value?.selected)
   let uid = localStorage.getItem('ms_uid')
   let collectionRequest = {
     url: 'shoppingcarts/custom_filter/',

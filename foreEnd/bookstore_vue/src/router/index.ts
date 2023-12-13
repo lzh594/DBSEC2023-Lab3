@@ -39,14 +39,6 @@ const routes: RouteRecordRaw[] = [
         component: () => import(/* webpackChunkName: "403" */ '../views/AdvancedSearch.vue'),
     },
     {
-        path: '/SellRanking',
-        name: 'SellRanking',
-        meta: {
-            title: '畅销排行榜',
-        },
-        component: () => import(/* webpackChunkName: "403" */ '../views/SellRanking.vue'),
-    },
-    {
         path: '/BookBrowser',
         name: 'BookBrowser',
         meta: {
