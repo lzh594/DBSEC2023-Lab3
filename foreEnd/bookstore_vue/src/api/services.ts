@@ -1,4 +1,4 @@
-import { Book, User, RawToBook, BooksApiRaw } from './models';
+import { Book, User, RawToBook, BooksApiRaw } from '../utils/models';
 import { requestData } from '../api';
 
 

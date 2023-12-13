@@ -49,7 +49,7 @@ import type { FormInstance, FormRules, FormProps } from 'element-plus';
 import {requestData} from "../api";
 import router from "../router"
 import {ElMessage} from "element-plus";
-import {sha256} from '../store/sha256';
+import {sha256} from '../api/sha256';
 import {create} from "axios";
 const pageId = ref('2')
 const headerRef = ref(null)

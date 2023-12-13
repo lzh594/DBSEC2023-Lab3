@@ -78,7 +78,7 @@
 
 <script lang="ts" setup>
 import {defineProps, ref, defineEmits} from 'vue';
-import {Book} from '../api/models'
+import {Book} from '../utils/models'
 import {ElCol, ElMessage} from 'element-plus';
 import {Star} from "@element-plus/icons-vue";
 import {requestData} from "../api";

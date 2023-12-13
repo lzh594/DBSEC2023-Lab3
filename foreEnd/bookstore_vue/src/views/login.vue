@@ -43,7 +43,7 @@ import {ElMessage} from 'element-plus';
 import type {FormInstance, FormRules} from 'element-plus';
 import user from "./user.vue";
 import {requestData} from "../api";
-import {sha256} from '../store/sha256';
+import {sha256} from '../api/sha256';
 
 interface LoginInfo {
     username: string;

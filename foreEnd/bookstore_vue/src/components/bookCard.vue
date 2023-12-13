@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import { ref, defineProps } from 'vue'
-import { Book } from '../api/models'
+import { Book } from '../utils/models'
 
 // 定义传入的书籍信息
 const props = defineProps({  

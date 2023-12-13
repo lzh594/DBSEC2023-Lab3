@@ -1,4 +1,4 @@
-# README
+# backEnd README
 
 ## 后端项目Django结构
 
@@ -18,9 +18,10 @@ bookstore_django # 后端项目文件
 │   ├── tests.py
 │   ├── urls.py # 应用url
 │   └── views.py # 视图文件
-├── django.json # Django可用的数据库数据文件
+├── data_django.json # Django可用的数据库数据文件
 ├── manage.py # Django项目命令文件
-└── README.md # 后端项目readme文件
+├── LICENSE # 后端项目license
+└── README.md # 后端项目README文件
 ```
 
 ## 运行环境配置要求
@@ -80,7 +81,7 @@ python3 manage.py migrate
 ## 导入原始数据
 
 ```shell
-python3 manage.py loaddata ./django.json 
+python3 manage.py loaddata ./data_django.json 
 ```
 
 + 我们使用Django原生命令`dumpdata`将数据库中的数据导出为Django可用的json文件

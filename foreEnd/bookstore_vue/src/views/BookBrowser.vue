@@ -71,7 +71,7 @@ import { onMounted, ref } from "vue";
 import bookCard from '../components/bookCard.vue'
 import { ElScrollbar } from 'element-plus';
 
-import { Book } from "../api/models"
+import { Book } from "../utils/models"
 import { BookService } from '../api/services';
 
 const pageId = ref('4')
