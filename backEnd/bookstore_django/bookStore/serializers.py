@@ -4,7 +4,7 @@ Time:     2023/12/1
 Author:   刘征昊(£·)
 Version:  V 1.1
 File:     serializers
-Describe: 
+Describe: 序列化器
 """
 from rest_framework.relations import PrimaryKeyRelatedField
 from rest_framework.serializers import ModelSerializer

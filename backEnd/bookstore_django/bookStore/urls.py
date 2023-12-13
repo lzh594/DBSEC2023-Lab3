@@ -24,10 +24,11 @@ router.register(r'books', BooksViewSet)
 router.register(r'shoppingcarts', ShoppingcartsViewSet)
 router.register(r'shoppinghistory', ShoppinghistoryViewSet)
 router.register(r'collection', CollectionViewSet)
+
 urlpatterns = [
     path('', views.index, name="index"),
-    path('api/', include(router.urls)),
-    path('docs/', include_docs_urls(title="bookStore's api docs")),
+    path('api/', include(router.urls), name='api'),
+    path('docs/', include_docs_urls(title="bookStore's api docs"), name='docs'),
 ]
 
 # urlpatterns = format_suffix_patterns(urlpatterns)

@@ -2,19 +2,20 @@ from django.db.models import IntegerField, ForeignKey, CharField, Model, CASCADE
     CheckConstraint, Q, DateTimeField, DecimalField
 
 
+# 作者
 class Authors(Model):
     author_id = IntegerField(primary_key=True, help_text="作者序号")
     aname = CharField(max_length=255, null=False, help_text="作者名称")
 
     @property
     def name(self):
-        # 在这里根据需要返回具体的属性，例如，返回 aname 或 bname
         return self.aname
 
     class Meta:
         db_table = 'authors'
 
 
+# 出版社
 class Publishers(Model):
     pub_id = IntegerField(primary_key=True, help_text="出版社序号")
     pname = CharField(max_length=255, null=False, help_text="出版社名称")
@@ -27,6 +28,7 @@ class Publishers(Model):
         db_table = 'publishers'
 
 
+# 种类
 class Category(Model):
     category_id = IntegerField(primary_key=True, help_text="种类序号")
     category_name = CharField(max_length=255, null=False, help_text="种类名称")
@@ -39,6 +41,7 @@ class Category(Model):
         db_table = 'category'
 
 
+# 书籍
 class Books(Model):
     book_id = IntegerField(primary_key=True, help_text="书的序号")
     bname = CharField(max_length=255, null=False, help_text='书名')
@@ -60,6 +63,7 @@ class Books(Model):
         db_table = 'books'
 
 
+# 用户
 class Users(Model):
     uid = IntegerField(primary_key=True, help_text="用户序号")
     uname = CharField(max_length=100, null=False, help_text="用户昵称")
@@ -71,6 +75,7 @@ class Users(Model):
         db_table = 'users'
 
 
+# 购物车
 class Shoppingcarts(Model):
     user = ForeignKey(Users, on_delete=CASCADE, help_text="用户序号", db_column='uid')
     book = ForeignKey(Books, on_delete=CASCADE, help_text="书的序号", db_column='book_id')
@@ -85,6 +90,7 @@ class Shoppingcarts(Model):
         db_table = 'shoppingcarts'
 
 
+# 购物历史
 class Shoppinghistory(Model):
     user = ForeignKey(Users, on_delete=CASCADE, help_text="用户序号", db_column='uid')
     book = ForeignKey(Books, on_delete=CASCADE, help_text="书的序号", db_column='book_id')
@@ -95,6 +101,7 @@ class Shoppinghistory(Model):
         db_table = 'shoppinghistory'
 
 
+# 收藏夹
 class Collection(Model):
     user = ForeignKey(Users, on_delete=CASCADE, help_text="用户序号", db_column='uid')
     book = ForeignKey(Books, on_delete=CASCADE, help_text="书的序号", db_column='book_id')
