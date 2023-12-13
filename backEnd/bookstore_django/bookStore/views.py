@@ -1,5 +1,5 @@
 from coreapi import Field
-from django.http import JsonResponse
+from django.shortcuts import render
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.schemas import ManualSchema
@@ -117,8 +117,7 @@ def get_create(model):
 
 
 def index(request):
-    return JsonResponse(
-        {"index": "Welcome to bookStore!please access '/bookStore/api' or '/bookStore/docs'"})
+    return render(request, 'index.html')
 
 
 class UsersViewSet(ModelViewSet):
